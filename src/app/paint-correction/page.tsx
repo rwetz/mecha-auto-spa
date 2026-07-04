@@ -10,6 +10,7 @@ import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
 import { Stagger, StaggerItem } from "@/components/animations/stagger";
 import { SITE } from "@/lib/constants";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Paint Correction Rochester MN — Swirl & Scratch Removal",
@@ -119,7 +120,7 @@ export default function PaintCorrectionPage() {
           <FadeUp>
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.06]">
               <Image
-                src="/images/correction-closeup.jpg"
+                src={asset("/images/correction-closeup.jpg")}
                 alt="Close-up of corrected paint with crisp reflections"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"

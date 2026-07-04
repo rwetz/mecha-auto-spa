@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FadeUp } from "@/components/animations/fade-up";
 import { CtaLink } from "@/components/shared/cta-link";
 import { SITE } from "@/lib/constants";
+import { asset } from "@/lib/asset";
 
 interface PageHeroProps {
   image: string;
@@ -27,7 +28,7 @@ export function PageHero({
   return (
     <section className="grain relative flex min-h-[62svh] items-end overflow-hidden lg:min-h-[640px]">
       <Image
-        src={image}
+        src={asset(image)}
         alt={imageAlt}
         fill
         priority

@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { ChevronsLeftRight } from "lucide-react";
+import { asset } from "@/lib/asset";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeUp } from "@/components/animations/fade-up";
 
@@ -76,7 +77,7 @@ function CompareSlider({ image, alt }: { image: string; alt: string }) {
     >
       {/* AFTER (base layer) */}
       <Image
-        src={image}
+        src={asset(image)}
         alt={alt}
         fill
         sizes="(min-width: 1024px) 1280px, 100vw"
@@ -90,7 +91,7 @@ function CompareSlider({ image, alt }: { image: string; alt: string }) {
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
         <Image
-          src={image}
+          src={asset(image)}
           alt=""
           fill
           sizes="(min-width: 1024px) 1280px, 100vw"

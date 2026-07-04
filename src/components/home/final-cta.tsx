@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Phone } from "lucide-react";
 import { SITE } from "@/lib/constants";
+import { asset } from "@/lib/asset";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
 
@@ -8,7 +9,7 @@ export function FinalCta() {
   return (
     <section className="grain relative overflow-hidden">
       <Image
-        src="/images/final-cta.jpg"
+        src={asset("/images/final-cta.jpg")}
         alt=""
         aria-hidden
         fill

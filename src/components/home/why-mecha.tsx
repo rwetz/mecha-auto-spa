@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { whyMechaFeatures } from "@/data/services";
+import { asset } from "@/lib/asset";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeUp } from "@/components/animations/fade-up";
 import { Stagger, StaggerItem } from "@/components/animations/stagger";
@@ -12,7 +13,7 @@ export function WhyMecha() {
         <FadeUp className="relative order-last lg:order-first">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.06] sm:aspect-[4/3] lg:aspect-[4/5]">
             <Image
-              src="/images/why-mecha.jpg"
+              src={asset("/images/why-mecha.jpg")}
               alt="Black Mercedes-AMG GT detailed by Mecha Auto Spa"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

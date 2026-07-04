@@ -9,6 +9,7 @@ import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
 import { Stagger, StaggerItem } from "@/components/animations/stagger";
 import { SITE } from "@/lib/constants";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Ceramic Coating Rochester MN — 1, 3 & 5 Year Packages",
@@ -161,7 +162,7 @@ export default function CeramicCoatingsPage() {
           <FadeUp delay={0.1}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.06]">
               <Image
-                src="/images/daily-driver.jpg"
+                src={asset("/images/daily-driver.jpg")}
                 alt="Water beading across a freshly coated black Tesla"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"

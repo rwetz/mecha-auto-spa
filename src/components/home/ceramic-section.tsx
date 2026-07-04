@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ceramicBenefits, ceramicTiers } from "@/data/services";
+import { asset } from "@/lib/asset";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
@@ -63,7 +64,7 @@ export function CeramicSection() {
         <FadeUp delay={0.1} className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.06] sm:aspect-square lg:aspect-[4/5]">
             <Image
-              src="/images/ceramic-beading.jpg"
+              src={asset("/images/ceramic-beading.jpg")}
               alt="Water sheeting off ceramic-coated black paint"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"

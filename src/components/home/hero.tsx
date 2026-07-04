@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { ChevronDown, Phone, Star } from "lucide-react";
 import { SITE, TRUST_BADGES } from "@/lib/constants";
+import { asset } from "@/lib/asset";
 import { CtaLink } from "@/components/shared/cta-link";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -29,7 +30,7 @@ export function Hero() {
         transition={{ duration: 2.4, ease: EASE }}
       >
         <Image
-          src="/images/hero-mustang.jpg"
+          src={asset("/images/hero-mustang.jpg")}
           alt="Black Mustang GT at golden hour after a full Mecha Auto Spa detail"
           fill
           priority

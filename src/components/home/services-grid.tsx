@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { featuredServices } from "@/data/services";
+import { asset } from "@/lib/asset";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Stagger, StaggerItem } from "@/components/animations/stagger";
 
@@ -25,7 +26,7 @@ export function ServicesGrid() {
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
-                    src={service.image}
+                    src={asset(service.image)}
                     alt={`${service.name} — Mecha Auto Spa`}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"

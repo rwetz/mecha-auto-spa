@@ -36,13 +36,22 @@ The site is fully static, so the quote form needs an external endpoint. Create a
 2. In the repo: **Settings → Pages → Source: GitHub Actions**.
 3. Every push to `main` builds and deploys via [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
 
+Currently live at **https://rwetz.github.io/mecha-auto-spa/**.
+
+### Base path (subpath vs. custom domain)
+
+Because the site is served from the `/mecha-auto-spa/` subpath, the deploy
+workflow sets `PAGES_BASE_PATH=/mecha-auto-spa`, which `next.config.ts` turns
+into `basePath` (covering links + `_next` assets) and `NEXT_PUBLIC_BASE_PATH`
+(consumed by `asset()` in `src/lib/asset.ts` to prefix `next/image` sources —
+`basePath` alone does *not* cover those).
+
 ### Custom domain (Squarespace DNS)
 
 1. Repo **Settings → Pages → Custom domain** → enter `mechaautospa.com`.
-2. In Squarespace DNS, add four `A` records for `@` pointing to GitHub Pages IPs (`185.199.108.153`, `.109.`, `.110.`, `.111.`) and a `CNAME` record for `www` → `<user>.github.io`.
+2. In Squarespace DNS, add four `A` records for `@` pointing to GitHub Pages IPs (`185.199.108.153`, `.109.`, `.110.`, `.111.`) and a `CNAME` record for `www` → `rwetz.github.io`.
 3. Enable **Enforce HTTPS** once DNS propagates.
-
-> Deploying to `<user>.github.io/<repo>` *without* a custom domain requires a `basePath` in `next.config.ts` — with the custom domain, none is needed.
+4. **Delete the `env: PAGES_BASE_PATH` block** from `.github/workflows/deploy.yml` — a root domain needs no base path, and `asset()`/`basePath` become no-ops automatically.
 
 ## Future: moving to Vercel (Part 4 of the spec)
 

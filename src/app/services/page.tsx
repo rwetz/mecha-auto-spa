@@ -8,6 +8,7 @@ import {
   interiorTiers,
 } from "@/data/services";
 import { jsonLd, serviceSchema } from "@/lib/schema";
+import { asset } from "@/lib/asset";
 import { PageHero } from "@/components/services/page-hero";
 import { PricingTiers } from "@/components/services/pricing-tiers";
 import { AddonsGrid } from "@/components/services/addons-grid";
@@ -113,7 +114,7 @@ export default function ServicesPage() {
                   className="group relative flex h-72 flex-col justify-end overflow-hidden rounded-2xl border border-white/[0.06] p-7 outline-none transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.16] focus-visible:ring-2 focus-visible:ring-ring/60 lg:h-80 lg:p-8"
                 >
                   <Image
-                    src={page.image}
+                    src={asset(page.image)}
                     alt=""
                     aria-hidden
                     fill

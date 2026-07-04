@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { correctionTiers } from "@/data/services";
+import { asset } from "@/lib/asset";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
@@ -12,7 +13,7 @@ export function CorrectionSection() {
         <FadeUp className="relative order-last lg:order-first">
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.06] lg:aspect-[5/4]">
             <Image
-              src="/images/paint-correction.jpg"
+              src={asset("/images/paint-correction.jpg")}
               alt="Deep gloss reflection on corrected paint at dusk"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
