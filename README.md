@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mecha Auto Spa
 
-## Getting Started
+Premium mobile detailing website for Rochester, MN — built to the specification in [design.md](design.md).
 
-First, run the development server:
+**Stack:** Next.js 15 (App Router, static export) · TypeScript · Tailwind CSS v4 · shadcn/ui · Framer Motion · React Hook Form + Zod
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # static export → ./out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Before launch — replace the placeholders
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Everything site-wide lives in **`src/lib/constants.ts`**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| What | Where |
+|---|---|
+| Phone, email, hours, social links | `SITE` in `src/lib/constants.ts` |
+| Domain (also update after buying) | `SITE.url` |
+| Cal.com booking link | `SITE.bookingUrl` |
+| Quote form endpoint (see below) | `SITE.quoteEndpoint` |
+| Google review content | `src/data/reviews.ts` |
+| Legal copy | `src/app/privacy/`, `src/app/terms/` |
+| Photography | `public/images/` (see [ATTRIBUTION.md](ATTRIBUTION.md)) |
 
-## Learn More
+### Quote form
 
-To learn more about Next.js, take a look at the following resources:
+The site is fully static, so the quote form needs an external endpoint. Create a free form endpoint (e.g. [Formspree](https://formspree.io)) and paste its URL into `SITE.quoteEndpoint`. Until then, the form falls back to opening a pre-filled email draft to `SITE.email`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment (GitHub Pages)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create a GitHub repository and push this project to `main`.
+2. In the repo: **Settings → Pages → Source: GitHub Actions**.
+3. Every push to `main` builds and deploys via [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
 
-## Deploy on Vercel
+### Custom domain (Squarespace DNS)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Repo **Settings → Pages → Custom domain** → enter `mechaautospa.com`.
+2. In Squarespace DNS, add four `A` records for `@` pointing to GitHub Pages IPs (`185.199.108.153`, `.109.`, `.110.`, `.111.`) and a `CNAME` record for `www` → `<user>.github.io`.
+3. Enable **Enforce HTTPS** once DNS propagates.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Deploying to `<user>.github.io/<repo>` *without* a custom domain requires a `basePath` in `next.config.ts` — with the custom domain, none is needed.
+
+## Future: moving to Vercel (Part 4 of the spec)
+
+The architecture is Vercel-ready. When you outgrow static hosting (Stripe payments, Supabase, Resend email, API routes):
+
+1. Remove `output: "export"` and `images.unoptimized` from `next.config.ts`.
+2. Add the `/api/quote`, `/api/booking`, `/api/stripe` route handlers.
+3. Point `SITE.quoteEndpoint` at `/api/quote`.
+4. Import the repo on vercel.com and move DNS.
+
+No page or component code needs to change.
+
+## Structure
+
+```
+src/
+├── app/                  # Routes: /, /services, /ceramic-coatings,
+│                         # /paint-correction, /request-quote, /contact
+├── components/
+│   ├── home/             # 13 homepage sections (hero → final CTA)
+│   ├── services/         # Page hero, pricing tiers, add-ons grid
+│   ├── booking/          # Quote form
+│   ├── layout/           # Navbar, footer, logo
+│   ├── animations/       # FadeUp, Stagger, MotionProvider
+│   └── ui/               # shadcn/ui primitives
+├── data/                 # Services, pricing, reviews, FAQs, locations
+└── lib/                  # constants.ts (business info), schema.ts (JSON-LD)
+```
