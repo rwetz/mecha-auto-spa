@@ -4,7 +4,7 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowRight, CheckCircle2, LoaderCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, Copy, LoaderCircle, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
@@ -87,6 +87,8 @@ export function QuoteForm() {
   const [status, setStatus] = React.useState<
     "idle" | "submitting" | "sent" | "mailto" | "error"
   >("idle");
+  const [draft, setDraft] = React.useState<{ href: string; text: string } | null>(null);
+  const [copied, setCopied] = React.useState(false);
 
   // Honeypot: humans never see this field; bots that fill it get a fake
   // success and nothing is sent.
@@ -136,23 +138,39 @@ export function QuoteForm() {
       "",
       values.message ?? "",
     ].join("\n");
-    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
+    const href = `mailto:${SITE.email}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
+    // Keep the draft around: browsers without a mailto handler (no desktop
+    // mail app, Gmail not registered) silently ignore this navigation, so
+    // the confirmation panel offers the same draft as a link + copyable text.
+    setDraft({ href, text: `To: ${SITE.email}\nSubject: ${subject}\n\n${body}` });
+    window.location.href = href;
     setStatus("mailto");
   };
 
-  if (status === "sent" || status === "mailto") {
+  const copyDraft = async () => {
+    if (!draft) return;
+    try {
+      await navigator.clipboard.writeText(draft.text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      // Clipboard unavailable (e.g. insecure context) — the text is still
+      // visible in the panel for manual copying.
+    }
+  };
+
+  if (status === "sent") {
     return (
       <div className="panel flex flex-col items-center p-10 text-center lg:p-14">
         <CheckCircle2 className="size-10 text-success" aria-hidden />
         <h2 className="mt-5 font-display text-2xl font-semibold tracking-tight">
-          {status === "sent" ? "Request received." : "Almost there."}
+          Request received.
         </h2>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-          {status === "sent"
-            ? "We'll review your vehicle details and get back to you within one business day with an exact quote."
-            : "We opened an email draft with your details — hit send and we'll reply within one business day. If nothing opened, call, text, or email us directly."}
+          We&apos;ll review your vehicle details and get back to you within one
+          business day with an exact quote.
         </p>
         <a
           href={SITE.phoneHref}
@@ -160,6 +178,56 @@ export function QuoteForm() {
         >
           {SITE.phone}
         </a>
+      </div>
+    );
+  }
+
+  if (status === "mailto" && draft) {
+    return (
+      <div className="panel flex flex-col items-center p-10 text-center lg:p-14">
+        <CheckCircle2 className="size-10 text-success" aria-hidden />
+        <h2 className="mt-5 font-display text-2xl font-semibold tracking-tight">
+          Almost there.
+        </h2>
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+          We put your details into an email draft — send it and we&apos;ll
+          reply within one business day. If your mail app didn&apos;t open,
+          use the buttons below.
+        </p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={draft.href}
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-white"
+          >
+            <Mail className="size-4" aria-hidden />
+            Open email draft
+          </a>
+          <button
+            type="button"
+            onClick={copyDraft}
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-input px-6 text-sm font-medium text-foreground transition-colors hover:bg-white/[0.06]"
+          >
+            <Copy className="size-4" aria-hidden />
+            {copied ? "Copied!" : "Copy email text"}
+          </button>
+        </div>
+        <details className="mt-6 w-full max-w-md text-left">
+          <summary className="cursor-pointer text-xs text-muted-foreground/70 hover:text-muted-foreground">
+            View the email we prepared
+          </summary>
+          <pre className="mt-3 overflow-x-auto rounded-lg border border-input bg-white/[0.02] p-4 text-xs leading-relaxed whitespace-pre-wrap text-muted-foreground">
+            {draft.text}
+          </pre>
+        </details>
+        <p className="mt-6 text-sm text-muted-foreground">
+          Prefer to talk?{" "}
+          <a
+            href={SITE.phoneHref}
+            className="font-mono text-foreground underline-offset-4 hover:underline"
+          >
+            {SITE.phone}
+          </a>
+        </p>
       </div>
     );
   }
