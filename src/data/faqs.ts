@@ -42,6 +42,6 @@ export const faqs: Faq[] = [
   {
     question: "How do I schedule?",
     answer:
-      "Request a quote through the site or book directly online. We confirm your appointment, arrive on time, and handle everything on-site.",
+      "Request a quote through the site, or call, text, or email us directly — texting is a perfectly fine way to book. We confirm your appointment, arrive on time, and handle everything on-site.",
   },
 ];

@@ -17,6 +17,7 @@ export const SITE = {
 
   phone: "(507) 993-3003",
   phoneHref: "tel:+15079933003",
+  smsHref: "sms:+15079933003",
   email: "mechaautospa@gmail.com",
 
   // Online booking is deprecated for now — every CTA routes to phone/email.

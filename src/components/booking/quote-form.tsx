@@ -152,7 +152,7 @@ export function QuoteForm() {
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
           {status === "sent"
             ? "We'll review your vehicle details and get back to you within one business day with an exact quote."
-            : "We opened an email draft with your details — hit send and we'll reply within one business day. If nothing opened, call or email us directly."}
+            : "We opened an email draft with your details — hit send and we'll reply within one business day. If nothing opened, call, text, or email us directly."}
         </p>
         <a
           href={SITE.phoneHref}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MessageSquareQuote, Phone } from "lucide-react";
+import { Mail, MessageSquareQuote, MessageSquareText, Phone } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
 import { FadeUp } from "@/components/animations/fade-up";
@@ -9,17 +9,24 @@ import { FinalCta } from "@/components/home/final-cta";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Reach Mecha Auto Spa — premium mobile detailing for Rochester, Winona, and Southern Minnesota. Call, email, or request a quote online.",
+    "Reach Mecha Auto Spa — premium mobile detailing for Rochester, Winona, and nearby communities. Call, text, email, or request a quote online.",
   alternates: { canonical: "/contact/" },
 };
 
 const channels = [
   {
     icon: Phone,
-    title: "Call or text",
+    title: "Call us",
     value: SITE.phone,
     href: SITE.phoneHref,
     note: "Fastest for same-week scheduling",
+  },
+  {
+    icon: MessageSquareText,
+    title: "Text us",
+    value: SITE.phone,
+    href: SITE.smsHref,
+    note: "Texting is a perfectly fine option — we reply quickly",
   },
   {
     icon: Mail,
@@ -53,11 +60,12 @@ export default function ContactPage() {
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               No storefront, no waiting room. Just a fully equipped detailing
-              studio that arrives at your address.
+              studio that arrives at your address. Call, email, or text us —
+              whatever&rsquo;s easiest for you.
             </p>
           </FadeUp>
 
-          <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {channels.map((channel) => {
               const external = channel.href.startsWith("http");
               return (
