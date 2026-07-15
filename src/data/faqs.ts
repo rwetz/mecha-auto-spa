@@ -12,17 +12,12 @@ export const faqs: Faq[] = [
   {
     question: "Do you come to me?",
     answer:
-      "Yes — Mecha Auto Spa is fully mobile. We service driveways, workplaces, and commercial lots across Rochester, Winona, and surrounding Southern Minnesota communities.",
+      "Yes — Mecha Auto Spa is fully mobile. We service driveways, workplaces, and commercial lots across Rochester, Eyota, Winona, Fountain City, and nearby communities.",
   },
   {
-    question: "Do you need my water?",
+    question: "Do you need my water or electricity?",
     answer:
-      "No. Our rig carries onboard water for a complete wash. If a spigot is available we're happy to use it, but it's never required.",
-  },
-  {
-    question: "Do you need electricity?",
-    answer:
-      "No. We run our own quiet generator for polishers, extractors, and steamers. An outlet is a nice-to-have, not a requirement.",
+      "Every location is different — just tell us what's available (spigot, outlet, or neither) when you request your quote and we'll arrive prepared. It never changes your price.",
   },
   {
     question: "How long does ceramic coating last?",
@@ -37,12 +32,12 @@ export const faqs: Faq[] = [
   {
     question: "Do you remove pet hair?",
     answer:
-      "Yes. We use specialized tools to pull embedded hair from carpet and upholstery. Heavy pet hair is an add-on priced by severity ($40–$100).",
+      "Yes. We use specialized tools to pull embedded hair from carpet and upholstery. Heavy pet hair is an add-on priced by severity ($50–$150).",
   },
   {
     question: "Can you remove odors?",
     answer:
-      "Yes — smoke, pet, food, and spill odors. We treat the source with enzyme cleaners and steam rather than masking it, with ozone treatment available for severe cases.",
+      "Yes — smoke, pet, food, and spill odors. We treat odors at their source rather than masking them with fragrance. Odor treatment is an add-on priced by severity ($50–$100).",
   },
   {
     question: "How do I schedule?",

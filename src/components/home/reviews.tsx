@@ -1,6 +1,5 @@
 import { Star } from "lucide-react";
 import { reviews } from "@/data/reviews";
-import { SITE } from "@/lib/constants";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeUp } from "@/components/animations/fade-up";
 
@@ -55,7 +54,7 @@ export function Reviews() {
               <span className="text-metallic">notice everything.</span>
             </>
           }
-          lede={`${SITE.rating.value} stars across ${SITE.rating.count} Google reviews — from daily drivers to weekend builds.`}
+          lede="Real feedback from real clients — from daily drivers to weekend builds."
           align="center"
         />
       </div>

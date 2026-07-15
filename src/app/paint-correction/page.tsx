@@ -78,8 +78,8 @@ export default function PaintCorrectionPage() {
           </>
         }
         lede="Precision machine polishing that levels the clear coat itself — defects are permanently removed, not temporarily hidden."
-        primaryCta={{ label: "Book Paint Correction", href: SITE.bookingUrl }}
-        secondaryCta={{ label: "Request a Quote", href: "/request-quote/" }}
+        primaryCta={{ label: "Request a Quote", href: "/request-quote/" }}
+        secondaryCta={{ label: `Call ${SITE.phone}`, href: SITE.phoneHref }}
       />
 
       {/* What it removes */}
@@ -170,11 +170,11 @@ export default function PaintCorrectionPage() {
             ))}
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
-            <CtaLink href={SITE.bookingUrl} variant="primary">
-              Book Paint Correction
-            </CtaLink>
-            <CtaLink href="/request-quote/" variant="outline">
+            <CtaLink href="/request-quote/" variant="primary">
               Request a Quote
+            </CtaLink>
+            <CtaLink href={SITE.phoneHref} variant="outline">
+              Call {SITE.phone}
             </CtaLink>
           </div>
         </div>

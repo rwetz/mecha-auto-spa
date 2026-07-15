@@ -12,15 +12,31 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
+// Length caps bound what can be relayed through the form once a real POST
+// endpoint is configured; the selects are validated against the same fixed
+// option lists they render, so a tampered payload fails client-side and the
+// endpoint only ever relays bounded, known-shape data.
 const quoteSchema = z.object({
-  name: z.string().min(2, "Please enter your name"),
-  phone: z.string().min(7, "Please enter a valid phone number"),
-  email: z.email("Please enter a valid email"),
-  city: z.string().min(1, "Select your city"),
-  vehicle: z.string().min(2, "Tell us the year, make, and model"),
-  vehicleType: z.string().min(1, "Select a vehicle type"),
-  service: z.string().min(1, "Select a service"),
-  message: z.string().optional(),
+  name: z.string().trim().min(2, "Please enter your name").max(100, "Name is too long"),
+  phone: z
+    .string()
+    .trim()
+    .min(7, "Please enter a valid phone number")
+    .max(30, "Phone number is too long"),
+  email: z.email("Please enter a valid email").max(254, "Email is too long"),
+  city: z.string().min(1, "Select your city").max(60),
+  vehicle: z
+    .string()
+    .trim()
+    .min(2, "Tell us the year, make, and model")
+    .max(100, "Please keep this under 100 characters"),
+  vehicleType: z.string().min(1, "Select a vehicle type").max(40),
+  service: z.string().min(1, "Select a service").max(80),
+  message: z
+    .string()
+    .trim()
+    .max(1000, "Please keep your message under 1,000 characters")
+    .optional(),
 });
 
 type QuoteFormValues = z.infer<typeof quoteSchema>;
@@ -35,12 +51,12 @@ const vehicleTypes = [
 ];
 
 const services = [
-  "Exterior Detail",
+  "Signature Exterior Detail",
   "Interior Detail",
-  "Full Detail Package",
+  "Signature Full Detail",
+  "Platinum Detail",
   "Ceramic Coating",
   "Paint Correction",
-  "Fleet / Commercial",
   "Not sure yet — recommend something",
 ];
 
@@ -72,6 +88,10 @@ export function QuoteForm() {
     "idle" | "submitting" | "sent" | "mailto" | "error"
   >("idle");
 
+  // Honeypot: humans never see this field; bots that fill it get a fake
+  // success and nothing is sent.
+  const honeypotRef = React.useRef<HTMLInputElement>(null);
+
   const {
     register,
     handleSubmit,
@@ -82,6 +102,10 @@ export function QuoteForm() {
   });
 
   const onSubmit = async (values: QuoteFormValues) => {
+    if (honeypotRef.current?.value) {
+      setStatus("sent");
+      return;
+    }
     setStatus("submitting");
 
     // Static hosting: POST to the configured endpoint when available,
@@ -146,11 +170,28 @@ export function QuoteForm() {
       noValidate
       className="panel space-y-6 p-7 lg:p-9"
     >
+      {/* Honeypot — offscreen, skipped by keyboard and screen readers. */}
+      <div
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-px w-px overflow-hidden"
+      >
+        <label htmlFor="quote-website">Website</label>
+        <input
+          ref={honeypotRef}
+          id="quote-website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid gap-6 sm:grid-cols-2">
         <Field label="Name" htmlFor="name" error={errors.name?.message}>
           <Input
             id="name"
             autoComplete="name"
+            maxLength={100}
             placeholder="Your name"
             aria-invalid={Boolean(errors.name)}
             {...register("name")}
@@ -161,6 +202,7 @@ export function QuoteForm() {
             id="phone"
             type="tel"
             autoComplete="tel"
+            maxLength={30}
             placeholder="(507) 555-0000"
             aria-invalid={Boolean(errors.phone)}
             {...register("phone")}
@@ -174,6 +216,7 @@ export function QuoteForm() {
             id="email"
             type="email"
             autoComplete="email"
+            maxLength={254}
             placeholder="you@example.com"
             aria-invalid={Boolean(errors.email)}
             {...register("email")}
@@ -207,6 +250,7 @@ export function QuoteForm() {
         >
           <Input
             id="vehicle"
+            maxLength={100}
             placeholder="e.g. 2022 Ford F-150"
             aria-invalid={Boolean(errors.vehicle)}
             {...register("vehicle")}
@@ -265,6 +309,7 @@ export function QuoteForm() {
         <Textarea
           id="message"
           rows={4}
+          maxLength={1000}
           placeholder="Condition, pet hair, water spots, timeline…"
           {...register("message")}
         />

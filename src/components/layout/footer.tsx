@@ -43,7 +43,6 @@ const columns = [
     links: [
       { label: "Home", href: "/" },
       { label: "Why Mecha", href: "/#why-mecha" },
-      { label: "Reviews", href: "/#reviews" },
       { label: "Contact", href: "/contact/" },
       { label: "Request a Quote", href: "/request-quote/" },
     ],
@@ -51,9 +50,7 @@ const columns = [
   {
     heading: "Services",
     links: [
-      { label: "Exterior Detail", href: "/services/#exterior" },
-      { label: "Interior Detail", href: "/services/#interior" },
-      { label: "Full Detail Packages", href: "/services/#full-detail" },
+      { label: "Detailing Packages", href: "/services/#packages" },
       { label: "Ceramic Coatings", href: "/ceramic-coatings/" },
       { label: "Paint Correction", href: "/paint-correction/" },
       { label: "Add-Ons", href: "/services/#add-ons" },
@@ -66,7 +63,6 @@ const columns = [
       { label: "How It Works", href: "/#how-it-works" },
       { label: "Service Areas", href: "/#service-area" },
       { label: "FAQ", href: "/#faq" },
-      { label: "Book Online", href: SITE.bookingUrl, external: true },
     ],
   },
 ] as const;
@@ -90,37 +86,43 @@ export function Footer() {
               ))}
             </span>
             <span className="font-mono text-xs text-muted-foreground">
-              {SITE.rating.value} · {SITE.rating.count} Google reviews
+              Five-star service — satisfaction guaranteed
             </span>
           </div>
           <div className="mt-6 flex items-center gap-2">
-            <a
-              href={SITE.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="inline-flex size-9 items-center justify-center rounded-lg border border-white/[0.08] text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
-            >
-              <InstagramIcon className="size-4" />
-            </a>
-            <a
-              href={SITE.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="inline-flex size-9 items-center justify-center rounded-lg border border-white/[0.08] text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
-            >
-              <FacebookIcon className="size-4" />
-            </a>
-            <a
-              href={SITE.social.google}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Google Business Profile"
-              className="inline-flex size-9 items-center justify-center rounded-lg border border-white/[0.08] text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
-            >
-              <MapPin className="size-4" aria-hidden />
-            </a>
+            {SITE.social.instagram && (
+              <a
+                href={SITE.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="inline-flex size-9 items-center justify-center rounded-lg border border-white/[0.08] text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+              >
+                <InstagramIcon className="size-4" />
+              </a>
+            )}
+            {SITE.social.facebook && (
+              <a
+                href={SITE.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="inline-flex size-9 items-center justify-center rounded-lg border border-white/[0.08] text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+              >
+                <FacebookIcon className="size-4" />
+              </a>
+            )}
+            {SITE.social.google && (
+              <a
+                href={SITE.social.google}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Google Business Profile"
+                className="inline-flex size-9 items-center justify-center rounded-lg border border-white/[0.08] text-muted-foreground transition-colors hover:border-white/20 hover:text-foreground"
+              >
+                <MapPin className="size-4" aria-hidden />
+              </a>
+            )}
           </div>
         </div>
 
@@ -210,7 +212,7 @@ export function Footer() {
         <div className="container-site py-5">
           <p className="font-mono text-[11px] leading-relaxed tracking-wide text-muted-foreground/70">
             <span className="text-muted-foreground">SERVICE AREA —</span>{" "}
-            {areaList} &amp; surrounding Southern Minnesota communities
+            {areaList} &amp; more to come
           </p>
         </div>
       </div>
@@ -218,9 +220,31 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/[0.05]">
         <div className="container-site flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-muted-foreground/70">
-            © {new Date().getFullYear()} {SITE.name} · Rochester, MN
-          </p>
+          <div className="flex flex-col gap-1 text-xs text-muted-foreground/70">
+            <p>
+              © {new Date().getFullYear()} {SITE.name} · Rochester, MN
+            </p>
+            <p>
+              Website designed &amp; maintained by{" "}
+              <a
+                href="https://ryanwetzstein.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-foreground"
+              >
+                Ryan Wetzstein
+              </a>{" "}
+              — check out more at{" "}
+              <a
+                href="https://ryanwetzstein.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 transition-colors hover:text-foreground"
+              >
+                ryanwetzstein.com
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-5 text-xs text-muted-foreground/70">
             <Link
               href="/privacy/"

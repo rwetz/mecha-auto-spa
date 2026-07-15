@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Building2, Truck } from "lucide-react";
-import {
-  exteriorTiers,
-  fullDetailTiers,
-  interiorTiers,
-} from "@/data/services";
+import { ArrowRight } from "lucide-react";
+import { detailPackages } from "@/data/services";
 import { jsonLd, serviceSchema } from "@/lib/schema";
 import { asset } from "@/lib/asset";
 import { PageHero } from "@/components/services/page-hero";
 import { PricingTiers } from "@/components/services/pricing-tiers";
 import { AddonsGrid } from "@/components/services/addons-grid";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { CtaLink } from "@/components/shared/cta-link";
 import { Stagger, StaggerItem } from "@/components/animations/stagger";
 import { FinalCta } from "@/components/home/final-cta";
 
@@ -41,29 +36,11 @@ const specialtyPages = [
   },
 ] as const;
 
-const commercial = [
-  {
-    icon: Truck,
-    title: "Fleet Detailing",
-    description:
-      "Contractors, service vehicles, and company trucks — detailed on-site with volume pricing and custom contracts.",
-    cta: "Request Fleet Quote",
-  },
-  {
-    icon: Building2,
-    title: "Commercial Accounts",
-    description:
-      "Dealerships and businesses that need reliable, recurring detailing with consistent, documented results.",
-    cta: "Schedule Consultation",
-  },
-] as const;
-
 export default function ServicesPage() {
-  const offers = [
-    ...exteriorTiers.tiers,
-    ...interiorTiers.tiers,
-    ...fullDetailTiers.tiers,
-  ].map((tier) => ({ name: tier.name, price: tier.price }));
+  const offers = detailPackages.tiers.map((tier) => ({
+    name: tier.name,
+    price: tier.price,
+  }));
 
   return (
     <>
@@ -81,8 +58,8 @@ export default function ServicesPage() {
       />
 
       <PageHero
-        image="/images/service-signature.jpg"
-        imageAlt="Detailed white Mustang GT under dramatic studio lighting"
+        image="/images/mustang-night-rear.jpg"
+        imageAlt="Freshly detailed Mustang GT under station lights at night"
         eyebrow="Services & Pricing"
         title={
           <>
@@ -92,16 +69,14 @@ export default function ServicesPage() {
         lede="Every package below is a defined process with defined results. Pick your level — we handle the rest, at your driveway or workplace."
       />
 
-      <PricingTiers group={exteriorTiers} index="01" />
-      <PricingTiers group={interiorTiers} index="02" surface />
-      <PricingTiers group={fullDetailTiers} index="03" />
-      <AddonsGrid index="04" />
+      <PricingTiers group={detailPackages} index="01" />
+      <AddonsGrid index="02" />
 
       {/* Specialty landing pages */}
       <section className="section-pad">
         <div className="container-site">
           <SectionHeading
-            index="05"
+            index="03"
             eyebrow="Specialty Services"
             title="For paint that deserves more."
             lede="Correction and coating work is its own discipline — each has a dedicated page with full details."
@@ -144,43 +119,6 @@ export default function ServicesPage() {
                     </span>
                   </div>
                 </Link>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* Fleet & commercial */}
-      <section id="fleet" className="section-pad scroll-mt-20 bg-surface">
-        <div className="container-site">
-          <SectionHeading
-            index="06"
-            eyebrow="Fleet & Commercial"
-            title="Your fleet is your brand. Keep it spotless."
-          />
-          <Stagger className="mt-12 grid gap-5 md:grid-cols-2">
-            {commercial.map((item) => (
-              <StaggerItem
-                key={item.title}
-                className="panel panel-hover flex h-full flex-col p-8"
-              >
-                <item.icon
-                  className="size-6 text-[#bdbdbd]"
-                  strokeWidth={1.5}
-                  aria-hidden
-                />
-                <h3 className="mt-5 font-display text-xl font-semibold tracking-tight">
-                  {item.title}
-                </h3>
-                <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
-                <div className="mt-7">
-                  <CtaLink href="/request-quote/" variant="outline" size="md">
-                    {item.cta}
-                    <ArrowRight aria-hidden />
-                  </CtaLink>
-                </div>
               </StaggerItem>
             ))}
           </Stagger>

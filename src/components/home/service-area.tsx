@@ -5,16 +5,10 @@ import { FadeUp } from "@/components/animations/fade-up";
 
 /** Rough geographic positions on a 600×440 canvas (not to scale). */
 const cityNodes: Record<string, { x: number; y: number }> = {
-  Rochester: { x: 296, y: 250 },
-  Winona: { x: 532, y: 178 },
-  Byron: { x: 210, y: 292 },
-  Stewartville: { x: 252, y: 372 },
-  Kasson: { x: 138, y: 248 },
-  "Pine Island": { x: 262, y: 138 },
-  Chatfield: { x: 392, y: 348 },
-  Plainview: { x: 404, y: 122 },
-  Eyota: { x: 398, y: 252 },
-  "Lake City": { x: 452, y: 52 },
+  Rochester: { x: 226, y: 270 },
+  Winona: { x: 462, y: 168 },
+  Eyota: { x: 328, y: 262 },
+  "Fountain City": { x: 508, y: 96 },
 };
 
 function AreaMap() {
@@ -23,7 +17,7 @@ function AreaMap() {
     <svg
       viewBox="0 0 600 440"
       role="img"
-      aria-label="Map of Mecha Auto Spa service area across Southern Minnesota"
+      aria-label="Map of Mecha Auto Spa service area from Rochester to the Winona river valley"
       className="w-full"
     >
       {/* Dot grid backdrop */}
@@ -116,9 +110,9 @@ export function ServiceArea() {
 
         <div>
           <SectionHeading
-            index="09"
+            index="08"
             eyebrow="Service Area"
-            title="We come to you, anywhere in Southern Minnesota."
+            title="We come to you, from Rochester to the river valley."
             lede="Based in Rochester with regular routes across the region. Driveways, offices, job sites — if your vehicle is parked there, we can detail it there."
           />
           <ul className="mt-8 flex flex-wrap gap-2">
@@ -131,9 +125,12 @@ export function ServiceArea() {
                     : "rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-[13px] text-muted-foreground"
                 }
               >
-                {city.name}
+                {city.name}, {city.state}
               </li>
             ))}
+            <li className="rounded-full border border-dashed border-white/[0.08] px-4 py-1.5 text-[13px] text-muted-foreground/70">
+              More to come
+            </li>
           </ul>
           <p className="mt-6 text-sm text-muted-foreground">
             Outside these areas? A small travel fee may apply —{" "}

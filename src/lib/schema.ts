@@ -13,7 +13,7 @@ export function localBusinessSchema() {
     url: SITE.url,
     telephone: SITE.phone,
     email: SITE.email,
-    image: `${SITE.url}/images/hero-mustang.jpg`,
+    image: `${SITE.url}/images/mustang-hero.jpg`,
     priceRange: "$90–$999",
     address: {
       "@type": "PostalAddress",
@@ -24,7 +24,7 @@ export function localBusinessSchema() {
     },
     areaServed: serviceCities.map((city) => ({
       "@type": "City",
-      name: `${city.name}, MN`,
+      name: `${city.name}, ${city.state}`,
     })),
     openingHoursSpecification: [
       {
@@ -60,7 +60,7 @@ export function serviceSchema(options: {
     provider: { "@id": `${SITE.url}/#business` },
     areaServed: serviceCities.map((city) => ({
       "@type": "City",
-      name: `${city.name}, MN`,
+      name: `${city.name}, ${city.state}`,
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -88,7 +88,12 @@ export function faqSchema(faqs: Faq[]) {
   };
 }
 
-/** Serialize for a <script type="application/ld+json"> tag. */
+/**
+ * Serialize for a <script type="application/ld+json"> tag.
+ *
+ * `<` is escaped so a value containing `</script>` can never terminate the
+ * tag and inject markup, no matter what ends up in the data files.
+ */
 export function jsonLd(schema: object) {
-  return { __html: JSON.stringify(schema) };
+  return { __html: JSON.stringify(schema).replace(/</g, "\\u003c") };
 }

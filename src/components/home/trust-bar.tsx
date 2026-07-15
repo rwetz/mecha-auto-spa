@@ -6,13 +6,13 @@ const items = [
     icon: Truck,
     title: "Fully Mobile",
     description:
-      "We bring water, power, and a complete studio to your driveway.",
+      "Your driveway, your office — the detailing studio comes to you.",
   },
   {
     icon: Settings2,
     title: "Professional Equipment",
     description:
-      "Steamers, extractors, and calibrated machine polishers on every job.",
+      "Extractors and calibrated machine polishers on every job.",
   },
   {
     icon: FlaskConical,
@@ -22,9 +22,9 @@ const items = [
   },
   {
     icon: ShieldCheck,
-    title: "Fully Insured",
+    title: "Satisfaction Guaranteed",
     description:
-      "Complete coverage on every vehicle we touch, from daily to exotic.",
+      "If anything isn't right, we come back and make it right.",
   },
 ] as const;
 

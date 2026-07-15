@@ -9,7 +9,7 @@ export function FinalCta() {
   return (
     <section className="grain relative overflow-hidden">
       <Image
-        src={asset("/images/final-cta.jpg")}
+        src={asset("/images/edge-final-cta.jpg")}
         alt=""
         aria-hidden
         fill
@@ -38,15 +38,15 @@ export function FinalCta() {
             <span className="text-metallic">your vehicle?</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#bdbdbd] sm:text-lg">
-            Get a quote in minutes. We come to you — fully equipped, fully
-            insured, satisfaction guaranteed.
+            Get a quote in minutes. We come to you — fully equipped,
+            satisfaction guaranteed.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <CtaLink href="/request-quote/" variant="primary">
               Request a Quote
             </CtaLink>
-            <CtaLink href={SITE.bookingUrl} variant="outline">
-              Book Appointment
+            <CtaLink href={`mailto:${SITE.email}`} variant="outline">
+              Email Us
             </CtaLink>
             <CtaLink href={SITE.phoneHref} variant="ghost">
               <Phone aria-hidden />
@@ -54,7 +54,7 @@ export function FinalCta() {
             </CtaLink>
           </div>
           <p className="mt-10 font-mono text-[11px] tracking-[0.25em] text-muted-foreground/70 uppercase">
-            Fully Mobile · Fully Insured · Serving Southern MN
+            Fully Mobile · Satisfaction Guaranteed · Serving Southern MN
           </p>
         </FadeUp>
       </div>

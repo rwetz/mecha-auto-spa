@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: "Mecha Auto Spa | Premium Mobile Detailing in Rochester, MN",
     description: SITE.description,
-    images: [{ url: "/images/hero-mustang.jpg", width: 1600, height: 1067 }],
+    images: [{ url: "/images/mustang-hero.jpg", width: 1179, height: 1916 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -57,6 +57,27 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
+// GitHub Pages cannot set response headers, so the CSP ships as a meta tag
+// (React hoists it into <head>). Everything is self-hosted; the only
+// cross-origin request the site ever makes is the quote-form POST, whose
+// origin is derived from constants so the policy tracks it automatically.
+// 'unsafe-inline' script-src is required by Next's inline hydration scripts.
+// Production-only: Next dev tooling needs eval and websockets.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  `connect-src 'self'${
+    SITE.quoteEndpoint ? ` ${new URL(SITE.quoteEndpoint).origin}` : ""
+  }`,
+  "object-src 'none'",
+  "base-uri 'none'",
+  "form-action 'self'",
+  "frame-src 'none'",
+].join("; ");
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -67,6 +88,9 @@ export default function RootLayout({
       <body
         className={`${geist.variable} ${inter.variable} ${jetbrains.variable} font-sans antialiased`}
       >
+        {process.env.NODE_ENV === "production" && (
+          <meta httpEquiv="Content-Security-Policy" content={csp} />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={jsonLd(localBusinessSchema())}

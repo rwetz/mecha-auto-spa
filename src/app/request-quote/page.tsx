@@ -93,8 +93,12 @@ export default function RequestQuotePage() {
                   {SITE.hours[0].days}: {SITE.hours[0].hours}
                 </p>
                 <div className="mt-5">
-                  <CtaLink href={SITE.bookingUrl} variant="outline" size="md">
-                    Or book online directly
+                  <CtaLink
+                    href={`mailto:${SITE.email}`}
+                    variant="outline"
+                    size="md"
+                  >
+                    Or email us directly
                   </CtaLink>
                 </div>
               </div>

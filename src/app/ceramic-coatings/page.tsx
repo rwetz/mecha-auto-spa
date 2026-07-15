@@ -154,8 +154,8 @@ export default function CeramicCoatingsPage() {
               <CtaLink href="/request-quote/" variant="primary">
                 Request Ceramic Consultation
               </CtaLink>
-              <CtaLink href={SITE.bookingUrl} variant="outline">
-                Book Appointment
+              <CtaLink href={SITE.phoneHref} variant="outline">
+                Call {SITE.phone}
               </CtaLink>
             </div>
           </div>

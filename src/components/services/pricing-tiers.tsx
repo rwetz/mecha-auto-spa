@@ -21,7 +21,9 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
   const cols =
     group.tiers.length === 2
       ? "md:grid-cols-2 lg:max-w-4xl lg:mx-auto"
-      : "md:grid-cols-3";
+      : group.tiers.length === 4
+        ? "md:grid-cols-2 xl:grid-cols-4"
+        : "md:grid-cols-3";
 
   return (
     <section
@@ -64,6 +66,22 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {tier.blurb}
                 </p>
+                {tier.vehiclePrices && (
+                  <ul className="mt-5 space-y-1.5 border-t border-white/[0.06] pt-5 font-mono text-[13px]">
+                    {(
+                      [
+                        ["Cars", tier.vehiclePrices.cars],
+                        ["SUVs", tier.vehiclePrices.suvs],
+                        ["Full-size trucks", tier.vehiclePrices.trucks],
+                      ] as const
+                    ).map(([label, price]) => (
+                      <li key={label} className="flex justify-between">
+                        <span className="text-muted-foreground">{label}</span>
+                        <span>${price}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <ul className="mt-6 flex-1 space-y-3 border-t border-white/[0.06] pt-6">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2.5">
@@ -77,12 +95,12 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                 </ul>
                 <div className="mt-8">
                   <CtaLink
-                    href={SITE.bookingUrl}
+                    href={SITE.phoneHref}
                     variant={tier.popular ? "primary" : "outline"}
                     size="md"
                     className="w-full"
                   >
-                    Book {tier.name.split(" ")[0]}
+                    Call to Book
                   </CtaLink>
                 </div>
               </article>

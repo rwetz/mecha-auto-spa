@@ -2,28 +2,41 @@ import type { LucideIcon } from "lucide-react";
 import {
   Armchair,
   Car,
+  CircleDot,
+  Dog,
   Droplets,
   Gem,
   Layers,
+  Lightbulb,
   Shield,
   ShieldCheck,
+  Sofa,
   Sparkles,
-  SprayCan,
   Sun,
+  Wind,
   Wrench,
   Zap,
 } from "lucide-react";
 
 /* ────────────────────────────────────────────────────────────────────
  * Central service + pricing catalog. Used by the homepage, service
- * pages, quote form, and structured data. Single source of truth.
+ * pages, quote form, and structured data. Single source of truth —
+ * matches the printed Mecha Auto Spa pricing flyer.
  * ──────────────────────────────────────────────────────────────────── */
+
+export interface VehiclePrices {
+  cars: number;
+  suvs: number;
+  trucks: number;
+}
 
 export interface ServiceTier {
   id: string;
   name: string;
   price: number;
   priceNote?: string;
+  /** Per-vehicle-size pricing rows (cars / SUVs / full-size trucks). */
+  vehiclePrices?: VehiclePrices;
   blurb: string;
   features: string[];
   popular?: boolean;
@@ -48,174 +61,110 @@ export interface FeaturedService {
 
 export const featuredServices: FeaturedService[] = [
   {
-    id: "exterior",
-    name: "Exterior Detail",
-    description: "Restore shine and protect your paint with a meticulous hand wash and finish.",
+    id: "signature-exterior",
+    name: "Signature Exterior Detail",
+    description: "Foam cannon pre-wash, two-bucket hand wash, and months of spray sealant protection.",
     price: 90,
-    image: "/images/service-exterior.jpg",
-    href: "/services/#exterior",
+    image: "/images/edge-exterior.jpg",
+    href: "/services/#packages",
   },
   {
     id: "interior",
     name: "Interior Detail",
     description: "Deep-cleaned cabins, conditioned surfaces, and streak-free glass.",
     price: 120,
-    image: "/images/service-interior.jpg",
-    href: "/services/#interior",
+    image: "/images/bmw-interior.jpg",
+    href: "/services/#packages",
   },
   {
-    id: "signature",
-    name: "Signature Detail",
-    description: "Complete inside-and-out care — our most requested full detail.",
-    price: 220,
-    image: "/images/service-signature.jpg",
-    href: "/services/#full-detail",
+    id: "signature-full",
+    name: "Signature Full Detail",
+    description: "Complete inside-and-out care — our most requested package.",
+    price: 199,
+    image: "/images/bmw-dash.jpg",
+    href: "/services/#packages",
   },
   {
     id: "platinum",
     name: "Platinum Detail",
-    description: "The no-compromise restoration: full correction-grade depth on every surface.",
-    price: 450,
-    image: "/images/service-platinum.jpg",
-    href: "/services/#full-detail",
+    description: "The no-compromise restoration: decontamination, extraction, and sealant on every surface.",
+    price: 350,
+    image: "/images/mustang-night-front.jpg",
+    href: "/services/#packages",
   },
 ];
 
-/* ── Exterior tiers ── */
-export const exteriorTiers: TierGroup = {
-  id: "exterior",
-  title: "Exterior Detail",
-  subtitle: "Hand-washed, decontaminated, and protected — never a tunnel wash.",
+/* ── Detailing packages (matches the printed flyer 1:1) ── */
+export const detailPackages: TierGroup = {
+  id: "packages",
+  title: "Detailing Packages",
+  subtitle:
+    "Four defined packages, priced by vehicle size — confirmed up front, never on arrival.",
   tiers: [
     {
-      id: "exterior-basic",
-      name: "Basic Exterior",
+      id: "signature-exterior",
+      name: "Signature Exterior Detail",
       price: 90,
-      blurb: "The essential reset for a clean, glossy exterior.",
+      vehiclePrices: { cars: 90, suvs: 110, trucks: 125 },
+      blurb: "The essential reset for a clean, glossy, protected exterior.",
       features: [
-        "Foam pre-wash",
-        "Hand wash with pH-balanced soap",
-        "Wheels & tires cleaned",
-        "Hand dry with plush microfiber",
-        "Tire shine",
+        "Foam cannon pre-wash",
+        "Hand wash (two-bucket method)",
+        "Wheel & tire cleaning",
+        "Tire dressing",
+        "Door jamb cleaning",
+        "Exterior windows",
+        "Spray sealant protection (3–6 months)",
       ],
     },
     {
-      id: "exterior-premium",
-      name: "Premium Exterior",
-      price: 140,
-      popular: true,
-      blurb: "Deeper decontamination plus months of slick protection.",
-      features: [
-        "Everything in Basic",
-        "Iron decontamination",
-        "Spray sealant protection",
-        "Trim conditioning",
-      ],
-    },
-    {
-      id: "exterior-signature",
-      name: "Signature Exterior",
-      price: 220,
-      blurb: "Show-ready gloss with a hydrophobic protective layer.",
-      features: [
-        "Everything in Premium",
-        "Clay bar treatment",
-        "Light machine polish",
-        "Hydrophobic protection layer",
-      ],
-    },
-  ],
-};
-
-/* ── Interior tiers ── */
-export const interiorTiers: TierGroup = {
-  id: "interior",
-  title: "Interior Detail",
-  subtitle: "From daily-driver refresh to full extraction and sanitization.",
-  tiers: [
-    {
-      id: "interior-basic",
-      name: "Basic Interior",
+      id: "interior-detail",
+      name: "Interior Detail",
       price: 120,
-      blurb: "A thorough refresh for well-kept cabins.",
+      vehiclePrices: { cars: 120, suvs: 160, trucks: 180 },
+      blurb: "Every interior surface cleaned, dressed, and protected.",
       features: [
-        "Full interior vacuum",
-        "All surfaces wiped & dressed",
-        "Light stain treatment",
-        "Interior glass cleaned",
+        "Thorough vacuum",
+        "Blowout with Tornador",
+        "Dashboard & trim cleaned",
+        "Door panels",
+        "Cup holders & center console",
+        "UV interior dressing",
+        "Interior glass",
+        "Floor mats cleaned",
       ],
     },
     {
-      id: "interior-deep",
-      name: "Deep Interior",
-      price: 180,
+      id: "signature-full",
+      name: "Signature Full Detail",
+      price: 199,
       popular: true,
-      blurb: "Steam, shampoo, and conditioning for lived-in vehicles.",
+      vehiclePrices: { cars: 199, suvs: 249, trucks: 275 },
+      blurb: "Exterior + Interior combined, plus the finishing touches.",
       features: [
-        "Hot steam cleaning",
-        "Carpet & upholstery shampoo",
-        "Leather cleaned & conditioned",
-        "Pet hair removal",
-        "Odor treatment",
+        "Everything in Exterior + Interior",
+        "Door jambs",
+        "Light stain removal",
+        "Tire dressing",
+        "Spray sealant protection",
+        "Final inspection",
       ],
     },
     {
-      id: "interior-signature",
-      name: "Signature Interior",
-      price: 250,
-      blurb: "Full extraction and sanitization — as close to new as it gets.",
-      features: [
-        "Full extraction cleaning",
-        "Deep steam sanitization",
-        "Advanced stain removal",
-        "UV-protective interior dressing",
-      ],
-    },
-  ],
-};
-
-/* ── Full detail packages ── */
-export const fullDetailTiers: TierGroup = {
-  id: "full-detail",
-  title: "Full Detail Packages",
-  subtitle: "Complete inside-and-out packages at package pricing.",
-  tiers: [
-    {
-      id: "full-signature",
-      name: "Signature Detail",
-      price: 220,
-      blurb: "Basic Exterior + Basic Interior in a single visit.",
-      features: [
-        "Complete Basic Exterior detail",
-        "Complete Basic Interior detail",
-        "Interior & exterior glass",
-        "Finishing inspection",
-      ],
-    },
-    {
-      id: "full-premium",
-      name: "Premium Detail",
-      price: 350,
-      popular: true,
-      blurb: "Premium Exterior + Deep Interior — our best-value package.",
-      features: [
-        "Premium Exterior with sealant",
-        "Deep Interior with steam & shampoo",
-        "Iron decontamination",
-        "Odor treatment",
-      ],
-    },
-    {
-      id: "full-platinum",
+      id: "platinum",
       name: "Platinum Detail",
-      price: 450,
-      blurb: "Signature-level care on every surface, plus a gloss pass.",
+      price: 350,
+      vehiclePrices: { cars: 350, suvs: 400, trucks: 450 },
+      blurb: "Our deepest detail — correction-grade care on every surface.",
       features: [
-        "Signature Exterior with light polish",
-        "Signature Interior with extraction",
-        "Paint enhancement gloss pass",
-        "Hydrophobic protection layer",
+        "Everything in Full Detail",
+        "Iron decontamination",
+        "Clay bar treatment",
+        "Machine-applied paint sealant",
+        "Carpet extraction",
+        "Seat shampoo",
+        "Engine bay detail",
+        "Interior ceramic dressing",
       ],
     },
   ],
@@ -225,7 +174,8 @@ export const fullDetailTiers: TierGroup = {
 export const ceramicTiers: TierGroup = {
   id: "ceramic",
   title: "Ceramic Coating Packages",
-  subtitle: "Professional-grade coatings, prepped and applied by hand.",
+  subtitle:
+    "Long-lasting protection. Easy maintenance. Maximum shine. Paint preparation included with every install.",
   tiers: [
     {
       id: "ceramic-1yr",
@@ -235,7 +185,7 @@ export const ceramicTiers: TierGroup = {
       features: [
         "Single-layer ceramic coating",
         "Gloss enhancement",
-        "Hydrophobic base layer",
+        "Hydrophobic protection",
         "Wash & full paint prep included",
       ],
     },
@@ -256,12 +206,12 @@ export const ceramicTiers: TierGroup = {
       id: "ceramic-5yr",
       name: "5-Year Ceramic",
       price: 999,
-      blurb: "Maximum multi-layer protection for long-term ownership.",
+      blurb: "Maximum protection for long-term ownership.",
       features: [
-        "Multi-layer ceramic system",
+        "Premium ceramic coating system",
         "Premium gloss finish",
         "Maximum UV + chemical resistance",
-        "Annual inspection included",
+        "Wash, decon & paint prep included",
       ],
     },
   ],
@@ -275,13 +225,14 @@ export const correctionTiers: TierGroup = {
   tiers: [
     {
       id: "correction-one-step",
-      name: "One-Step Correction",
+      name: "One-Step Enhancement",
       price: 450,
+      priceNote: "from",
       blurb: "Removes light swirls and restores deep gloss in one stage.",
       features: [
-        "Light defect & swirl removal",
+        "Removes approx. 50–70% of light swirls & defects",
+        "Enhances gloss & clarity",
         "Single-stage machine polish",
-        "Gloss enhancement",
         "Full wash & decontamination prep",
       ],
     },
@@ -289,19 +240,20 @@ export const correctionTiers: TierGroup = {
       id: "correction-two-step",
       name: "Two-Step Correction",
       price: 800,
+      priceNote: "from",
       popular: true,
       blurb: "Cut and polish for heavily swirled or scratched paint.",
       features: [
-        "Heavy defect removal",
+        "Removes approx. 80–95% of deeper defects",
+        "Near-showroom finish",
         "Multi-stage compounding & polishing",
-        "Deep gloss restoration",
-        "Paint depth measurements",
+        "Full wash & decontamination prep",
       ],
     },
   ],
 };
 
-/* ── Add-ons ── */
+/* ── Add-ons (matches the printed flyer 1:1) ── */
 export interface AddOn {
   name: string;
   priceRange: string;
@@ -311,40 +263,64 @@ export interface AddOn {
 
 export const addOns: AddOn[] = [
   {
-    name: "Headlight Restoration",
-    priceRange: "$50–$100",
-    description: "Clarity and light output restored on oxidized lenses.",
-    icon: Sun,
-  },
-  {
-    name: "Engine Bay Cleaning",
-    priceRange: "$75–$150",
+    name: "Engine Bay Detail",
+    priceRange: "$50",
     description: "Safely degreased, rinsed, and dressed.",
     icon: Wrench,
   },
   {
     name: "Pet Hair Removal",
-    priceRange: "$40–$100",
+    priceRange: "$50–$150",
     description: "Specialized tools for embedded hair in carpet and cloth.",
+    icon: Dog,
+  },
+  {
+    name: "Carpet Extraction",
+    priceRange: "$75+",
+    description: "Hot-water extraction that lifts dirt from deep in the fibers.",
+    icon: Droplets,
+  },
+  {
+    name: "Seat Shampoo",
+    priceRange: "$75+",
+    description: "Cloth seats shampooed, extracted, and dried.",
     icon: Armchair,
   },
   {
-    name: "Odor Removal",
-    priceRange: "$60–$120",
-    description: "Enzyme and ozone treatment for smoke, pets, and spills.",
-    icon: SprayCan,
+    name: "Headlight Restoration",
+    priceRange: "$80",
+    description: "Clarity and light output restored on oxidized lenses.",
+    icon: Lightbulb,
   },
   {
-    name: "Clay Bar Treatment",
-    priceRange: "$50–$120",
-    description: "Removes bonded contamination for glass-smooth paint.",
-    icon: Sparkles,
+    name: "Trim Restoration",
+    priceRange: "$75",
+    description: "Faded exterior plastic brought back to deep black.",
+    icon: Layers,
   },
   {
-    name: "Wheel & Glass Coating",
-    priceRange: "$50–$150",
-    description: "Ceramic protection for wheels, glass, and trim.",
+    name: "Glass Ceramic Coating",
+    priceRange: "$100",
+    description: "Rain beads and wipes away for clearer visibility.",
     icon: Shield,
+  },
+  {
+    name: "Wheel Ceramic Coating",
+    priceRange: "$200",
+    description: "Brake dust and grime release with a simple rinse.",
+    icon: CircleDot,
+  },
+  {
+    name: "Leather Conditioning",
+    priceRange: "$40",
+    description: "Cleaned and conditioned to stay soft and crack-free.",
+    icon: Sofa,
+  },
+  {
+    name: "Odor Treatment",
+    priceRange: "$50–$100",
+    description: "Treats smoke, pet, and spill odors at the source.",
+    icon: Wind,
   },
 ];
 
@@ -403,15 +379,15 @@ export const whyMechaFeatures = [
   },
   {
     title: "Professional Equipment",
-    description: "Steamers, extractors, and machine polishers — not gas-station tools.",
+    description: "Extractors and machine polishers — not gas-station tools.",
   },
   {
     title: "Satisfaction Guaranteed",
     description: "If something isn't right, we return and make it right.",
   },
   {
-    title: "Fully Insured",
-    description: "Complete coverage for total peace of mind.",
+    title: "Attention to Detail",
+    description: "Door jambs, cup holders, trim — nothing gets skipped.",
   },
 ] as const;
 

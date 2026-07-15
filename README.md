@@ -18,13 +18,13 @@ Everything site-wide lives in **`src/lib/constants.ts`**:
 
 | What | Where |
 |---|---|
-| Phone, email, hours, social links | `SITE` in `src/lib/constants.ts` |
-| Domain (also update after buying) | `SITE.url` |
-| Cal.com booking link | `SITE.bookingUrl` |
+| Phone, email, hours, social links, promo | `SITE` in `src/lib/constants.ts` |
+| Domain (update after buying) | `SITE.url` |
 | Quote form endpoint (see below) | `SITE.quoteEndpoint` |
-| Google review content | `src/data/reviews.ts` |
-| Legal copy | `src/app/privacy/`, `src/app/terms/` |
-| Photography | `public/images/` (see [ATTRIBUTION.md](ATTRIBUTION.md)) |
+| Real Google reviews (then re-enable `<Reviews />` on the homepage) | `src/data/reviews.ts` |
+| Remaining stock photos: hero of /ceramic & /paint pages, ceramic/correction sections | `public/images/` (see [ATTRIBUTION.md](ATTRIBUTION.md)) |
+
+> Content rules for facts/claims live in [CLAUDE.md](CLAUDE.md) — read it before editing copy.
 
 ### Quote form
 
@@ -52,6 +52,7 @@ into `basePath` (covering links + `_next` assets) and `NEXT_PUBLIC_BASE_PATH`
 2. In Squarespace DNS, add four `A` records for `@` pointing to GitHub Pages IPs (`185.199.108.153`, `.109.`, `.110.`, `.111.`) and a `CNAME` record for `www` → `rwetz.github.io`.
 3. Enable **Enforce HTTPS** once DNS propagates.
 4. **Delete the `env: PAGES_BASE_PATH` block** from `.github/workflows/deploy.yml` — a root domain needs no base path, and `asset()`/`basePath` become no-ops automatically.
+5. Set `SITE.url` in `src/lib/constants.ts` to the real domain (fixes canonical URLs, sitemap, robots, Open Graph, and structured data) and push.
 
 ## Future: moving to Vercel (Part 4 of the spec)
 

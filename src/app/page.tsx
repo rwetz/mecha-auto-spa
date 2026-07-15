@@ -7,7 +7,6 @@ import { CeramicSection } from "@/components/home/ceramic-section";
 import { CorrectionSection } from "@/components/home/correction-section";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { PricingPreview } from "@/components/home/pricing-preview";
-import { Reviews } from "@/components/home/reviews";
 import { ServiceArea } from "@/components/home/service-area";
 import { Faq } from "@/components/home/faq";
 import { FinalCta } from "@/components/home/final-cta";
@@ -30,7 +29,7 @@ export default function HomePage() {
       <CorrectionSection />
       <HowItWorks />
       <PricingPreview />
-      <Reviews />
+      {/* <Reviews /> — re-enable once real Google reviews exist */}
       <ServiceArea />
       <Faq />
       <FinalCta />

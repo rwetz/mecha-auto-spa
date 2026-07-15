@@ -8,33 +8,29 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { FadeUp } from "@/components/animations/fade-up";
 
 interface Comparison {
-  image: string;
+  before: string;
+  after: string;
   alt: string;
   caption: string;
-  quote?: string;
 }
 
-/**
- * PLACEHOLDER comparisons: until real before/after photography exists,
- * the "before" side renders the same photo through a grime filter.
- * Swap `image` for a real before/after pair component when available.
- */
+/** Real client work — shot on the job, not stock. */
 const comparisons: Comparison[] = [
   {
-    image: "/images/gallery-m3.jpg",
-    alt: "BMW M3 paint correction before and after comparison",
-    caption: "BMW M3 — Two-Step Paint Correction + 3-Year Ceramic",
-    quote: "“The reflection is genuinely mirror-like. Worth every dollar.”",
+    before: "/images/edge-wheel-before.jpg",
+    after: "/images/edge-wheel-after.jpg",
+    alt: "Ford Edge wheel before and after cleaning and tire dressing",
+    caption: "Ford Edge — Wheel & Tire Cleaning, Signature Exterior Detail",
   },
   {
-    image: "/images/daily-driver.jpg",
-    alt: "Tesla Model 3 full detail before and after comparison",
-    caption: "Tesla Model 3 — Platinum Full Detail",
-    quote: "“It hasn't looked this good since delivery day.”",
+    before: "/images/edge-mats-before.jpg",
+    after: "/images/edge-mats-after.jpg",
+    alt: "Ford Edge driver floor mats before and after interior detail",
+    caption: "Ford Edge — Floor Mats & Carpet, Interior Detail",
   },
 ];
 
-function CompareSlider({ image, alt }: { image: string; alt: string }) {
+function CompareSlider({ before, after, alt }: Comparison) {
   const [position, setPosition] = React.useState(58);
   const trackRef = React.useRef<HTMLDivElement>(null);
   const dragging = React.useRef(false);
@@ -69,7 +65,7 @@ function CompareSlider({ image, alt }: { image: string; alt: string }) {
   return (
     <div
       ref={trackRef}
-      className="relative aspect-[16/9] cursor-ew-resize touch-none overflow-hidden rounded-3xl border border-white/[0.08] select-none"
+      className="relative aspect-[3/4] cursor-ew-resize touch-none overflow-hidden rounded-3xl border border-white/[0.08] select-none"
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
@@ -77,25 +73,25 @@ function CompareSlider({ image, alt }: { image: string; alt: string }) {
     >
       {/* AFTER (base layer) */}
       <Image
-        src={asset(image)}
+        src={asset(after)}
         alt={alt}
         fill
-        sizes="(min-width: 1024px) 1280px, 100vw"
+        sizes="(min-width: 768px) 50vw, 100vw"
         className="object-cover"
       />
 
-      {/* BEFORE (grime-filtered clip) */}
+      {/* BEFORE (clipped overlay) */}
       <div
         aria-hidden
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
         <Image
-          src={asset(image)}
+          src={asset(before)}
           alt=""
           fill
-          sizes="(min-width: 1024px) 1280px, 100vw"
-          className="object-cover brightness-[0.62] contrast-[0.82] saturate-[0.35] sepia-[0.18]"
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover"
         />
       </div>
 
@@ -135,24 +131,17 @@ export function BeforeAfter() {
           index="03"
           eyebrow="Before & After"
           title="The results speak. Drag to compare."
-          lede="Real transformations from paint correction, ceramic coatings, and full details. Drag the divider to see the difference."
+          lede="Real transformations from real client vehicles. Drag the divider to see the difference."
           align="center"
         />
 
-        <div className="mt-14 space-y-14 lg:mt-16 lg:space-y-20">
+        <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-8 lg:mt-16">
           {comparisons.map((comparison) => (
-            <FadeUp key={comparison.image}>
-              <CompareSlider image={comparison.image} alt={comparison.alt} />
-              <div className="mt-5 flex flex-col items-center gap-1.5 text-center">
-                <p className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                  {comparison.caption}
-                </p>
-                {comparison.quote && (
-                  <p className="max-w-md text-sm text-[#bdbdbd] italic">
-                    {comparison.quote}
-                  </p>
-                )}
-              </div>
+            <FadeUp key={comparison.after}>
+              <CompareSlider {...comparison} />
+              <p className="mt-5 text-center font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+                {comparison.caption}
+              </p>
             </FadeUp>
           ))}
         </div>

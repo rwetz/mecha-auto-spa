@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CalendarCheck, Mail, MessageSquareQuote, Phone } from "lucide-react";
+import { Mail, MessageSquareQuote, Phone } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
 import { FadeUp } from "@/components/animations/fade-up";
@@ -35,13 +35,6 @@ const channels = [
     href: "/request-quote/",
     note: "Exact pricing within one business day",
   },
-  {
-    icon: CalendarCheck,
-    title: "Book online",
-    value: "Live calendar",
-    href: SITE.bookingUrl,
-    note: "Pick a time that works — we come to you",
-  },
 ] as const;
 
 export default function ContactPage() {
@@ -64,7 +57,7 @@ export default function ContactPage() {
             </p>
           </FadeUp>
 
-          <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {channels.map((channel) => {
               const external = channel.href.startsWith("http");
               return (
@@ -125,12 +118,12 @@ export default function ContactPage() {
                         : "rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-[13px] text-muted-foreground"
                     }
                   >
-                    {city.name}
+                    {city.name}, {city.state}
                   </li>
                 ))}
               </ul>
               <p className="mt-5 text-sm text-muted-foreground">
-                Based in Rochester, MN · Serving all of Southern Minnesota
+                Based in Rochester, MN · More areas coming soon
               </p>
             </FadeUp>
           </div>

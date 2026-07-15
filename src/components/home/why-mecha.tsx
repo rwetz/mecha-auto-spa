@@ -13,8 +13,8 @@ export function WhyMecha() {
         <FadeUp className="relative order-last lg:order-first">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.06] sm:aspect-[4/3] lg:aspect-[4/5]">
             <Image
-              src={asset("/images/why-mecha.jpg")}
-              alt="Black Mercedes-AMG GT detailed by Mecha Auto Spa"
+              src={asset("/images/bmw-wheel.jpg")}
+              alt="Freshly detailed BMW wheel and tire by Mecha Auto Spa"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

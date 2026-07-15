@@ -15,7 +15,7 @@ export function Faq() {
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
-            index="10"
+            index="09"
             eyebrow="FAQ"
             title="Questions, answered straight."
             lede="Everything most owners ask before their first appointment. Anything else — call or send a quote request."

@@ -23,7 +23,7 @@ export function PageHero({
   title,
   lede,
   primaryCta = { label: "Request a Quote", href: "/request-quote/" },
-  secondaryCta = { label: "Book This Service", href: SITE.bookingUrl },
+  secondaryCta = { label: `Call ${SITE.phone}`, href: SITE.phoneHref },
 }: PageHeroProps) {
   return (
     <section className="grain relative flex min-h-[62svh] items-end overflow-hidden lg:min-h-[640px]">

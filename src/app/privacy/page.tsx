@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -6,9 +7,6 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-/**
- * PLACEHOLDER legal copy — have this reviewed and replaced before launch.
- */
 export default function PrivacyPage() {
   return (
     <section className="section-pad pt-36 lg:pt-44">
@@ -23,10 +21,11 @@ export default function PrivacyPage() {
           <div>
             <h2>Information we collect</h2>
             <p className="mt-3">
-              When you request a quote or book a service, we collect the
-              contact and vehicle details you provide — name, phone, email,
-              city, and vehicle information. We use standard analytics tools
-              to understand how visitors use this site.
+              When you request a quote or contact us, we collect only the
+              details you choose to provide — your name, phone number, email,
+              city, vehicle information, and any notes about your vehicle. We
+              don&rsquo;t use tracking cookies or advertising trackers on this
+              site.
             </p>
           </div>
           <div>
@@ -38,10 +37,26 @@ export default function PrivacyPage() {
             </p>
           </div>
           <div>
+            <h2>Hosting</h2>
+            <p className="mt-3">
+              This site is served as static pages by our hosting provider,
+              which may keep standard server logs (such as IP addresses) for
+              security and operations, as described in the provider&rsquo;s
+              own privacy policy.
+            </p>
+          </div>
+          <div>
             <h2>Contact</h2>
             <p className="mt-3">
-              Questions about this policy? Email us and we&rsquo;ll respond
-              promptly.
+              Questions about this policy, or want your information removed?
+              Email us at{" "}
+              <a
+                href={`mailto:${SITE.email}`}
+                className="text-foreground underline underline-offset-2"
+              >
+                {SITE.email}
+              </a>{" "}
+              and we&rsquo;ll respond promptly.
             </p>
           </div>
         </div>

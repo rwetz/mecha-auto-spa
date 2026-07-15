@@ -11,18 +11,17 @@ export const SITE = {
   name: "Mecha Auto Spa",
   tagline: "Precision. Protection. Perfection.",
   description:
-    "Premium mobile detailing, ceramic coatings, and paint correction serving Rochester, Winona, and surrounding Southern Minnesota communities.",
+    "Premium mobile detailing, ceramic coatings, and paint correction serving Rochester, Winona, Eyota, Fountain City, and nearby communities.",
   /** PLACEHOLDER — set to the purchased domain before launch. */
   url: "https://mechaautospa.com",
 
-  /** PLACEHOLDER phone. */
-  phone: "(507) 555-0123",
-  phoneHref: "tel:+15075550123",
-  /** PLACEHOLDER email. */
-  email: "hello@mechaautospa.com",
+  phone: "(507) 993-3003",
+  phoneHref: "tel:+15079933003",
+  email: "mechaautospa@gmail.com",
 
-  /** PLACEHOLDER — Cal.com scheduling link. */
-  bookingUrl: "https://cal.com/mecha-auto-spa",
+  // Online booking is deprecated for now — every CTA routes to phone/email.
+  // When a scheduling service launches, re-add `bookingUrl` here and wire it
+  // back into the navbar, heroes, pricing cards, contact page, and footer.
 
   /**
    * PLACEHOLDER — POST endpoint for the quote form (e.g. Formspree,
@@ -44,14 +43,21 @@ export const SITE = {
     { days: "Sunday", hours: "By appointment" },
   ],
 
-  /** PLACEHOLDER rating shown in trust UI. Not emitted as schema. */
-  rating: { value: "5.0", count: 47 },
+  /**
+   * Sitewide promo strip. Set to null when the special ends — the banner
+   * disappears everywhere.
+   */
+  promo: {
+    headline: "Grand Opening — 25% off all services in July!",
+    detail: "New clients only · Excludes add-ons",
+    href: "/request-quote/",
+  } as { headline: string; detail: string; href: string } | null,
 
-  /** PLACEHOLDER social links. */
+  /** Empty string = not launched yet; the footer skips missing networks. */
   social: {
-    instagram: "https://instagram.com/mechaautospa",
-    facebook: "https://facebook.com/mechaautospa",
-    google: "https://g.page/mecha-auto-spa",
+    instagram: "https://instagram.com/mecha.autospa",
+    facebook: "https://facebook.com/mecha.autospa",
+    google: "", // add Google Business Profile link when live
   },
 } as const;
 
@@ -60,13 +66,11 @@ export const NAV_LINKS = [
   { label: "Ceramic Coatings", href: "/ceramic-coatings/" },
   { label: "Paint Correction", href: "/paint-correction/" },
   { label: "Gallery", href: "/#before-after" },
-  { label: "Reviews", href: "/#reviews" },
   { label: "Contact", href: "/contact/" },
 ] as const;
 
 export const TRUST_BADGES = [
   "Fully Mobile",
-  "Fully Insured",
   "Premium Products",
   "Satisfaction Guaranteed",
 ] as const;

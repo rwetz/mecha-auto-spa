@@ -40,6 +40,19 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       )}
     >
+      {SITE.promo && (
+        <Link
+          href={SITE.promo.href}
+          className="block bg-warning text-center text-black transition-colors hover:bg-warning/90"
+        >
+          <p className="container-site py-2 text-[13px] font-semibold tracking-tight">
+            ★ {SITE.promo.headline}{" "}
+            <span className="hidden font-normal sm:inline">
+              · {SITE.promo.detail}
+            </span>
+          </p>
+        </Link>
+      )}
       <div className="container-site flex h-16 items-center justify-between gap-6 lg:h-20">
         <Logo />
 
@@ -71,11 +84,8 @@ export function Navbar() {
             </span>
             <span className="sr-only">Call {SITE.name}</span>
           </a>
-          <CtaLink href="/request-quote/" variant="outline" size="md">
+          <CtaLink href="/request-quote/" variant="primary" size="md">
             Request Quote
-          </CtaLink>
-          <CtaLink href={SITE.bookingUrl} variant="primary" size="md">
-            Book Now
           </CtaLink>
         </div>
 
@@ -130,15 +140,8 @@ export function Navbar() {
               </nav>
               <div className="flex flex-col gap-3 border-t border-white/[0.06] p-6">
                 <CtaLink
-                  href={SITE.bookingUrl}
-                  variant="primary"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Book Now
-                </CtaLink>
-                <CtaLink
                   href="/request-quote/"
-                  variant="outline"
+                  variant="primary"
                   onClick={() => setMobileOpen(false)}
                 >
                   Request a Quote

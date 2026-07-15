@@ -30,12 +30,12 @@ export function Hero() {
         transition={{ duration: 2.4, ease: EASE }}
       >
         <Image
-          src={asset("/images/hero-mustang.jpg")}
-          alt="Black Mustang GT at golden hour after a full Mecha Auto Spa detail"
+          src={asset("/images/mustang-hero.jpg")}
+          alt="Mustang GT at golden hour beneath Sugarloaf bluff after a Mecha Auto Spa detail"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[68%_center]"
+          className="object-cover object-[center_72%]"
         />
       </motion.div>
 
@@ -95,8 +95,8 @@ export function Hero() {
             <CtaLink href="/request-quote/" variant="primary">
               Request a Quote
             </CtaLink>
-            <CtaLink href={SITE.bookingUrl} variant="outline">
-              Book Appointment
+            <CtaLink href={`mailto:${SITE.email}`} variant="outline">
+              Email Us
             </CtaLink>
             <CtaLink href={SITE.phoneHref} variant="ghost">
               <Phone aria-hidden />
@@ -119,7 +119,7 @@ export function Hero() {
                 ))}
               </span>
               <span className="text-xs font-medium text-[#bdbdbd]">
-                {SITE.rating.value} Google Reviews
+                Five-Star Service
               </span>
             </li>
             {TRUST_BADGES.map((badge) => (
