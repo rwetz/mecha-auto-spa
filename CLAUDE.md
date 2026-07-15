@@ -38,8 +38,9 @@ NOT true yet — do not claim (re-add only when the owner says so):
 
 - All business info lives in `src/lib/constants.ts` — never hardcode
   phone/email/socials in components. Promo banner: `SITE.promo` (null = off).
-- Static export for GitHub Pages (`output: "export"`, subpath basePath). No
-  server code. Use `asset()` for raw image `src` values.
+- Static export for GitHub Pages (`output: "export"`), served at the root of
+  the custom domain www.mechaautospa.com (no basePath). No server code. Use
+  `asset()` for raw image `src` values.
 - Real client photos come from `detail-portfolio/` (HEIC — ImageMagick lacks
   the HEIC module here; decode with ffmpeg first, then resize with magick).
   Remaining stock placeholders: homepage hero, ceramic, paint correction,

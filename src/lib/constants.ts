@@ -12,8 +12,8 @@ export const SITE = {
   tagline: "Precision. Protection. Perfection.",
   description:
     "Premium mobile detailing, ceramic coatings, and paint correction serving Rochester, Winona, Eyota, Fountain City, and nearby communities.",
-  /** PLACEHOLDER — set to the purchased domain before launch. */
-  url: "https://mechaautospa.com",
+  /** Canonical origin — www is the GitHub Pages custom domain. */
+  url: "https://www.mechaautospa.com",
 
   phone: "(507) 993-3003",
   phoneHref: "tel:+15079933003",

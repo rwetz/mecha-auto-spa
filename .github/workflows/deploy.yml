@@ -25,10 +25,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-        # Serving from https://<user>.github.io/mecha-auto-spa/. When a
-        # custom domain (root) is added, delete this env block.
-        env:
-          PAGES_BASE_PATH: /mecha-auto-spa
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

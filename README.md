@@ -36,7 +36,8 @@ The site is fully static, so the quote form needs an external endpoint. Create a
 2. In the repo: **Settings → Pages → Source: GitHub Actions**.
 3. Every push to `main` builds and deploys via [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
 
-Currently live at **https://rwetz.github.io/mecha-auto-spa/**.
+Live at **https://www.mechaautospa.com** (GitHub Pages custom domain; the old
+`rwetz.github.io/mecha-auto-spa/` URL 301-redirects there).
 
 ### Base path (subpath vs. custom domain)
 
