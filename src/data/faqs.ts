@@ -44,4 +44,9 @@ export const faqs: Faq[] = [
     answer:
       "Request a quote through the site, or call, text, or email us directly — texting is a perfectly fine way to book. We confirm your appointment, arrive on time, and handle everything on-site.",
   },
+  {
+    question: "How can I pay?",
+    answer:
+      "Whatever's easiest for you — cash and check work just as well as card. We also welcome tap-to-pay, including Apple Pay and Google Pay.",
+  },
 ];
