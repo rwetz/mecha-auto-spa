@@ -1,33 +1,27 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { asset } from "@/lib/asset";
 
-/** Angular monogram — precision-machined "M" with a single Ford-blue node. */
+/** Brand monogram — the metallic "M" lifted from the real logo, matching
+ *  the site favicon. Sits on a dark tile so it reads over the bright hero. */
 function LogoMark({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      aria-hidden="true"
-      className={cn("size-9", className)}
+    <span
+      className={cn(
+        "relative block size-9 overflow-hidden rounded-lg ring-1 ring-white/10",
+        className
+      )}
     >
-      <rect
-        x="1"
-        y="1"
-        width="30"
-        height="30"
-        rx="8"
-        className="stroke-white/15"
-        strokeWidth="1.25"
+      <Image
+        src={asset("/images/logo-mark.png")}
+        alt=""
+        aria-hidden
+        fill
+        sizes="36px"
+        className="object-cover"
       />
-      <path
-        d="M8 23V10.5L16 18.5L24 10.5V23"
-        className="stroke-foreground"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="16" cy="18.5" r="1.6" fill="#1859B3" />
-    </svg>
+    </span>
   );
 }
 

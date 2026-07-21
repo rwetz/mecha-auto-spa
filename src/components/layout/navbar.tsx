@@ -58,7 +58,7 @@ export function Navbar() {
 
         {/* Desktop links */}
         <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-7 xl:gap-9">
+          <ul className="flex items-center gap-6 xl:gap-8">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
                 <Link
@@ -76,10 +76,10 @@ export function Navbar() {
         <div className="hidden items-center gap-2.5 lg:flex">
           <a
             href={SITE.phoneHref}
-            className="inline-flex h-10 items-center gap-2 rounded-lg px-3 text-sm whitespace-nowrap text-muted-foreground transition-colors hover:bg-white/[0.05] hover:text-foreground"
+            className="hidden h-10 items-center gap-2 rounded-lg px-3 text-sm whitespace-nowrap text-muted-foreground transition-colors hover:bg-white/[0.05] hover:text-foreground xl:inline-flex"
           >
             <Phone className="size-4" aria-hidden />
-            <span className="hidden xl:inline font-mono text-[13px] tracking-tight">
+            <span className="font-mono text-[13px] tracking-tight">
               {SITE.phone}
             </span>
             <span className="sr-only">Call {SITE.name}</span>
