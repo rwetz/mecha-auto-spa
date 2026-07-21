@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { ChevronDown, Phone, Star } from "lucide-react";
+import { ChevronDown, Phone } from "lucide-react";
 import { SITE, TRUST_BADGES } from "@/lib/constants";
 import { asset } from "@/lib/asset";
 import { CtaLink } from "@/components/shared/cta-link";
@@ -109,19 +109,6 @@ export function Hero() {
             variants={item}
             className="mt-12 flex flex-wrap items-center gap-2"
           >
-            <li className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 backdrop-blur-sm">
-              <span className="flex items-center gap-0.5" aria-hidden>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="size-3 fill-warning text-warning"
-                  />
-                ))}
-              </span>
-              <span className="text-xs font-medium text-[#bdbdbd]">
-                Five-Star Service
-              </span>
-            </li>
             {TRUST_BADGES.map((badge) => (
               <li
                 key={badge}

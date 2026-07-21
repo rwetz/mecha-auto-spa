@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Star } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
 import { Logo } from "@/components/layout/logo";
@@ -79,16 +79,9 @@ export function Footer() {
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
             {SITE.description}
           </p>
-          <div className="mt-6 flex items-center gap-2">
-            <span className="flex items-center gap-0.5" aria-hidden>
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="size-3.5 fill-warning text-warning" />
-              ))}
-            </span>
-            <span className="font-mono text-xs text-muted-foreground">
-              Five-star service — satisfaction guaranteed
-            </span>
-          </div>
+          <p className="mt-6 font-mono text-xs text-muted-foreground">
+            Satisfaction guaranteed — 48-hour make-it-right.
+          </p>
           <div className="mt-6 flex items-center gap-2">
             {SITE.social.instagram && (
               <a
