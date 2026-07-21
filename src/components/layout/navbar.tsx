@@ -84,8 +84,11 @@ export function Navbar() {
             </span>
             <span className="sr-only">Call {SITE.name}</span>
           </a>
-          <CtaLink href="/request-quote/" variant="primary" size="md">
+          <CtaLink href="/request-quote/" variant="outline" size="md">
             Request Quote
+          </CtaLink>
+          <CtaLink href={SITE.bookingUrl} variant="primary" size="md">
+            Book Now
           </CtaLink>
         </div>
 
@@ -140,8 +143,15 @@ export function Navbar() {
               </nav>
               <div className="flex flex-col gap-3 border-t border-white/[0.06] p-6">
                 <CtaLink
-                  href="/request-quote/"
+                  href={SITE.bookingUrl}
                   variant="primary"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Book Now
+                </CtaLink>
+                <CtaLink
+                  href="/request-quote/"
+                  variant="outline"
                   onClick={() => setMobileOpen(false)}
                 >
                   Request a Quote

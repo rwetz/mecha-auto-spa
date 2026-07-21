@@ -95,12 +95,12 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                 </ul>
                 <div className="mt-8">
                   <CtaLink
-                    href={SITE.phoneHref}
+                    href={SITE.bookingUrl}
                     variant={tier.popular ? "primary" : "outline"}
                     size="md"
                     className="w-full"
                   >
-                    Call to Book
+                    Book Now
                   </CtaLink>
                 </div>
               </article>

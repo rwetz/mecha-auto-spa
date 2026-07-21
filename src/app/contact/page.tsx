@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Mail, MessageSquareQuote, MessageSquareText, Phone } from "lucide-react";
+import {
+  CalendarCheck,
+  Mail,
+  MessageSquareQuote,
+  MessageSquareText,
+  Phone,
+} from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
 import { FadeUp } from "@/components/animations/fade-up";
@@ -14,6 +20,13 @@ export const metadata: Metadata = {
 };
 
 const channels = [
+  {
+    icon: CalendarCheck,
+    title: "Book online",
+    value: "Pick a time",
+    href: SITE.bookingUrl,
+    note: "Choose an open slot — it drops straight onto our calendar",
+  },
   {
     icon: Phone,
     title: "Call us",
@@ -65,7 +78,7 @@ export default function ContactPage() {
             </p>
           </FadeUp>
 
-          <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {channels.map((channel) => {
               const external = channel.href.startsWith("http");
               return (

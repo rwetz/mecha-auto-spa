@@ -42,11 +42,11 @@ export function FinalCta() {
             satisfaction guaranteed.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <CtaLink href="/request-quote/" variant="primary">
-              Request a Quote
+            <CtaLink href={SITE.bookingUrl} variant="primary">
+              Book Now
             </CtaLink>
-            <CtaLink href={`mailto:${SITE.email}`} variant="outline">
-              Email Us
+            <CtaLink href="/request-quote/" variant="outline">
+              Request a Quote
             </CtaLink>
             <CtaLink href={SITE.phoneHref} variant="ghost">
               <Phone aria-hidden />

@@ -20,9 +20,12 @@ export const SITE = {
   smsHref: "sms:+15079933003",
   email: "mechaautospa@gmail.com",
 
-  // Online booking is deprecated for now — every CTA routes to phone/email.
-  // When a scheduling service launches, re-add `bookingUrl` here and wire it
-  // back into the navbar, heroes, pricing cards, contact page, and footer.
+  /**
+   * Public Google Calendar appointment schedule. Bookings land directly on
+   * the mechaautospa@gmail.com calendar. `CtaLink` opens any http(s) URL in
+   * a new tab, so this works anywhere a CtaLink is used.
+   */
+  bookingUrl: "https://calendar.app.google/mG6QnYJegRwNT6vT6",
 
   /**
    * PLACEHOLDER — POST endpoint for the quote form (e.g. Formspree,
