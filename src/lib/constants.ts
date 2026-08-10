@@ -21,11 +21,11 @@ export const SITE = {
   email: "mechaautospa@gmail.com",
 
   /**
-   * Public Google Calendar appointment schedule. Bookings land directly on
-   * the mechaautospa@gmail.com calendar. `CtaLink` opens any http(s) URL in
+   * Square Appointments booking page. `CtaLink` opens any http(s) URL in
    * a new tab, so this works anywhere a CtaLink is used.
    */
-  bookingUrl: "https://calendar.app.google/mG6QnYJegRwNT6vT6",
+  bookingUrl:
+    "https://book.squareup.com/appointments/cf5z9nqvog67iw/location/LQG89HXRSNPGG",
 
   /**
    * PLACEHOLDER — POST endpoint for the quote form (e.g. Formspree,
@@ -51,11 +51,7 @@ export const SITE = {
    * Sitewide promo strip. Set to null when the special ends — the banner
    * disappears everywhere.
    */
-  promo: {
-    headline: "Grand Opening — 25% off all services in July!",
-    detail: "New clients only · Excludes add-ons",
-    href: "/request-quote/",
-  } as { headline: string; detail: string; href: string } | null,
+  promo: null as { headline: string; detail: string; href: string } | null,
 
   /** Empty string = not launched yet; the footer skips missing networks. */
   social: {

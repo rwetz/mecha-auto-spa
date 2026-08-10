@@ -24,9 +24,10 @@ True and citable:
   the flyer), machine polishers (paint correction + machine-applied sealant).
 - Pricing: exactly as in `src/data/services.ts` (matches the flyer 1:1).
 - Satisfaction guarantee (48-hour make-it-right), 24-hour cancellation notice.
-- Online booking is live via a Google Calendar appointment schedule
-  (`SITE.bookingUrl`, mechaautospa@gmail.com calendar). "Book Now" CTAs appear
-  in the navbar, hero, /services pricing cards, contact page, and final CTA.
+- Online booking is live via Square Appointments (`SITE.bookingUrl`, switched
+  from the Google Calendar appointment schedule Aug 2026). "Book Now" CTAs
+  appear in the navbar, hero, /services pricing cards, contact page, and final
+  CTA.
 
 NOT true yet — do not claim (re-add only when the owner says so):
 - No steamer (on the way). No steam-cleaning claims anywhere.
