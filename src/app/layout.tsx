@@ -37,7 +37,8 @@ export const metadata: Metadata = {
     "mobile detailing Rochester",
     "ceramic coating Rochester MN",
     "paint correction Minnesota",
-    "auto detailing Winona MN",
+    "auto detailing Byron MN",
+    "mobile detailing Stewartville MN",
   ],
   openGraph: {
     type: "website",

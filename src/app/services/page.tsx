@@ -15,7 +15,7 @@ import { FinalCta } from "@/components/home/final-cta";
 export const metadata: Metadata = {
   title: "Detailing Services & Pricing | Rochester MN",
   description:
-    "Exterior, interior, and full-detail packages from $90. Transparent tiered pricing for mobile auto detailing in Rochester, Winona, and Southern Minnesota.",
+    "Exterior, interior, and full-detail packages from $90. Transparent tiered pricing for mobile auto detailing in Rochester, MN and surrounding communities.",
   alternates: { canonical: "/services/" },
 };
 

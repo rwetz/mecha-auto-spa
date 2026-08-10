@@ -85,7 +85,7 @@ export function Hero() {
             className="mt-7 max-w-lg text-base leading-relaxed text-[#bdbdbd] sm:text-lg"
           >
             Premium mobile detailing, ceramic coatings, and paint correction —
-            serving Rochester, Winona, and surrounding communities.
+            serving Rochester, MN and surrounding communities.
           </motion.p>
 
           <motion.div

@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { CircleDot, Droplets, Scan, Sun } from "lucide-react";
 import { correctionTiers } from "@/data/services";
 import { jsonLd, serviceSchema } from "@/lib/schema";
 import { PageHero } from "@/components/services/page-hero";
 import { PricingTiers } from "@/components/services/pricing-tiers";
+import { CompareSlider } from "@/components/shared/compare-slider";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
 import { Stagger, StaggerItem } from "@/components/animations/stagger";
 import { SITE } from "@/lib/constants";
-import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
   title: "Paint Correction Rochester MN — Swirl & Scratch Removal",
@@ -118,15 +117,16 @@ export default function PaintCorrectionPage() {
       <section className="section-pad bg-surface">
         <div className="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <FadeUp>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.06]">
-              <Image
-                src={asset("/images/correction-closeup.jpg")}
-                alt="Close-up of corrected paint with crisp reflections"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
+            <CompareSlider
+              before="/images/f150-correction-before.jpg"
+              after="/images/f150-correction-after.jpg"
+              alt="Ford truck rear panel before and after paint correction — swirl marks removed"
+              className="aspect-[4/3]"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <p className="mt-5 text-center font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+              Real client paint — drag to compare
+            </p>
           </FadeUp>
           <div>
             <SectionHeading

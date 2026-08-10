@@ -15,7 +15,7 @@ import { FinalCta } from "@/components/home/final-cta";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Reach Mecha Auto Spa — premium mobile detailing for Rochester, Winona, and nearby communities. Call, text, email, or request a quote online.",
+    "Reach Mecha Auto Spa — premium mobile detailing for Rochester, MN and surrounding communities. Call, text, email, or request a quote online.",
   alternates: { canonical: "/contact/" },
 };
 

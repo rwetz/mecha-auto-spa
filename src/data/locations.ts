@@ -1,18 +1,23 @@
 /**
- * Service-area cities. Order matters — primary markets first.
+ * Service-area cities. Order matters — primary market first, then the
+ * surrounding communities roughly by distance from Rochester.
  * Also used for local-SEO structured data (areaServed).
- * Note: Fountain City is across the river in Wisconsin, so every
- * consumer of this list must use `state` rather than assuming MN.
+ *
+ * Scope narrowed to Rochester + surrounding towns (Aug 2026). Winona and
+ * Fountain City WI were dropped, so every city here is now in Minnesota.
  */
 export interface ServiceCity {
   name: string;
-  state: "MN" | "WI";
+  state: "MN";
   primary?: boolean;
 }
 
 export const serviceCities: ServiceCity[] = [
   { name: "Rochester", state: "MN", primary: true },
-  { name: "Winona", state: "MN", primary: true },
+  { name: "Byron", state: "MN" },
+  { name: "Oronoco", state: "MN" },
+  { name: "Stewartville", state: "MN" },
   { name: "Eyota", state: "MN" },
-  { name: "Fountain City", state: "WI" },
+  { name: "Kasson", state: "MN" },
+  { name: "Pine Island", state: "MN" },
 ];

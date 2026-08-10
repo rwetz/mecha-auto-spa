@@ -18,8 +18,12 @@ insured" badges that had to be scrubbed by hand.
 ## Current fact sheet (update this when the owner updates you)
 
 True and citable:
-- Fully mobile — comes to driveways/workplaces. Rochester & Winona MN
-  (primary), Eyota MN, Fountain City WI ("more to come").
+- Fully mobile — comes to driveways/workplaces. Rochester MN (primary) and
+  surrounding communities: Byron, Oronoco, Stewartville, Eyota, Kasson,
+  Pine Island ("more to come"). Narrowed to the Rochester area Aug 2026 —
+  Winona MN and Fountain City WI were dropped; do not re-add without the
+  owner saying so. Service area lives in `src/data/locations.ts` and drives
+  the map, footer, contact page, quote-form dropdown, and areaServed schema.
 - Owns: foam cannon, two-bucket wash gear, extractor (carpet extraction is on
   the flyer), machine polishers (paint correction + machine-applied sealant).
 - Pricing: exactly as in `src/data/services.ts` (matches the flyer 1:1).
@@ -46,7 +50,10 @@ NOT true yet — do not claim (re-add only when the owner says so):
   `asset()` for raw image `src` values.
 - Real client photos come from `detail-portfolio/` (HEIC — ImageMagick lacks
   the HEIC module here; decode with ffmpeg first, then resize with magick).
-  Remaining stock placeholders: homepage hero, ceramic, paint correction,
-  Platinum card, /services page hero — replace with real photos as provided.
+  Remaining stock placeholders: homepage hero, ceramic, Platinum card,
+  /paint-correction page hero, /services page hero — replace with real photos
+  as provided. The homepage paint-correction section and the /paint-correction
+  "Result" section now use a real client before/after pair
+  (`f150-correction-{before,after}.jpg`) in the shared `CompareSlider`.
 - Before committing content changes: `grep -rni "steam\|insured\|ozone\|generator\|booking"`
   over `src/` and confirm each hit is intentional per the fact sheet above.

@@ -8,7 +8,7 @@ import { CtaLink } from "@/components/shared/cta-link";
 export const metadata: Metadata = {
   title: "Request a Quote",
   description:
-    "Get an exact detailing quote for your vehicle in minutes. Mobile detailing, ceramic coatings, and paint correction across Rochester and Southern MN.",
+    "Get an exact detailing quote for your vehicle in minutes. Mobile detailing, ceramic coatings, and paint correction across Rochester, MN and surrounding communities.",
   alternates: { canonical: "/request-quote/" },
 };
 

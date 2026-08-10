@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { correctionTiers } from "@/data/services";
-import { asset } from "@/lib/asset";
+import { CompareSlider } from "@/components/shared/compare-slider";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
@@ -11,19 +10,16 @@ export function CorrectionSection() {
     <section id="paint-correction" className="section-pad overflow-hidden">
       <div className="container-site grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
         <FadeUp className="relative order-last lg:order-first">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.06] lg:aspect-[5/4]">
-            <Image
-              src={asset("/images/paint-correction.jpg")}
-              alt="Deep gloss reflection on corrected paint at dusk"
-              fill
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover"
-            />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"
-            />
-          </div>
+          <CompareSlider
+            before="/images/f150-correction-before.jpg"
+            after="/images/f150-correction-after.jpg"
+            alt="Ford truck rear panel before and after paint correction — swirl marks removed"
+            className="aspect-[4/3]"
+            sizes="(min-width: 1024px) 45vw, 100vw"
+          />
+          <p className="mt-5 text-center font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+            Real client paint — drag to compare
+          </p>
         </FadeUp>
 
         <div>

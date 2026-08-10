@@ -12,7 +12,7 @@ export const faqs: Faq[] = [
   {
     question: "Do you come to me?",
     answer:
-      "Yes — Mecha Auto Spa is fully mobile. We service driveways, workplaces, and commercial lots across Rochester, Eyota, Winona, Fountain City, and nearby communities.",
+      "Yes — Mecha Auto Spa is fully mobile. We service driveways, workplaces, and commercial lots across Rochester, Byron, Oronoco, Stewartville, Eyota, and nearby communities.",
   },
   {
     question: "Do you need my water or electricity?",
