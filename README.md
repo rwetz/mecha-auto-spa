@@ -1,6 +1,8 @@
 # Mecha Auto Spa
 
-Premium mobile detailing website for Rochester, MN — built to the specification in [design.md](design.md).
+Premium mobile detailing website for Rochester, MN, built to the specification in [design.md](design.md).
+
+**Live at [mechaautospa.com](https://www.mechaautospa.com).**
 
 **Stack:** Next.js 15 (App Router, static export) · TypeScript · Tailwind CSS v4 · shadcn/ui · Framer Motion · React Hook Form + Zod
 
@@ -12,7 +14,7 @@ npm run dev      # http://localhost:3000
 npm run build    # static export → ./out
 ```
 
-## Before launch — replace the placeholders
+## Before launch: replace the placeholders
 
 Everything site-wide lives in **`src/lib/constants.ts`**:
 
@@ -24,7 +26,7 @@ Everything site-wide lives in **`src/lib/constants.ts`**:
 | Real Google reviews (then re-enable `<Reviews />` on the homepage) | `src/data/reviews.ts` |
 | Remaining stock photos: hero of /ceramic & /paint pages, ceramic/correction sections | `public/images/` (see [ATTRIBUTION.md](ATTRIBUTION.md)) |
 
-> Content rules for facts/claims live in [CLAUDE.md](CLAUDE.md) — read it before editing copy.
+> Content rules for facts/claims live in [CLAUDE.md](CLAUDE.md); read it before editing copy.
 
 ### Quote form
 
@@ -44,7 +46,7 @@ Live at **https://www.mechaautospa.com** (GitHub Pages custom domain; the old
 Because the site is served from the `/mecha-auto-spa/` subpath, the deploy
 workflow sets `PAGES_BASE_PATH=/mecha-auto-spa`, which `next.config.ts` turns
 into `basePath` (covering links + `_next` assets) and `NEXT_PUBLIC_BASE_PATH`
-(consumed by `asset()` in `src/lib/asset.ts` to prefix `next/image` sources —
+(consumed by `asset()` in `src/lib/asset.ts` to prefix `next/image` sources;
 `basePath` alone does *not* cover those).
 
 ### Custom domain (Squarespace DNS)
@@ -52,7 +54,7 @@ into `basePath` (covering links + `_next` assets) and `NEXT_PUBLIC_BASE_PATH`
 1. Repo **Settings → Pages → Custom domain** → enter `mechaautospa.com`.
 2. In Squarespace DNS, add four `A` records for `@` pointing to GitHub Pages IPs (`185.199.108.153`, `.109.`, `.110.`, `.111.`) and a `CNAME` record for `www` → `rwetz.github.io`.
 3. Enable **Enforce HTTPS** once DNS propagates.
-4. **Delete the `env: PAGES_BASE_PATH` block** from `.github/workflows/deploy.yml` — a root domain needs no base path, and `asset()`/`basePath` become no-ops automatically.
+4. **Delete the `env: PAGES_BASE_PATH` block** from `.github/workflows/deploy.yml`; a root domain needs no base path, and `asset()`/`basePath` become no-ops automatically.
 5. Set `SITE.url` in `src/lib/constants.ts` to the real domain (fixes canonical URLs, sitemap, robots, Open Graph, and structured data) and push.
 
 ## Future: moving to Vercel (Part 4 of the spec)
@@ -82,3 +84,7 @@ src/
 ├── data/                 # Services, pricing, reviews, FAQs, locations
 └── lib/                  # constants.ts (business info), schema.ts (JSON-LD)
 ```
+
+## License
+
+[MIT](LICENSE).
