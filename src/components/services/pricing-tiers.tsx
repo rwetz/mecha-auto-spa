@@ -72,7 +72,7 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                       [
                         ["Cars", tier.vehiclePrices.cars],
                         ["SUVs", tier.vehiclePrices.suvs],
-                        ["Full-size trucks", tier.vehiclePrices.trucks],
+                        ["Trucks & vans", tier.vehiclePrices.trucks],
                       ] as const
                     ).map(([label, price]) => (
                       <li key={label} className="flex justify-between">
@@ -107,6 +107,12 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
             </StaggerItem>
           ))}
         </Stagger>
+
+        {group.footnote && (
+          <p className="mt-8 text-center font-mono text-xs text-muted-foreground">
+            {group.footnote}
+          </p>
+        )}
       </div>
     </section>
   );

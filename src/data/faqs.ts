@@ -12,7 +12,7 @@ export const faqs: Faq[] = [
   {
     question: "Do you come to me?",
     answer:
-      "Yes — Mecha Auto Spa is fully mobile. We service driveways, workplaces, and commercial lots across Rochester, Byron, Oronoco, Stewartville, Eyota, and nearby communities.",
+      "Yes — Mecha Auto Spa is fully mobile. We service driveways, workplaces, and parking lots across Rochester, Byron, Oronoco, Stewartville, Eyota, Kasson, Pine Island, and nearby communities.",
   },
   {
     question: "Do you need my water or electricity?",
@@ -22,12 +22,12 @@ export const faqs: Faq[] = [
   {
     question: "How long does ceramic coating last?",
     answer:
-      "Our packages are rated for 1, 3, or 5 years depending on the coating system. With basic maintenance washes, coatings routinely meet or exceed their rated life — and we include care guidance with every install.",
+      "Our packages are rated for 1, 3, or 5 years depending on the coating system. Those ratings assume regular maintenance washes — how a vehicle is driven, parked, and stored affects real-world durability. We include care guidance with every install.",
   },
   {
     question: "Can you detail trucks and SUVs?",
     answer:
-      "Absolutely — trucks are some of our favorite work. Oversized vehicles may carry a size adjustment, which we confirm up front in your quote. No surprises.",
+      "Absolutely — trucks are some of our favorite work. Pricing runs in three sizes: cars, SUVs, and trucks & vans. Third-row SUVs are priced in the trucks & vans category. Anything oversized or unusually soiled we confirm up front in your quote. No surprises.",
   },
   {
     question: "Do you remove pet hair?",

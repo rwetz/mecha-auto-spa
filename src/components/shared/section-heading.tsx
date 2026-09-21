@@ -33,7 +33,7 @@ export function SectionHeading({
           )}
         >
           {index && (
-            <span className="font-mono text-[11px] font-medium text-muted-foreground/60">
+            <span className="font-mono text-[11px] font-medium text-muted-foreground">
               {index}
             </span>
           )}

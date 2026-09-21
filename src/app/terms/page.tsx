@@ -15,14 +15,15 @@ export default function TermsPage() {
           Terms of Service
         </h1>
         <p className="mt-3 font-mono text-xs text-muted-foreground">
-          Last updated: July 2026
+          Last updated: September 2026
         </p>
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground [&_h2]:font-display [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-foreground">
           <div>
             <h2>Quotes &amp; pricing</h2>
             <p className="mt-3">
               Published prices are starting points by vehicle size (cars,
-              SUVs, and full-size trucks) for vehicles in average condition.
+              SUVs, and trucks &amp; vans) for vehicles in average condition.
+              Third-row SUVs are priced in the trucks &amp; vans category.
               Heavily soiled vehicles, pet hair, and other special conditions
               may adjust the price — final pricing is always confirmed before
               your appointment and never changes on arrival without your
@@ -32,9 +33,36 @@ export default function TermsPage() {
           <div>
             <h2>Promotions</h2>
             <p className="mt-3">
-              Promotional discounts (including the grand-opening special)
-              apply to new clients only, cannot be combined with other offers,
-              and exclude add-on services unless stated otherwise.
+              When a promotion is running, it is announced on this site and
+              its terms are stated with the offer. Unless the offer says
+              otherwise, promotional discounts cannot be combined with other
+              offers and exclude add-on services. We are not able to apply a
+              promotion retroactively to a completed service.
+            </p>
+          </div>
+          <div>
+            <h2>Vehicle condition</h2>
+            <p className="mt-3">
+              Detailing cleans and protects a vehicle — it does not repair
+              it. Pre-existing damage such as clear-coat failure, chips,
+              dents, cracked or brittle trim, torn or worn upholstery,
+              aftermarket wraps and films, and previously applied fillers or
+              glazes may become more visible once a surface is cleaned or
+              polished. We point out anything we notice before we start, and
+              we will decline or adjust a service rather than risk damaging a
+              surface we don&rsquo;t believe will hold up. Please remove
+              valuables and personal items before your appointment.
+            </p>
+          </div>
+          <div>
+            <h2>Photos of your vehicle</h2>
+            <p className="mt-3">
+              We sometimes photograph our work for this site and our social
+              accounts. Tell us at any time if you&rsquo;d rather we
+              didn&rsquo;t photograph your vehicle, or email us to have a
+              photo of your vehicle taken down, and we&rsquo;ll honour it. We
+              don&rsquo;t publish license plates, addresses, or anything else
+              that identifies you.
             </p>
           </div>
           <div>

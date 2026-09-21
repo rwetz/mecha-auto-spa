@@ -13,8 +13,8 @@ export function localBusinessSchema() {
     url: SITE.url,
     telephone: SITE.phone,
     email: SITE.email,
-    image: `${SITE.url}/images/mustang-hero.jpg`,
-    priceRange: "$90–$999",
+    image: `${SITE.url}/images/mobile-hand-wash-hero.jpg`,
+    priceRange: "$105–$999",
     address: {
       "@type": "PostalAddress",
       addressLocality: SITE.home.city,

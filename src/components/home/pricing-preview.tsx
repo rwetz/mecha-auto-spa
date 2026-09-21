@@ -31,7 +31,7 @@ export function PricingPreview() {
                 <p className="mt-3 font-mono text-3xl font-semibold tracking-tight lg:text-4xl">
                   ${service.price}
                 </p>
-                <p className="mt-1 text-xs text-muted-foreground/70">
+                <p className="mt-1 text-xs text-muted-foreground">
                   starting at
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1 text-[13px] font-medium text-muted-foreground transition-colors group-hover:text-foreground">

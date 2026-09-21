@@ -30,7 +30,7 @@ export function WhyMecha() {
               PAINT-SAFE PROCESS
             </p>
             <p className="mt-1 font-display text-sm font-semibold">
-              Zero swirls introduced. Ever.
+              Two-bucket wash, every time.
             </p>
           </div>
         </FadeUp>

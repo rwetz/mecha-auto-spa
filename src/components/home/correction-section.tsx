@@ -27,7 +27,7 @@ export function CorrectionSection() {
             index="05"
             eyebrow="Paint Correction"
             title="Remove the swirls. Restore the mirror."
-            lede="Machine polishing measured in microns — swirl marks, light scratches, oxidation, and water spots permanently removed, not hidden under filler."
+            lede="Machine polishing that levels the clear coat itself — swirl marks, light scratches, oxidation, and water spots permanently removed, not hidden under filler."
           />
 
           <div className="mt-9 space-y-3">

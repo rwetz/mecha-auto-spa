@@ -27,7 +27,7 @@ export function ServicesGrid() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={asset(service.image)}
-                    alt={`${service.name} — Mecha Auto Spa`}
+                    alt={service.imageAlt}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"

@@ -15,7 +15,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <p className="mt-3 font-mono text-xs text-muted-foreground">
-          Last updated: July 2026
+          Last updated: September 2026
         </p>
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground [&_h2]:font-display [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-foreground">
           <div>
@@ -23,17 +23,31 @@ export default function PrivacyPage() {
             <p className="mt-3">
               When you request a quote or contact us, we collect only the
               details you choose to provide — your name, phone number, email,
-              city, vehicle information, and any notes about your vehicle. We
-              don&rsquo;t use tracking cookies or advertising trackers on this
-              site.
+              city, vehicle information, and any notes about your vehicle.
+              This site sets no cookies of its own and uses no analytics or
+              advertising trackers, so there is nothing here for you to
+              consent to or opt out of.
             </p>
           </div>
           <div>
             <h2>How we use it</h2>
             <p className="mt-3">
               Your information is used solely to prepare quotes, schedule
-              appointments, and communicate about your service. We never sell
-              or share your information with third parties for marketing.
+              appointments, and communicate about your service. If you give us
+              a phone number, we may call or text you about your request —
+              reply STOP at any time and we&rsquo;ll stop texting. We never
+              sell or share your information with third parties for marketing,
+              and we don&rsquo;t send marketing email unless you ask us to.
+            </p>
+          </div>
+          <div>
+            <h2>Booking through Square</h2>
+            <p className="mt-3">
+              Our &ldquo;Book Now&rdquo; links open Square Appointments, a
+              third-party scheduling service, on Square&rsquo;s own website.
+              Anything you enter there — including any payment details — is
+              handled by Square under Square&rsquo;s privacy policy and
+              cookie practices, not ours. We never see or store card numbers.
             </p>
           </div>
           <div>

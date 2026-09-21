@@ -24,7 +24,7 @@ export function HowItWorks() {
               key={step.step}
               className="panel panel-hover relative p-7 text-center"
             >
-              <span className="absolute top-5 right-5 font-mono text-[11px] text-muted-foreground/50">
+              <span className="absolute top-5 right-5 font-mono text-[11px] text-muted-foreground">
                 {step.step}
               </span>
               <span className="relative mx-auto flex size-14 items-center justify-center rounded-full border border-white/10 bg-elevated">

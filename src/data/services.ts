@@ -8,11 +8,13 @@ import {
   Gem,
   Layers,
   Lightbulb,
+  Sailboat,
   Shield,
   ShieldCheck,
   Sofa,
   Sparkles,
   Sun,
+  SunDim,
   Wind,
   Wrench,
   Zap,
@@ -35,7 +37,7 @@ export interface ServiceTier {
   name: string;
   price: number;
   priceNote?: string;
-  /** Per-vehicle-size pricing rows (cars / SUVs / full-size trucks). */
+  /** Per-vehicle-size pricing rows (cars / SUVs / trucks & vans). */
   vehiclePrices?: VehiclePrices;
   blurb: string;
   features: string[];
@@ -46,6 +48,8 @@ export interface TierGroup {
   id: string;
   title: string;
   subtitle: string;
+  /** Printed under the tier grid — e.g. the flyer's vehicle-sizing rule. */
+  footnote?: string;
   tiers: ServiceTier[];
 }
 
@@ -56,6 +60,8 @@ export interface FeaturedService {
   description: string;
   price: number;
   image: string;
+  /** Describes what the photo shows — never asserts whose work it is. */
+  imageAlt: string;
   href: string;
 }
 
@@ -64,24 +70,30 @@ export const featuredServices: FeaturedService[] = [
     id: "signature-exterior",
     name: "Signature Exterior Detail",
     description: "Foam cannon pre-wash, two-bucket hand wash, and months of spray sealant protection.",
-    price: 90,
-    image: "/images/edge-exterior.jpg",
+    price: 105,
+    image: "/images/signature-exterior-foam.jpg",
+    imageAlt:
+      "An SUV coated in foam-cannon suds during a wash in a client's driveway",
     href: "/services/#packages",
   },
   {
     id: "interior",
     name: "Interior Detail",
     description: "Deep-cleaned cabins, conditioned surfaces, and streak-free glass.",
-    price: 120,
-    image: "/images/bmw-interior.jpg",
+    price: 150,
+    image: "/images/interior-detail-cabin.jpg",
+    imageAlt:
+      "A cleaned vehicle cabin — dashboard, centre console, and front seats",
     href: "/services/#packages",
   },
   {
     id: "signature-full",
     name: "Signature Full Detail",
     description: "Complete inside-and-out care — our most requested package.",
-    price: 199,
-    image: "/images/bmw-dash.jpg",
+    price: 225,
+    image: "/images/signature-full-suv.jpg",
+    imageAlt:
+      "A freshly detailed SUV with its doors open on a client's driveway",
     href: "/services/#packages",
   },
   {
@@ -90,22 +102,29 @@ export const featuredServices: FeaturedService[] = [
     description: "The no-compromise restoration: decontamination, extraction, and sealant on every surface.",
     price: 350,
     image: "/images/mustang-night-front.jpg",
+    // Stock placeholder — swap for a real Platinum vehicle when we have one.
+    imageAlt: "A dark sports car photographed head-on at night",
     href: "/services/#packages",
   },
 ];
 
-/* ── Detailing packages (matches the printed flyer 1:1) ── */
+/* ── Detailing packages ──
+ * Signature Exterior / Interior / Full match the Sept 2026 flyer 1:1.
+ * Platinum is not on that flyer but is still sold (owner, Sept 2026) —
+ * its pricing is carried over and has no flyer to check against.
+ */
 export const detailPackages: TierGroup = {
   id: "packages",
   title: "Detailing Packages",
   subtitle:
     "Four defined packages, priced by vehicle size — confirmed up front, never on arrival.",
+  footnote: "Third-row SUVs are priced in the Trucks & Vans category.",
   tiers: [
     {
       id: "signature-exterior",
       name: "Signature Exterior Detail",
-      price: 90,
-      vehiclePrices: { cars: 90, suvs: 110, trucks: 125 },
+      price: 105,
+      vehiclePrices: { cars: 105, suvs: 125, trucks: 140 },
       blurb: "The essential reset for a clean, glossy, protected exterior.",
       features: [
         "Foam cannon pre-wash",
@@ -120,8 +139,8 @@ export const detailPackages: TierGroup = {
     {
       id: "interior-detail",
       name: "Interior Detail",
-      price: 120,
-      vehiclePrices: { cars: 120, suvs: 160, trucks: 180 },
+      price: 150,
+      vehiclePrices: { cars: 150, suvs: 175, trucks: 200 },
       blurb: "Every interior surface cleaned, dressed, and protected.",
       features: [
         "Thorough vacuum",
@@ -137,9 +156,9 @@ export const detailPackages: TierGroup = {
     {
       id: "signature-full",
       name: "Signature Full Detail",
-      price: 199,
+      price: 225,
       popular: true,
-      vehiclePrices: { cars: 199, suvs: 249, trucks: 275 },
+      vehiclePrices: { cars: 225, suvs: 275, trucks: 299 },
       blurb: "Exterior + Interior combined, plus the finishing touches.",
       features: [
         "Everything in Exterior + Interior",
@@ -253,7 +272,10 @@ export const correctionTiers: TierGroup = {
   ],
 };
 
-/* ── Add-ons (matches the printed flyer 1:1) ── */
+/* ── Add-ons ──
+ * All match the Sept 2026 flyer except Glass Ceramic Coating, which is
+ * still offered but was left off that flyer (owner, Sept 2026).
+ */
 export interface AddOn {
   name: string;
   priceRange: string;
@@ -321,6 +343,44 @@ export const addOns: AddOn[] = [
     priceRange: "$50–$100",
     description: "Treats smoke, pet, and spill odors at the source.",
     icon: Wind,
+  },
+];
+
+/* ── Quote-only services ──
+ * Offered, but deliberately carry no numbers: the owner has not set rates
+ * (Sept 2026). Do NOT invent pricing here, and do not add film brands, VLT
+ * percentages, warranty terms, or any claim about Minnesota tint law — none
+ * of that has been confirmed. Descriptions stay at the level of "tell us
+ * what you have and we'll quote it".
+ */
+export interface InquiryService {
+  id: string;
+  name: string;
+  /** What we ask for in order to quote — never an implied price. */
+  description: string;
+  /** Real photo only. Omitted until we have one; the card handles that. */
+  image?: string;
+  imageAlt?: string;
+  icon: LucideIcon;
+}
+
+export const inquiryServices: InquiryService[] = [
+  {
+    id: "watercraft",
+    name: "Watercraft Detailing",
+    description:
+      "Boats and personal watercraft, washed and machine polished the same way we treat paint. Every hull is a different size and condition, so we quote each one individually.",
+    image: "/images/boat-polish.jpg",
+    imageAlt: "Machine polishing the hull of a client's boat",
+    icon: Sailboat,
+  },
+  {
+    id: "window-tinting",
+    name: "Window Tinting",
+    description:
+      "Tell us the vehicle and which windows you want done, and we'll put a quote together for you.",
+    // No tint photo yet — the card falls back to its icon treatment.
+    icon: SunDim,
   },
 ];
 

@@ -45,7 +45,9 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: "Mecha Auto Spa | Premium Mobile Detailing in Rochester, MN",
     description: SITE.description,
-    images: [{ url: "/images/mustang-hero.jpg", width: 1179, height: 1916 }],
+    images: [
+      { url: "/images/mobile-hand-wash-hero.jpg", width: 1400, height: 1750 },
+    ],
   },
   twitter: {
     card: "summary_large_image",

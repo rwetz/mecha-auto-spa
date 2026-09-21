@@ -65,7 +65,7 @@ export function CeramicSection() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.06] sm:aspect-square lg:aspect-[4/5]">
             <Image
               src={asset("/images/ceramic-beading.jpg")}
-              alt="Water sheeting off ceramic-coated black paint"
+              alt="Water sheeting off glossy black paint"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
               className="object-cover"
@@ -79,7 +79,7 @@ export function CeramicSection() {
                 HYDROPHOBIC LAYER
               </p>
               <p className="mt-1 font-display text-sm font-semibold">
-                Water contact angle &gt; 100°
+                Water beads and sheets off
               </p>
             </div>
           </div>

@@ -30,12 +30,12 @@ export function Hero() {
         transition={{ duration: 2.4, ease: EASE }}
       >
         <Image
-          src={asset("/images/mustang-hero.jpg")}
-          alt="Mustang GT at golden hour beneath Sugarloaf bluff after a Mecha Auto Spa detail"
+          src={asset("/images/mobile-hand-wash-hero.jpg")}
+          alt="A Mecha Auto Spa detailer hand-washing a foam-covered sedan in a client's driveway"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_72%]"
+          className="object-cover object-[center_45%]"
         />
       </motion.div>
 

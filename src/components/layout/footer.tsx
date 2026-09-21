@@ -54,6 +54,7 @@ const columns = [
       { label: "Ceramic Coatings", href: "/ceramic-coatings/" },
       { label: "Paint Correction", href: "/paint-correction/" },
       { label: "Add-Ons", href: "/services/#add-ons" },
+      { label: "Watercraft & Tinting", href: "/services/#by-quote" },
     ],
   },
   {
@@ -189,7 +190,7 @@ export function Footer() {
               </li>
               {SITE.hours.map((entry) => (
                 <li key={entry.days} className="flex flex-col">
-                  <span className="text-xs text-muted-foreground/70">
+                  <span className="text-xs text-muted-foreground">
                     {entry.days}
                   </span>
                   <span className="font-mono text-[13px]">{entry.hours}</span>
@@ -203,7 +204,7 @@ export function Footer() {
       {/* Service area strip */}
       <div className="border-t border-white/[0.05]">
         <div className="container-site py-5">
-          <p className="font-mono text-[11px] leading-relaxed tracking-wide text-muted-foreground/70">
+          <p className="font-mono text-[11px] leading-relaxed tracking-wide text-muted-foreground">
             <span className="text-muted-foreground">SERVICE AREA —</span>{" "}
             {areaList} &amp; more to come
           </p>
@@ -213,7 +214,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/[0.05]">
         <div className="container-site flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-col gap-1 text-xs text-muted-foreground/70">
+          <div className="flex flex-col gap-1 text-xs text-muted-foreground">
             <p>
               © {new Date().getFullYear()} {SITE.name} · Rochester, MN
             </p>
@@ -238,7 +239,7 @@ export function Footer() {
               </a>
             </p>
           </div>
-          <div className="flex items-center gap-5 text-xs text-muted-foreground/70">
+          <div className="flex items-center gap-5 text-xs text-muted-foreground">
             <Link
               href="/privacy/"
               className="transition-colors hover:text-foreground"

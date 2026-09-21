@@ -146,7 +146,7 @@ export function ServiceArea() {
                 {city.name}, {city.state}
               </li>
             ))}
-            <li className="rounded-full border border-dashed border-white/[0.08] px-4 py-1.5 text-[13px] text-muted-foreground/70">
+            <li className="rounded-full border border-dashed border-white/[0.08] px-4 py-1.5 text-[13px] text-muted-foreground">
               More to come
             </li>
           </ul>

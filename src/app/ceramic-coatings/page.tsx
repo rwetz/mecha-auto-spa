@@ -53,7 +53,7 @@ export default function CeramicCoatingsPage() {
 
       <PageHero
         image="/images/ceramic-beading.jpg"
-        imageAlt="Water spraying off ceramic-coated black paint"
+        imageAlt="Water spraying off glossy black paint"
         eyebrow="Ceramic Coatings"
         title={
           <>
@@ -105,7 +105,7 @@ export default function CeramicCoatingsPage() {
             <ol className="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-center lg:gap-7">
               {process.map((item) => (
                 <li key={item.step} className="flex items-center gap-3">
-                  <span className="font-mono text-[11px] text-muted-foreground/60">
+                  <span className="font-mono text-[11px] text-muted-foreground">
                     {item.step}
                   </span>
                   <span className="text-sm text-[#bdbdbd]">{item.label}</span>
@@ -163,7 +163,7 @@ export default function CeramicCoatingsPage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.06]">
               <Image
                 src={asset("/images/daily-driver.jpg")}
-                alt="Water beading across a freshly coated black Tesla"
+                alt="A black Tesla Model 3 parked on a wet parking deck"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"

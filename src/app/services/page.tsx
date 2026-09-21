@@ -8,6 +8,7 @@ import { asset } from "@/lib/asset";
 import { PageHero } from "@/components/services/page-hero";
 import { PricingTiers } from "@/components/services/pricing-tiers";
 import { AddonsGrid } from "@/components/services/addons-grid";
+import { InquiryServices } from "@/components/services/inquiry-services";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Stagger, StaggerItem } from "@/components/animations/stagger";
 import { FinalCta } from "@/components/home/final-cta";
@@ -15,7 +16,7 @@ import { FinalCta } from "@/components/home/final-cta";
 export const metadata: Metadata = {
   title: "Detailing Services & Pricing | Rochester MN",
   description:
-    "Exterior, interior, and full-detail packages from $90. Transparent tiered pricing for mobile auto detailing in Rochester, MN and surrounding communities.",
+    "Exterior, interior, and full-detail packages from $105. Transparent tiered pricing for mobile auto detailing in Rochester, MN and surrounding communities.",
   alternates: { canonical: "/services/" },
 };
 
@@ -59,7 +60,7 @@ export default function ServicesPage() {
 
       <PageHero
         image="/images/mustang-night-rear.jpg"
-        imageAlt="Freshly detailed Mustang GT under station lights at night"
+        imageAlt="A dark sports car parked under overhead lights at night"
         eyebrow="Services & Pricing"
         title={
           <>
@@ -124,6 +125,8 @@ export default function ServicesPage() {
           </Stagger>
         </div>
       </section>
+
+      <InquiryServices index="04" />
 
       <FinalCta />
     </>

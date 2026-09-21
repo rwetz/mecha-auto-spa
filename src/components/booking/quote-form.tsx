@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -8,6 +9,7 @@ import { ArrowRight, CheckCircle2, Copy, LoaderCircle, Mail } from "lucide-react
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
+import { inquiryServices } from "@/data/services";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -57,6 +59,8 @@ const services = [
   "Platinum Detail",
   "Ceramic Coating",
   "Paint Correction",
+  // Quote-only services — no published price, same form.
+  ...inquiryServices.map((s) => s.name),
   "Not sure yet — recommend something",
 ];
 
@@ -78,10 +82,25 @@ function Field({
     <div className="flex flex-col gap-2">
       <Label htmlFor={htmlFor}>{label}</Label>
       {children}
-      {error && <p className="text-xs text-destructive">{error}</p>}
+      {error && (
+        <p
+          id={errorId(htmlFor)}
+          role="alert"
+          className="text-xs text-destructive"
+        >
+          {error}
+        </p>
+      )}
     </div>
   );
 }
+
+/** Stable id for a field's error message, matching `aria-describedby`. */
+const errorId = (field: string) => `${field}-error`;
+
+/** Only describe a field by its error once that error is actually rendered. */
+const describedBy = (field: string, hasError: boolean) =>
+  hasError ? errorId(field) : undefined;
 
 export function QuoteForm() {
   const [status, setStatus] = React.useState<
@@ -97,11 +116,21 @@ export function QuoteForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteSchema),
     defaultValues: { city: "", vehicleType: "", service: "" },
   });
+
+  // Arriving from a "Request a quote" card (/request-quote/?service=watercraft)
+  // preselects that service. Read after mount: the static export does no
+  // server-side query parsing, and an unknown value is simply ignored.
+  React.useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("service");
+    const match = inquiryServices.find((s) => s.id === id);
+    if (match) setValue("service", match.name);
+  }, [setValue]);
 
   const onSubmit = async (values: QuoteFormValues) => {
     if (honeypotRef.current?.value) {
@@ -212,7 +241,7 @@ export function QuoteForm() {
           </button>
         </div>
         <details className="mt-6 w-full max-w-md text-left">
-          <summary className="cursor-pointer text-xs text-muted-foreground/70 hover:text-muted-foreground">
+          <summary className="cursor-pointer text-xs text-muted-foreground hover:text-foreground">
             View the email we prepared
           </summary>
           <pre className="mt-3 overflow-x-auto rounded-lg border border-input bg-white/[0.02] p-4 text-xs leading-relaxed whitespace-pre-wrap text-muted-foreground">
@@ -262,6 +291,7 @@ export function QuoteForm() {
             maxLength={100}
             placeholder="Your name"
             aria-invalid={Boolean(errors.name)}
+            aria-describedby={describedBy("name", Boolean(errors.name))}
             {...register("name")}
           />
         </Field>
@@ -273,6 +303,7 @@ export function QuoteForm() {
             maxLength={30}
             placeholder="(507) 555-0000"
             aria-invalid={Boolean(errors.phone)}
+            aria-describedby={describedBy("phone", Boolean(errors.phone))}
             {...register("phone")}
           />
         </Field>
@@ -287,6 +318,7 @@ export function QuoteForm() {
             maxLength={254}
             placeholder="you@example.com"
             aria-invalid={Boolean(errors.email)}
+            aria-describedby={describedBy("email", Boolean(errors.email))}
             {...register("email")}
           />
         </Field>
@@ -295,6 +327,7 @@ export function QuoteForm() {
             id="city"
             className={selectClasses}
             aria-invalid={Boolean(errors.city)}
+            aria-describedby={describedBy("city", Boolean(errors.city))}
             {...register("city")}
           >
             <option value="" disabled>
@@ -321,6 +354,7 @@ export function QuoteForm() {
             maxLength={100}
             placeholder="e.g. 2022 Ford F-150"
             aria-invalid={Boolean(errors.vehicle)}
+            aria-describedby={describedBy("vehicle", Boolean(errors.vehicle))}
             {...register("vehicle")}
           />
         </Field>
@@ -333,6 +367,7 @@ export function QuoteForm() {
             id="vehicleType"
             className={selectClasses}
             aria-invalid={Boolean(errors.vehicleType)}
+            aria-describedby={describedBy("vehicleType", Boolean(errors.vehicleType))}
             {...register("vehicleType")}
           >
             <option value="" disabled>
@@ -356,6 +391,7 @@ export function QuoteForm() {
           id="service"
           className={selectClasses}
           aria-invalid={Boolean(errors.service)}
+          aria-describedby={describedBy("service", Boolean(errors.service))}
           {...register("service")}
         >
           <option value="" disabled>
@@ -409,8 +445,18 @@ export function QuoteForm() {
         )}
       </button>
 
-      <p className="text-center text-xs text-muted-foreground/70">
-        No spam, no obligation — just an exact price for your vehicle.
+      <p className="text-center text-xs leading-relaxed text-muted-foreground">
+        No spam, no obligation — just an exact price for your vehicle. By
+        sending this, you agree we can contact you by phone, text, or email
+        about your request. We use your details only to quote and schedule
+        your service — see our{" "}
+        <Link
+          href="/privacy/"
+          className="underline underline-offset-2 hover:text-muted-foreground"
+        >
+          Privacy Policy
+        </Link>
+        .
       </p>
     </form>
   );

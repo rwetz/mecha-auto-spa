@@ -68,7 +68,7 @@ export default function PaintCorrectionPage() {
 
       <PageHero
         image="/images/paint-correction.jpg"
-        imageAlt="Mirror-gloss paint reflection on a corrected sports sedan at dusk"
+        imageAlt="Mirror-like reflections across glossy dark paint at dusk"
         eyebrow="Paint Correction"
         title={
           <>
