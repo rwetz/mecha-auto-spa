@@ -28,7 +28,7 @@ export function SectionHeading({
       {eyebrow && (
         <div
           className={cn(
-            "mb-5 flex items-center gap-3",
+            "mb-6 flex items-center gap-3",
             centered && "justify-center"
           )}
         >
@@ -37,11 +37,11 @@ export function SectionHeading({
               {index}
             </span>
           )}
-          <span aria-hidden className="h-px w-8 bg-white/20" />
+          <span aria-hidden className="h-px w-8 bg-[#d96c48]/70" />
           <span className="eyebrow">{eyebrow}</span>
         </div>
       )}
-      <h2 className="font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
+      <h2 className="font-display text-[clamp(2.45rem,5vw,4.7rem)] font-medium leading-[1.04] tracking-[-0.052em] text-balance">
         {title}
       </h2>
       {lede && (

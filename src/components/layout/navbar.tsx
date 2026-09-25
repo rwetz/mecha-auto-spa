@@ -36,8 +36,8 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled
-          ? "border-b border-white/[0.06] bg-[rgba(9,9,9,0.75)] backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+          ? "border-b border-[#e9d9bc]/15 bg-[#11100e]/95 backdrop-blur-md"
+          : "border-b border-[#e9d9bc]/10 bg-[#11100e]/95"
       )}
     >
       {SITE.promo && (
@@ -53,7 +53,7 @@ export function Navbar() {
           </p>
         </Link>
       )}
-      <div className="container-site flex h-16 items-center justify-between gap-6 lg:h-20">
+      <div className="container-site flex h-16 items-center justify-between gap-6 lg:h-[76px]">
         <Logo />
 
         {/* Desktop links */}

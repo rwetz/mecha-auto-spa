@@ -9,12 +9,12 @@
   --color-foreground: var(--foreground);
 
   /* Brand palette (design.md) */
-  --color-surface: #111111;
-  --color-elevated: #1e1e1e;
+  --color-surface: #171612;
+  --color-elevated: #26241f;
   --color-ford: #003478;
-  --color-success: #32d583;
+  --color-success: #d96c48;
   --color-warning: #f5a524;
-  --color-metallic: #8c8c8c;
+  --color-metallic: #c8bead;
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-geist);
@@ -59,37 +59,37 @@
 
 /* Single permanent dark theme — this brand does not have a light mode. */
 :root {
-  --background: #090909;
-  --foreground: #f5f5f5;
-  --card: #171717;
-  --card-foreground: #f5f5f5;
-  --popover: #1e1e1e;
-  --popover-foreground: #f5f5f5;
-  --primary: #f5f5f5;
-  --primary-foreground: #090909;
-  --secondary: #1e1e1e;
-  --secondary-foreground: #f5f5f5;
-  --muted: #171717;
-  --muted-foreground: #9e9e9e;
-  --accent: #1e1e1e;
-  --accent-foreground: #f5f5f5;
+  --background: #11100e;
+  --foreground: #f3eee5;
+  --card: #1c1a16;
+  --card-foreground: #f3eee5;
+  --popover: #26241f;
+  --popover-foreground: #f3eee5;
+  --primary: #e9d9bc;
+  --primary-foreground: #17130e;
+  --secondary: #26241f;
+  --secondary-foreground: #f3eee5;
+  --muted: #1c1a16;
+  --muted-foreground: #b1aba0;
+  --accent: #26241f;
+  --accent-foreground: #f3eee5;
   --destructive: #f04438;
-  --border: #2b2b2b;
-  --input: #2b2b2b;
-  --ring: #787878;
+  --border: #403d36;
+  --input: #403d36;
+  --ring: #d96c48;
   --radius: 0.75rem;
   --chart-1: #f5f5f5;
   --chart-2: #9e9e9e;
   --chart-3: #787878;
   --chart-4: #2b2b2b;
   --chart-5: #1e1e1e;
-  --sidebar: #111111;
+  --sidebar: #171612;
   --sidebar-foreground: #f5f5f5;
   --sidebar-primary: #f5f5f5;
   --sidebar-primary-foreground: #090909;
   --sidebar-accent: #1e1e1e;
   --sidebar-accent-foreground: #f5f5f5;
-  --sidebar-border: #2b2b2b;
+  --sidebar-border: #403d36;
   --sidebar-ring: #787878;
 }
 
@@ -99,7 +99,7 @@
   }
   html {
     @apply font-sans;
-    scrollbar-color: #2b2b2b transparent;
+    scrollbar-color: #403d36 transparent;
   }
   @media (prefers-reduced-motion: no-preference) {
     html {
@@ -111,8 +111,8 @@
     text-rendering: optimizeLegibility;
   }
   ::selection {
-    background: #f5f5f5;
-    color: #090909;
+    background: #e9d9bc;
+    color: #17130e;
   }
 }
 
@@ -137,7 +137,7 @@
 
   /* Section rhythm: py-16 mobile / py-24 tablet / py-32 desktop */
   .section-pad {
-    padding-block: 4rem;
+    padding-block: 4.5rem;
   }
   @media (min-width: 768px) {
     .section-pad {
@@ -155,14 +155,14 @@
     font-family: var(--font-jetbrains);
     font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #9e9e9e;
+    color: #d96c48;
   }
 
   /* Brushed-metal headline treatment (subtle — never fake chrome) */
   .text-metallic {
-    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 60%, #b8b8b8 100%);
+    background: linear-gradient(180deg, #f3eee5 0%, #e9d9bc 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -208,9 +208,9 @@
 
   /* Hairline card treatment used across the catalog system */
   .panel {
-    background-color: #171717;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 1.25rem;
+    background-color: #1c1a16;
+    border: 1px solid rgba(233, 217, 188, 0.12);
+    border-radius: 0.75rem;
     transition:
       transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       border-color 0.35s ease,

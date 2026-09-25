@@ -13,37 +13,34 @@ export function ServicesGrid() {
         <SectionHeading
           index="01"
           eyebrow="Services"
-          title="Detailing, engineered to a standard."
-          lede="Four core services. Every one performed with the same paint-safe process, premium products, and obsessive attention to detail."
+          title="The right care for where your car is now."
+          lede="Choose a starting point. Each package has clear pricing and a simple path to booking."
         />
 
-        <Stagger className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-16 lg:gap-6">
-          {featuredServices.map((service) => (
+        <Stagger className="mt-12 grid gap-x-6 gap-y-10 md:grid-cols-2 lg:mt-16">
+          {featuredServices.map((service, index) => (
             <StaggerItem key={service.id}>
               <Link
                 href={service.href}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-card outline-none transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.16] hover:shadow-[0_32px_64px_-32px_rgba(0,0,0,0.9)] focus-visible:ring-2 focus-visible:ring-ring/60"
+                className="group relative flex h-full flex-col outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl sm:aspect-[16/10]">
                   <Image
                     src={asset(service.image)}
                     alt={service.imageAlt}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
                   />
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent"
-                  />
+                  <span className="absolute top-4 left-4 rounded-sm bg-[#11100e]/85 px-2.5 py-1.5 font-mono text-[11px] text-[#f3eee5]">0{index + 1}</span>
                 </div>
 
-                <div className="flex flex-1 flex-col p-7 pt-2 lg:p-8 lg:pt-3">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-display text-xl font-semibold tracking-tight lg:text-2xl">
+                <div className="flex flex-1 flex-col border-b border-[#e9d9bc]/20 py-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-display text-2xl font-medium tracking-tight lg:text-3xl">
                       {service.name}
                     </h3>
-                    <p className="shrink-0 font-mono text-[13px] text-muted-foreground">
+                    <p className="shrink-0 font-mono text-[12px] text-muted-foreground">
                       from{" "}
                       <span className="text-base font-semibold text-foreground">
                         ${service.price}
@@ -53,8 +50,8 @@ export function ServicesGrid() {
                   <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
-                    Learn more
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[#e9d9bc]">
+                    See package
                     <ArrowRight
                       className="size-4 transition-transform duration-300 group-hover:translate-x-1"
                       aria-hidden

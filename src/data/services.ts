@@ -99,7 +99,7 @@ export const featuredServices: FeaturedService[] = [
   {
     id: "platinum",
     name: "Platinum Detail",
-    description: "The no-compromise restoration: decontamination, extraction, and sealant on every surface.",
+    description: "A deeper inside-and-out detail with decontamination, extraction, and engine bay care.",
     price: 350,
     image: "/images/mustang-night-front.jpg",
     // Stock placeholder — swap for a real Platinum vehicle when we have one.
@@ -174,16 +174,14 @@ export const detailPackages: TierGroup = {
       name: "Platinum Detail",
       price: 350,
       vehiclePrices: { cars: 350, suvs: 400, trucks: 450 },
-      blurb: "Our deepest detail — correction-grade care on every surface.",
+      blurb: "Our deepest inside-and-out detail, with extra attention where it counts.",
       features: [
         "Everything in Full Detail",
         "Iron decontamination",
         "Clay bar treatment",
-        "Machine-applied paint sealant",
         "Carpet extraction",
         "Seat shampoo",
         "Engine bay detail",
-        "Interior ceramic dressing",
       ],
     },
   ],
@@ -427,7 +425,7 @@ export const ceramicBenefits: Benefit[] = [
 export const whyMechaFeatures = [
   {
     title: "Mobile Convenience",
-    description: "We come to your driveway or workplace, fully self-contained.",
+    description: "We come to your driveway or workplace in the Rochester area.",
   },
   {
     title: "Premium Products",
@@ -443,7 +441,7 @@ export const whyMechaFeatures = [
   },
   {
     title: "Satisfaction Guaranteed",
-    description: "If something isn't right, we return and make it right.",
+    description: "Tell us within 48 hours and we will make it right.",
   },
   {
     title: "Attention to Detail",

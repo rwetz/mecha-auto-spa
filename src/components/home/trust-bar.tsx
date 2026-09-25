@@ -1,57 +1,45 @@
-import { FlaskConical, Settings2, ShieldCheck, Truck } from "lucide-react";
-import { Stagger, StaggerItem } from "@/components/animations/stagger";
+import { ShieldCheck, Truck, Wrench } from "lucide-react";
 
 const items = [
   {
     icon: Truck,
     title: "Fully Mobile",
-    description:
-      "Your driveway, your office — the detailing studio comes to you.",
+    description: "Driveways and workplaces around Rochester.",
   },
   {
-    icon: Settings2,
+    icon: Wrench,
     title: "Professional Equipment",
-    description:
-      "Extractors and calibrated machine polishers on every job.",
-  },
-  {
-    icon: FlaskConical,
-    title: "Premium Products",
-    description:
-      "Professional-grade chemicals and coatings — nothing off a shelf.",
+    description: "Foam cannon, extractor, and machine polishers.",
   },
   {
     icon: ShieldCheck,
     title: "Satisfaction Guaranteed",
-    description:
-      "If anything isn't right, we come back and make it right.",
+    description: "A 48-hour window to make it right.",
   },
 ] as const;
 
 export function TrustBar() {
   return (
-    <section id="trust" className="border-y border-white/[0.05] bg-surface">
-      <div className="container-site py-14 lg:py-16">
-        <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <section id="trust" className="border-b border-[#e9d9bc]/15 bg-surface">
+      <div className="container-site py-10 lg:py-12">
+        <div className="grid gap-0 md:grid-cols-3">
           {items.map((item) => (
-            <StaggerItem
+            <div
               key={item.title}
-              className="panel panel-hover p-6 lg:p-7"
+              className="flex gap-4 border-b border-[#e9d9bc]/15 py-5 last:border-b-0 md:border-b-0 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
             >
               <item.icon
-                className="size-5 text-[#bdbdbd]"
+                className="mt-1 size-5 shrink-0 text-[#d96c48]"
                 strokeWidth={1.75}
                 aria-hidden
               />
-              <h3 className="mt-4 font-display text-[15px] font-semibold tracking-tight">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {item.description}
-              </p>
-            </StaggerItem>
+              <div>
+                <h3 className="font-display text-base font-medium tracking-tight">{item.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+              </div>
+            </div>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   );

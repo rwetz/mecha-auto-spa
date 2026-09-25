@@ -131,7 +131,7 @@ export function ServiceArea() {
             index="08"
             eyebrow="Service Area"
             title="We come to you, across the Rochester area."
-            lede="Based in Rochester and serving the surrounding communities. Driveways, offices, job sites — if your vehicle is parked there, we can detail it there."
+            lede="Based in Rochester and serving nearby communities. We come to driveways and workplaces across the area."
           />
           <ul className="mt-8 flex flex-wrap gap-2">
             {serviceCities.map((city) => (

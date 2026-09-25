@@ -39,8 +39,8 @@ export function WhyMecha() {
           <SectionHeading
             index="02"
             eyebrow="Why Mecha"
-            title="Not a car wash. An appearance specialist."
-            lede="Every vehicle gets a documented, methodical process — the kind of care you'd expect for a six-figure build, applied to every daily driver."
+            title="Care you can see in the details."
+            lede="From a two-bucket wash to careful machine polishing, the work starts with the right process for your vehicle."
           />
           <Stagger className="mt-10 grid gap-x-8 gap-y-7 sm:grid-cols-2">
             {whyMechaFeatures.map((feature) => (

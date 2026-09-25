@@ -1,143 +1,66 @@
 "use client";
 
 import Image from "next/image";
-import { motion, type Variants } from "framer-motion";
-import { ChevronDown, Phone } from "lucide-react";
-import { SITE, TRUST_BADGES } from "@/lib/constants";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import SplitText from "@/components/SplitText";
+import Magnet from "@/components/Magnet";
+import { SITE } from "@/lib/constants";
 import { asset } from "@/lib/asset";
 import { CtaLink } from "@/components/shared/cta-link";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
-
-const container: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 26 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
-};
-
 export function Hero() {
   return (
-    <section className="grain relative flex min-h-[100svh] items-center overflow-hidden bg-background lg:min-h-[900px]">
-      {/* Cinematic backdrop — vehicle occupies the right ~70% */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ scale: 1.08 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 2.4, ease: EASE }}
-      >
-        <Image
-          src={asset("/images/mobile-hand-wash-hero.jpg")}
-          alt="A Mecha Auto Spa detailer hand-washing a foam-covered sedan in a client's driveway"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[center_45%]"
-        />
-      </motion.div>
-
-      {/* Legibility + fade-to-black overlays */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/10"
-      />
-      {/* Extra darkening on small screens where text sits over the image */}
-      <div aria-hidden className="absolute inset-0 bg-background/45 lg:hidden" />
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background/70 to-transparent"
-      />
-
-      <div className="container-site relative z-10 pt-28 pb-24 lg:pt-32">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          className="max-w-2xl"
-        >
-          <motion.p variants={item} className="mb-6 flex items-center gap-3">
-            <span aria-hidden className="h-px w-10 bg-white/25" />
-            <span className="eyebrow">
-              Rochester, MN — Premium Mobile Detailing
-            </span>
-          </motion.p>
-
-          <motion.h1
-            variants={item}
-            className="font-display text-[2.75rem] leading-[1.02] font-semibold tracking-tight sm:text-6xl lg:text-7xl"
-          >
-            <span className="text-metallic">Precision.</span>
-            <br />
-            <span className="text-metallic">Protection.</span>
-            <br />
-            <span className="text-metallic">Perfection.</span>
-          </motion.h1>
-
-          <motion.p
-            variants={item}
-            className="mt-7 max-w-lg text-base leading-relaxed text-[#bdbdbd] sm:text-lg"
-          >
-            Premium mobile detailing, ceramic coatings, and paint correction —
-            serving Rochester, MN and surrounding communities.
-          </motion.p>
-
-          <motion.div
-            variants={item}
-            className="mt-9 flex flex-wrap items-center gap-3"
-          >
-            <CtaLink href={SITE.bookingUrl} variant="primary">
-              Book Now
+    <section className="relative overflow-hidden border-b border-white/10 bg-background pt-20 lg:pt-24">
+      <div className="container-site grid gap-8 py-10 lg:min-h-[760px] lg:grid-cols-[1fr_0.94fr] lg:items-center lg:gap-14 lg:py-16">
+        <div className="relative z-10 max-w-2xl">
+          <p className="eyebrow flex items-center gap-3">
+            <span className="inline-block size-2 rounded-full bg-[#df6b47]" aria-hidden />
+            Rochester, Minnesota · Mobile detailing
+          </p>
+          <SplitText
+            tag="h1"
+            text="A better view from the driver's seat."
+            splitType="words"
+            delay={70}
+            duration={0.7}
+            rootMargin="0px"
+            className="mt-7 !block font-display text-[clamp(3.45rem,9vw,7.7rem)] leading-[0.94] font-medium tracking-[-0.065em] text-balance"
+            textAlign="left"
+          />
+          <p className="mt-7 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Mobile detailing, ceramic coatings, and paint correction around Rochester. We bring the care to your driveway or workplace.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Magnet padding={28} magnetStrength={5}>
+              <CtaLink href={SITE.bookingUrl} variant="primary">
+                Book a detail <ArrowUpRight aria-hidden />
+              </CtaLink>
+            </Magnet>
+            <CtaLink href="/services/" variant="outline">
+              Explore services <ArrowUpRight aria-hidden />
             </CtaLink>
-            <CtaLink href="/request-quote/" variant="outline">
-              Request a Quote
-            </CtaLink>
-            <CtaLink href={SITE.phoneHref} variant="ghost">
-              <Phone aria-hidden />
-              Call Now
-            </CtaLink>
-          </motion.div>
+          </div>
+          <div className="mt-12 flex items-center gap-5 border-t border-white/10 pt-5 text-sm text-muted-foreground">
+            <span className="font-mono text-xs text-[#df6b47]">MECHA / MN</span>
+            <span>Detailing at your door</span>
+            <ArrowDownRight className="ml-auto size-5 text-[#df6b47]" aria-hidden />
+          </div>
+        </div>
 
-          {/* Trust badge row */}
-          <motion.ul
-            variants={item}
-            className="mt-12 flex flex-wrap items-center gap-2"
-          >
-            {TRUST_BADGES.map((badge) => (
-              <li
-                key={badge}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-[#bdbdbd] backdrop-blur-sm"
-              >
-                {badge}
-              </li>
-            ))}
-          </motion.ul>
-        </motion.div>
+        <div className="relative min-h-[460px] overflow-hidden rounded-[1.75rem] sm:min-h-[560px] lg:h-full lg:min-h-[640px]">
+          <Image
+            src={asset("/images/mobile-hand-wash-hero.jpg")}
+            alt="A Mecha Auto Spa detailer hand-washing a foam-covered sedan in a client's driveway"
+            fill
+            priority
+            sizes="(min-width: 1024px) 48vw, 100vw"
+            className="object-cover object-[center_43%]"
+          />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-6 pt-24 sm:p-8">
+            <p className="font-mono text-[11px] tracking-[0.2em] text-white uppercase">Real work. Real vehicles.</p>
+          </div>
+        </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.a
-        href="#trust"
-        aria-label="Scroll to content"
-        className="absolute bottom-7 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-1 text-muted-foreground transition-colors hover:text-foreground sm:flex"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 1 }}
-      >
-        <motion.span
-          animate={{ y: [0, 7, 0] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center"
-        >
-          <ChevronDown className="size-5" aria-hidden />
-        </motion.span>
-      </motion.a>
     </section>
   );
 }
