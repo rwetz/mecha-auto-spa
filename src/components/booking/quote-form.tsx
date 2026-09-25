@@ -198,8 +198,7 @@ export function QuoteForm() {
           Request received.
         </h2>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-          We&apos;ll review your vehicle details and get back to you within one
-          business day with an exact quote.
+          We&apos;ll review the details you sent and follow up about your quote.
         </p>
         <a
           href={SITE.phoneHref}
@@ -219,8 +218,8 @@ export function QuoteForm() {
           Almost there.
         </h2>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-          We put your details into an email draft — send it and we&apos;ll
-          reply within one business day. If your mail app didn&apos;t open,
+          We put your details into an email draft — send it to complete your
+          request. If your mail app didn&apos;t open,
           use the buttons below.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -439,14 +438,14 @@ export function QuoteForm() {
           <LoaderCircle className="size-4 animate-spin" aria-hidden />
         ) : (
           <>
-            Request My Quote
+            {SITE.quoteEndpoint ? "Request My Quote" : "Prepare Email Request"}
             <ArrowRight className="size-4" aria-hidden />
           </>
         )}
       </button>
 
       <p className="text-center text-xs leading-relaxed text-muted-foreground">
-        No spam, no obligation — just an exact price for your vehicle. By
+        The price is confirmed before your appointment. By
         sending this, you agree we can contact you by phone, text, or email
         about your request. We use your details only to quote and schedule
         your service — see our{" "}

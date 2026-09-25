@@ -14,7 +14,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Paint Correction Rochester MN — Swirl & Scratch Removal",
   description:
-    "Professional paint correction in Rochester MN from $450. One-step and two-step machine polishing that permanently removes swirls, scratches, and oxidation.",
+    "Mobile paint correction in Rochester MN from $450. One-step and two-step machine polishing for swirls and surface defects.",
   alternates: { canonical: "/paint-correction/" },
 };
 
@@ -42,9 +42,8 @@ const defects = [
 ] as const;
 
 const correctionAddOns = [
-  { name: "Ceramic Coating After Correction", detail: "Lock in the finish for years — the ideal pairing" },
-  { name: "Paint Sealant", detail: "Six months of protection at a lighter price point" },
-  { name: "Headlight Restoration", detail: "Match restored paint with clear, bright lenses" },
+  { name: "Ceramic Coating After Correction", detail: "Ask about a coating for corrected paint" },
+  { name: "Headlight Restoration", detail: "Available as a separately priced add-on" },
 ] as const;
 
 export default function PaintCorrectionPage() {
@@ -56,7 +55,7 @@ export default function PaintCorrectionPage() {
           serviceSchema({
             name: "Paint Correction",
             description:
-              "One-step and two-step machine polishing that removes swirl marks, scratches, oxidation, and water spots.",
+              "One-step and two-step machine polishing for swirls and surface defects.",
             path: "/paint-correction/",
             offers: correctionTiers.tiers.map((tier) => ({
               name: tier.name,
@@ -73,10 +72,10 @@ export default function PaintCorrectionPage() {
         title={
           <>
             Restore your paint.{" "}
-            <span className="text-metallic">Remove imperfections.</span>
+            <span className="text-metallic">Refine the finish.</span>
           </>
         }
-        lede="Precision machine polishing that levels the clear coat itself — defects are permanently removed, not temporarily hidden."
+        lede="Machine polishing can reduce visible swirls and surface defects. The result depends on paint condition and available clear coat."
         primaryCta={{ label: "Request a Quote", href: "/request-quote/" }}
         secondaryCta={{ label: `Call ${SITE.phone}`, href: SITE.phoneHref }}
       />
@@ -87,8 +86,8 @@ export default function PaintCorrectionPage() {
           <SectionHeading
             index="01"
             eyebrow="What It Fixes"
-            title="Four defects. Gone for good."
-            lede="If it lives in your clear coat, correction can remove it. We measure paint depth first, so we always know exactly how much room we have to work."
+            title="See what polishing can improve."
+            lede="Paint condition varies, so we assess the surface before recommending a one-step or two-step correction."
           />
           <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {defects.map((defect) => (
@@ -133,12 +132,11 @@ export default function PaintCorrectionPage() {
               index="02"
               eyebrow="The Result"
               title="A finish that reads like glass."
-              lede="Corrected paint doesn't just shine — it reflects with edge-to-edge clarity. Streetlights draw crisp lines. Clouds render like a mirror. That's the standard we polish to."
+              lede="Compare a real client panel before and after polishing. Results vary with paint condition and the level of correction chosen."
             />
             <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted-foreground">
-              Most owners pair correction with a ceramic coating: correcting
-              first means the coating locks in a flawless surface instead of
-              sealing defects underneath.
+              Ask about ceramic coating after correction if you want a separate
+              protective layer over the polished finish.
             </p>
           </div>
         </div>

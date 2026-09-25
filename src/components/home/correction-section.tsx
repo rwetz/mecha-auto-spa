@@ -26,8 +26,8 @@ export function CorrectionSection() {
           <SectionHeading
             index="05"
             eyebrow="Paint Correction"
-            title="Remove the swirls. Restore the mirror."
-            lede="Machine polishing that levels the clear coat itself — swirl marks, light scratches, oxidation, and water spots permanently removed, not hidden under filler."
+            title="A closer look at your paint."
+            lede="Machine polishing can reduce visible swirls and surface defects. Compare a real client panel, then choose the level of correction that fits your vehicle."
           />
 
           <div className="mt-9 space-y-3">

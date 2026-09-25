@@ -10,10 +10,8 @@ import {
   Lightbulb,
   Sailboat,
   Shield,
-  ShieldCheck,
   Sofa,
   Sparkles,
-  Sun,
   SunDim,
   Wind,
   Wrench,
@@ -72,8 +70,7 @@ export const featuredServices: FeaturedService[] = [
     description: "Foam cannon pre-wash, two-bucket hand wash, and months of spray sealant protection.",
     price: 105,
     image: "/images/signature-exterior-foam.jpg",
-    imageAlt:
-      "An SUV coated in foam-cannon suds during a wash in a client's driveway",
+    imageAlt: "An SUV covered in foam during a wash",
     href: "/services/#packages",
   },
   {
@@ -82,18 +79,16 @@ export const featuredServices: FeaturedService[] = [
     description: "Deep-cleaned cabins, conditioned surfaces, and streak-free glass.",
     price: 150,
     image: "/images/interior-detail-cabin.jpg",
-    imageAlt:
-      "A cleaned vehicle cabin — dashboard, centre console, and front seats",
+    imageAlt: "Vehicle cabin with dashboard, center console, and front seats",
     href: "/services/#packages",
   },
   {
     id: "signature-full",
     name: "Signature Full Detail",
-    description: "Complete inside-and-out care — our most requested package.",
+    description: "Exterior and interior care in one package, with finishing touches.",
     price: 225,
     image: "/images/signature-full-suv.jpg",
-    imageAlt:
-      "A freshly detailed SUV with its doors open on a client's driveway",
+    imageAlt: "An SUV with its doors open in a driveway",
     href: "/services/#packages",
   },
   {
@@ -141,7 +136,7 @@ export const detailPackages: TierGroup = {
       name: "Interior Detail",
       price: 150,
       vehiclePrices: { cars: 150, suvs: 175, trucks: 200 },
-      blurb: "Every interior surface cleaned, dressed, and protected.",
+      blurb: "A thorough reset for the vehicle cabin.",
       features: [
         "Thorough vacuum",
         "Blowout with Tornador",
@@ -192,7 +187,7 @@ export const ceramicTiers: TierGroup = {
   id: "ceramic",
   title: "Ceramic Coating Packages",
   subtitle:
-    "Long-lasting protection. Easy maintenance. Maximum shine. Paint preparation included with every install.",
+    "Coating packages rated for 1, 3, or 5 years, with paint preparation included.",
   tiers: [
     {
       id: "ceramic-1yr",
@@ -213,9 +208,9 @@ export const ceramicTiers: TierGroup = {
       popular: true,
       blurb: "The durability sweet spot for daily-driven vehicles.",
       features: [
-        "High-durability coating layer",
+        "Ceramic coating application",
         "High-gloss finish",
-        "UV + chemical resistance",
+        "Care guidance",
         "Wash, decon & paint prep included",
       ],
     },
@@ -225,9 +220,9 @@ export const ceramicTiers: TierGroup = {
       price: 999,
       blurb: "Maximum protection for long-term ownership.",
       features: [
-        "Premium ceramic coating system",
-        "Premium gloss finish",
-        "Maximum UV + chemical resistance",
+        "Ceramic coating application",
+        "Gloss enhancement",
+        "Care guidance",
         "Wash, decon & paint prep included",
       ],
     },
@@ -238,7 +233,7 @@ export const ceramicTiers: TierGroup = {
 export const correctionTiers: TierGroup = {
   id: "paint-correction",
   title: "Paint Correction",
-  subtitle: "Machine polishing that removes defects — not covers them.",
+  subtitle: "Machine polishing for visible swirls and surface defects.",
   tiers: [
     {
       id: "correction-one-step",
@@ -247,7 +242,7 @@ export const correctionTiers: TierGroup = {
       priceNote: "from",
       blurb: "Removes light swirls and restores deep gloss in one stage.",
       features: [
-        "Removes approx. 50–70% of light swirls & defects",
+        "Targets light swirls and surface defects",
         "Enhances gloss & clarity",
         "Single-stage machine polish",
         "Full wash & decontamination prep",
@@ -261,8 +256,8 @@ export const correctionTiers: TierGroup = {
       popular: true,
       blurb: "Cut and polish for heavily swirled or scratched paint.",
       features: [
-        "Removes approx. 80–95% of deeper defects",
-        "Near-showroom finish",
+        "Targets deeper swirls and surface defects",
+        "Multi-stage gloss refinement",
         "Multi-stage compounding & polishing",
         "Full wash & decontamination prep",
       ],
@@ -309,13 +304,13 @@ export const addOns: AddOn[] = [
   {
     name: "Headlight Restoration",
     priceRange: "$80",
-    description: "Clarity and light output restored on oxidized lenses.",
+    description: "Improves clarity on oxidized headlight lenses.",
     icon: Lightbulb,
   },
   {
     name: "Trim Restoration",
     priceRange: "$75",
-    description: "Faded exterior plastic brought back to deep black.",
+    description: "Treatment for faded exterior plastic trim.",
     icon: Layers,
   },
   {
@@ -327,19 +322,19 @@ export const addOns: AddOn[] = [
   {
     name: "Wheel Ceramic Coating",
     priceRange: "$200",
-    description: "Brake dust and grime release with a simple rinse.",
+    description: "Coating for wheels to make routine cleaning easier.",
     icon: CircleDot,
   },
   {
     name: "Leather Conditioning",
     priceRange: "$40",
-    description: "Cleaned and conditioned to stay soft and crack-free.",
+    description: "Cleaning and conditioning for leather surfaces.",
     icon: Sofa,
   },
   {
     name: "Odor Treatment",
     priceRange: "$50–$100",
-    description: "Treats smoke, pet, and spill odors at the source.",
+    description: "Treatment for smoke, pet, and spill odors.",
     icon: Wind,
   },
 ];
@@ -369,7 +364,7 @@ export const inquiryServices: InquiryService[] = [
     description:
       "Boats and personal watercraft, washed and machine polished the same way we treat paint. Every hull is a different size and condition, so we quote each one individually.",
     image: "/images/boat-polish.jpg",
-    imageAlt: "Machine polishing the hull of a client's boat",
+    imageAlt: "Machine polishing the hull of a boat",
     icon: Sailboat,
   },
   {
@@ -391,34 +386,29 @@ export interface Benefit {
 
 export const ceramicBenefits: Benefit[] = [
   {
-    title: "Extreme Hydrophobics",
-    description: "Water beads and sheets off, taking road grime with it.",
+    title: "Water Beading",
+    description: "Helps water bead and release from treated paint.",
     icon: Droplets,
   },
   {
-    title: "UV Protection",
-    description: "Shields clear coat from sun fade and oxidation.",
-    icon: Sun,
+    title: "Paint Preparation",
+    description: "Wash and paint preparation are included before application.",
+    icon: Layers,
   },
   {
-    title: "Chemical Resistance",
-    description: "Stands up to road salt, bird droppings, and bug acids.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Enhanced Gloss",
-    description: "A wet-look depth that wax can't replicate.",
+    title: "Gloss Enhancement",
+    description: "Adds depth and gloss to prepared paint.",
     icon: Gem,
   },
   {
-    title: "Easier Maintenance",
-    description: "Contamination releases with a simple hand wash.",
+    title: "Routine Maintenance",
+    description: "Makes routine hand washing easier.",
     icon: Zap,
   },
   {
-    title: "Years of Protection",
-    description: "Measured in years — not weeks like traditional wax.",
-    icon: Layers,
+    title: "Package Choices",
+    description: "Choose a coating package rated for 1, 3, or 5 years.",
+    icon: Sparkles,
   },
 ];
 
@@ -459,13 +449,13 @@ export const howItWorks = [
   {
     step: "02",
     title: "Choose Your Package",
-    description: "We recommend the right level — never upsell.",
+    description: "Choose the service level that fits your vehicle.",
     icon: Layers,
   },
   {
     step: "03",
     title: "Schedule Service",
-    description: "Pick a time. We arrive fully equipped.",
+    description: "Pick a time and confirm the appointment details.",
     icon: Zap,
   },
   {

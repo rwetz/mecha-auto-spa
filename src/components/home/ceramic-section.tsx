@@ -13,8 +13,8 @@ export function CeramicSection() {
           <SectionHeading
             index="04"
             eyebrow="Ceramic Coatings"
-            title="Ceramic protection that lasts years — not weeks."
-            lede="A professionally prepped, hand-applied ceramic layer that locks in gloss, sheds water, and makes every wash easier."
+            title="Ceramic care, matched to your vehicle."
+            lede="Explore coating packages rated for 1, 3, or 5 years, with paint preparation included."
           />
 
           {/* Benefit chips */}

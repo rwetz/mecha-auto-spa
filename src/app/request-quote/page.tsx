@@ -8,7 +8,7 @@ import { CtaLink } from "@/components/shared/cta-link";
 export const metadata: Metadata = {
   title: "Request a Quote",
   description:
-    "Get an exact detailing quote for your vehicle in minutes. Mobile detailing, ceramic coatings, and paint correction across Rochester, MN and surrounding communities.",
+    "Prepare a detailing quote request for your vehicle. Mobile detailing, ceramic coatings, and paint correction around Rochester, MN.",
   alternates: { canonical: "/request-quote/" },
 };
 
@@ -21,15 +21,15 @@ const expectations = [
   },
   {
     icon: Clock,
-    title: "Reply within one business day",
+    title: "Send the prepared email",
     description:
-      "Usually much faster. Need it sooner? Call us directly and we'll sort it out.",
+      "The form opens an email draft. Send it from your mail app to complete the request.",
   },
   {
     icon: Phone,
-    title: "A human, not a bot",
+    title: "Talk with us directly",
     description:
-      "Your quote is reviewed by the person who will actually detail your vehicle.",
+      "You can also call or text about your vehicle and the service you need.",
   },
 ] as const;
 
@@ -48,8 +48,8 @@ export default function RequestQuotePage() {
               <span className="text-metallic">We&rsquo;ll handle the rest.</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Two minutes now saves you a trip to a shop. Every quote is exact,
-              honest, and reviewed by the detailer doing the work.
+              Share your vehicle details to prepare an email request. You will
+              need to send the draft from your mail app to complete it.
             </p>
           </FadeUp>
 

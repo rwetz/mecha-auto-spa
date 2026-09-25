@@ -21,9 +21,10 @@ export default function PrivacyPage() {
           <div>
             <h2>Information we collect</h2>
             <p className="mt-3">
-              When you request a quote or contact us, we collect only the
-              details you choose to provide — your name, phone number, email,
-              city, vehicle information, and any notes about your vehicle.
+              The quote form prepares an email draft on your device. If you
+              send it or contact us directly, we receive the details you
+              choose to provide — your name, phone number, email, city,
+              vehicle information, and any notes about your vehicle.
               This site sets no cookies of its own and uses no analytics or
               advertising trackers, so there is nothing here for you to
               consent to or opt out of.
@@ -47,7 +48,7 @@ export default function PrivacyPage() {
               third-party scheduling service, on Square&rsquo;s own website.
               Anything you enter there — including any payment details — is
               handled by Square under Square&rsquo;s privacy policy and
-              cookie practices, not ours. We never see or store card numbers.
+              cookie practices, not by this website.
             </p>
           </div>
           <div>

@@ -31,16 +31,6 @@ export default function TermsPage() {
             </p>
           </div>
           <div>
-            <h2>Promotions</h2>
-            <p className="mt-3">
-              When a promotion is running, it is announced on this site and
-              its terms are stated with the offer. Unless the offer says
-              otherwise, promotional discounts cannot be combined with other
-              offers and exclude add-on services. We are not able to apply a
-              promotion retroactively to a completed service.
-            </p>
-          </div>
-          <div>
             <h2>Vehicle condition</h2>
             <p className="mt-3">
               Detailing cleans and protects a vehicle — it does not repair
@@ -48,29 +38,17 @@ export default function TermsPage() {
               dents, cracked or brittle trim, torn or worn upholstery,
               aftermarket wraps and films, and previously applied fillers or
               glazes may become more visible once a surface is cleaned or
-              polished. We point out anything we notice before we start, and
-              we will decline or adjust a service rather than risk damaging a
-              surface we don&rsquo;t believe will hold up. Please remove
+              polished. Please tell us about existing damage when requesting
+              a quote and remove
               valuables and personal items before your appointment.
-            </p>
-          </div>
-          <div>
-            <h2>Photos of your vehicle</h2>
-            <p className="mt-3">
-              We sometimes photograph our work for this site and our social
-              accounts. Tell us at any time if you&rsquo;d rather we
-              didn&rsquo;t photograph your vehicle, or email us to have a
-              photo of your vehicle taken down, and we&rsquo;ll honour it. We
-              don&rsquo;t publish license plates, addresses, or anything else
-              that identifies you.
             </p>
           </div>
           <div>
             <h2>Appointments &amp; cancellations</h2>
             <p className="mt-3">
               Please provide at least 24 hours&rsquo; notice to reschedule or
-              cancel. Weather-related mobile appointments are rescheduled at
-              no charge.
+              cancel. Contact us to arrange a new time if weather prevents a
+              mobile appointment.
             </p>
           </div>
           <div>

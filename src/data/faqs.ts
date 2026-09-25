@@ -12,12 +12,12 @@ export const faqs: Faq[] = [
   {
     question: "Do you come to me?",
     answer:
-      "Yes — Mecha Auto Spa is fully mobile. We service driveways, workplaces, and parking lots across Rochester, Byron, Oronoco, Stewartville, Eyota, Kasson, Pine Island, and nearby communities.",
+      "Yes — Mecha Auto Spa comes to driveways and workplaces in Rochester, Byron, Oronoco, Stewartville, Eyota, Kasson, Pine Island, and nearby communities.",
   },
   {
     question: "Do you need my water or electricity?",
     answer:
-      "Every location is different — just tell us what's available (spigot, outlet, or neither) when you request your quote and we'll arrive prepared. It never changes your price.",
+      "Please tell us what water and electrical access is available when you request a quote. We'll confirm the setup with you before your appointment.",
   },
   {
     question: "How long does ceramic coating last?",
@@ -42,11 +42,11 @@ export const faqs: Faq[] = [
   {
     question: "How do I schedule?",
     answer:
-      "Request a quote through the site, or call, text, or email us directly — texting is a perfectly fine way to book. We confirm your appointment, arrive on time, and handle everything on-site.",
+      "Use Book Now to choose an available Square appointment, or contact us by phone, text, or email. The quote form prepares an email draft for you to send.",
   },
   {
-    question: "How can I pay?",
+    question: "When is my price confirmed?",
     answer:
-      "Whatever's easiest for you — cash and check work just as well as card. We also welcome tap-to-pay, including Apple Pay and Google Pay.",
+      "Published package prices vary by vehicle size. We confirm your price before the appointment; third-row SUVs use the trucks and vans price.",
   },
 ];

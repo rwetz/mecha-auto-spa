@@ -38,8 +38,8 @@ export function FinalCta() {
             <span className="text-metallic">your vehicle?</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#bdbdbd] sm:text-lg">
-            Get a quote in minutes. We come to you — fully equipped,
-            satisfaction guaranteed.
+            Choose an appointment or tell us about your vehicle. We come to
+            driveways and workplaces around Rochester.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <CtaLink href={SITE.bookingUrl} variant="primary">

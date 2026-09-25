@@ -50,7 +50,7 @@ export function Hero() {
         <div className="relative min-h-[460px] overflow-hidden rounded-[1.75rem] sm:min-h-[560px] lg:h-full lg:min-h-[640px]">
           <Image
             src={asset("/images/mobile-hand-wash-hero.jpg")}
-            alt="A Mecha Auto Spa detailer hand-washing a foam-covered sedan in a client's driveway"
+            alt="A detailer hand-washing a foam-covered sedan outdoors"
             fill
             priority
             sizes="(min-width: 1024px) 48vw, 100vw"

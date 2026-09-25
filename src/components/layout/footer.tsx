@@ -81,7 +81,7 @@ export function Footer() {
             {SITE.description}
           </p>
           <p className="mt-6 font-mono text-xs text-muted-foreground">
-            Satisfaction guaranteed — 48-hour make-it-right.
+            Satisfaction guarantee — contact us within 48 hours.
           </p>
           <div className="mt-6 flex items-center gap-2">
             {SITE.social.instagram && (

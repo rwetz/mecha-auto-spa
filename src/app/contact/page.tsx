@@ -25,21 +25,21 @@ const channels = [
     title: "Book online",
     value: "Pick a time",
     href: SITE.bookingUrl,
-    note: "Choose an open slot — it drops straight onto our calendar",
+    note: "Choose an available Square appointment",
   },
   {
     icon: Phone,
     title: "Call us",
     value: SITE.phone,
     href: SITE.phoneHref,
-    note: "Fastest for same-week scheduling",
+    note: "Ask about services and availability",
   },
   {
     icon: MessageSquareText,
     title: "Text us",
     value: SITE.phone,
     href: SITE.smsHref,
-    note: "Texting is a perfectly fine option — we reply quickly",
+    note: "Send a question or service request",
   },
   {
     icon: Mail,
@@ -51,9 +51,9 @@ const channels = [
   {
     icon: MessageSquareQuote,
     title: "Request a quote",
-    value: "2-minute form",
+    value: "Email draft form",
     href: "/request-quote/",
-    note: "Exact pricing within one business day",
+    note: "Prepare details for an email quote request",
   },
 ] as const;
 
@@ -72,8 +72,7 @@ export default function ContactPage() {
               <span className="text-metallic">so start here.</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              No storefront, no waiting room. Just a fully equipped detailing
-              studio that arrives at your address. Call, email, or text us —
+              We come to driveways and workplaces around Rochester. Call, email, or text us —
               whatever&rsquo;s easiest for you.
             </p>
           </FadeUp>

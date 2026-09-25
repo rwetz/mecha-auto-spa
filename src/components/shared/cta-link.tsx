@@ -43,7 +43,8 @@ export function CtaLink({
     className
   );
 
-  const isExternal = href.startsWith("http");
+  const isExternal = /^https?:\/\//.test(href);
+  const isProtocolLink = /^(mailto:|tel:|sms:)/.test(href);
 
   if (isExternal) {
     return (
@@ -54,6 +55,14 @@ export function CtaLink({
         className={classes}
         {...props}
       >
+        {children}
+      </a>
+    );
+  }
+
+  if (isProtocolLink) {
+    return (
+      <a href={href} className={classes} {...props}>
         {children}
       </a>
     );

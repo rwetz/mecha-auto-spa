@@ -14,7 +14,7 @@ import { asset } from "@/lib/asset";
 export const metadata: Metadata = {
   title: "Ceramic Coating Rochester MN — 1, 3 & 5 Year Packages",
   description:
-    "Professional ceramic coating in Rochester MN from $299. Hydrophobic protection, UV resistance, and years of gloss — installed at your home or office.",
+    "Mobile ceramic coating in Rochester MN, with 1-, 3-, and 5-year packages starting at $299.",
   alternates: { canonical: "/ceramic-coatings/" },
 };
 
@@ -27,9 +27,8 @@ const process = [
 ] as const;
 
 const coatingAddOns = [
-  { name: "Wheel Coating", detail: "Faces & barrels protected from brake dust" },
-  { name: "Glass Coating", detail: "Rain sheets off the windshield at speed" },
-  { name: "Trim Coating", detail: "Keeps plastics deep black, prevents fade" },
+  { name: "Glass Ceramic Coating", detail: "$100 — see the full add-on list" },
+  { name: "Wheel Ceramic Coating", detail: "$200 — see the full add-on list" },
 ] as const;
 
 export default function CeramicCoatingsPage() {
@@ -60,7 +59,7 @@ export default function CeramicCoatingsPage() {
             Ceramic protection <span className="text-metallic">that lasts years.</span>
           </>
         }
-        lede="Advanced hydrophobic coating for unmatched gloss, durability, and protection — prepped and installed by hand, rated for up to 5 years."
+        lede="A coating option for prepared paint, with packages rated for 1, 3, or 5 years. Ask which option fits your vehicle."
         primaryCta={{ label: "View Packages", href: "#pricing" }}
         secondaryCta={{ label: "Request Consultation", href: "/request-quote/" }}
       />
@@ -71,8 +70,8 @@ export default function CeramicCoatingsPage() {
           <SectionHeading
             index="01"
             eyebrow="Why Ceramic"
-            title="Wax protects for weeks. Ceramic protects for years."
-            lede="A ceramic coating chemically bonds to your clear coat, forming a sacrificial glass-like layer that outperforms any wax or sealant."
+            title="A longer-lasting layer of care."
+            lede="Ceramic coatings add gloss and make routine washing easier. Package ratings depend on the coating and how the vehicle is maintained."
           />
           <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {ceramicBenefits.map((benefit) => (
@@ -127,8 +126,8 @@ export default function CeramicCoatingsPage() {
             <SectionHeading
               index="03"
               eyebrow="Coating Add-Ons"
-              title="Coat everything the road attacks."
-              lede="Each add-on runs $50–$150 depending on your package and vehicle."
+              title="Protection beyond the paint."
+              lede="Glass and wheel coatings are available as separately priced add-ons."
             />
             <ul className="mt-9 space-y-3">
               {coatingAddOns.map((addon) => (
@@ -144,9 +143,6 @@ export default function CeramicCoatingsPage() {
                       {addon.detail}
                     </p>
                   </div>
-                  <span className="shrink-0 font-mono text-[13px] text-muted-foreground">
-                    $50–$150
-                  </span>
                 </li>
               ))}
             </ul>

@@ -67,7 +67,7 @@ export default function ServicesPage() {
             A catalog, <span className="text-metallic">not a car wash menu.</span>
           </>
         }
-        lede="Every package below is a defined process with defined results. Pick your level — we handle the rest, at your driveway or workplace."
+        lede="Compare what's included and choose a package for your vehicle. We come to your driveway or workplace."
       />
 
       <PricingTiers group={detailPackages} index="01" />

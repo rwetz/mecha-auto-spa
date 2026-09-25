@@ -14,7 +14,7 @@ export function WhyMecha() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.06] sm:aspect-[4/3] lg:aspect-[4/5]">
             <Image
               src={asset("/images/bmw-wheel.jpg")}
-              alt="Freshly detailed BMW wheel and tire by Mecha Auto Spa"
+              alt="Close-up of a BMW wheel and tire"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
@@ -30,7 +30,7 @@ export function WhyMecha() {
               PAINT-SAFE PROCESS
             </p>
             <p className="mt-1 font-display text-sm font-semibold">
-              Two-bucket wash, every time.
+              Two-bucket wash method.
             </p>
           </div>
         </FadeUp>

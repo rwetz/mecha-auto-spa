@@ -23,6 +23,7 @@ export function CompareSlider({
   sizes = "(min-width: 768px) 50vw, 100vw",
 }: CompareSliderProps) {
   const [position, setPosition] = React.useState(58);
+  const instructionsId = React.useId();
   const trackRef = React.useRef<HTMLDivElement>(null);
   const dragging = React.useRef(false);
 
@@ -49,8 +50,11 @@ export function CompareSlider({
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
+    if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) e.preventDefault();
     if (e.key === "ArrowLeft") setPosition((p) => Math.max(4, p - 4));
     if (e.key === "ArrowRight") setPosition((p) => Math.min(96, p + 4));
+    if (e.key === "Home") setPosition(4);
+    if (e.key === "End") setPosition(96);
   };
 
   return (
@@ -98,15 +102,20 @@ export function CompareSlider({
       </span>
 
       {/* Divider + handle */}
+      <span id={instructionsId} className="sr-only">
+        Use left and right arrow keys to compare the images. Home and End move the divider to either side.
+      </span>
       <div
         role="slider"
         tabIndex={0}
-        aria-label="Reveal before and after"
-        aria-valuemin={0}
-        aria-valuemax={100}
+        aria-label="Before and after image comparison"
+        aria-describedby={instructionsId}
+        aria-valuemin={4}
+        aria-valuemax={96}
         aria-valuenow={Math.round(position)}
+        aria-valuetext={`${Math.round(position)} percent of the after image visible`}
         onKeyDown={onKeyDown}
-        className="absolute inset-y-0 z-10 w-px bg-white/70 outline-none focus-visible:ring-2 focus-visible:ring-ring/70"
+        className="absolute inset-y-0 z-10 w-px bg-white/70 outline-none focus-visible:[&_span]:ring-2 focus-visible:[&_span]:ring-ring"
         style={{ left: `${position}%` }}
       >
         <span className="absolute top-1/2 left-1/2 flex size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-black/70 shadow-xl backdrop-blur-md">
