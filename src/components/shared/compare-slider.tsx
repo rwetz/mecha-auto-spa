@@ -94,10 +94,10 @@ export function CompareSlider({
       </div>
 
       {/* Labels */}
-      <span className="absolute top-4 left-4 rounded-full border border-white/15 bg-black/55 px-3 py-1 font-mono text-[10px] tracking-[0.3em] text-[#bdbdbd] backdrop-blur-sm">
+      <span className="absolute top-4 left-4 rounded-full border border-white/15 bg-black/55 px-3 py-1 font-display text-[10px] tracking-[0.3em] text-[#bdbdbd] backdrop-blur-sm">
         BEFORE
       </span>
-      <span className="absolute top-4 right-4 rounded-full border border-white/15 bg-black/55 px-3 py-1 font-mono text-[10px] tracking-[0.3em] text-foreground backdrop-blur-sm">
+      <span className="absolute top-4 right-4 rounded-full border border-white/15 bg-black/55 px-3 py-1 font-display text-[10px] tracking-[0.3em] text-foreground backdrop-blur-sm">
         AFTER
       </span>
 

@@ -104,7 +104,7 @@ export default function CeramicCoatingsPage() {
             <ol className="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:flex lg:flex-wrap lg:items-center lg:gap-7">
               {process.map((item) => (
                 <li key={item.step} className="flex items-center gap-3">
-                  <span className="font-mono text-[11px] text-muted-foreground">
+                  <span className="font-display text-[11px] text-muted-foreground">
                     {item.step}
                   </span>
                   <span className="text-sm text-[#bdbdbd]">{item.label}</span>

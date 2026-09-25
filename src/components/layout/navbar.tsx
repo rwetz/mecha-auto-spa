@@ -79,7 +79,7 @@ export function Navbar() {
             className="hidden h-10 items-center gap-2 rounded-lg px-3 text-sm whitespace-nowrap text-muted-foreground transition-colors hover:bg-white/[0.05] hover:text-foreground xl:inline-flex"
           >
             <Phone className="size-4" aria-hidden />
-            <span className="font-mono text-[13px] tracking-tight">
+            <span className="font-display text-[13px] tracking-tight">
               {SITE.phone}
             </span>
             <span className="sr-only">Call {SITE.name}</span>
@@ -116,7 +116,7 @@ export function Navbar() {
                 <SheetTitle>
                   <span className="font-display text-sm font-semibold tracking-[0.22em] text-foreground">
                     MECHA{" "}
-                    <span className="font-mono text-[10px] tracking-[0.42em] text-muted-foreground">
+                    <span className="font-display text-[10px] tracking-[0.42em] text-muted-foreground">
                       AUTO SPA
                     </span>
                   </span>
@@ -161,7 +161,7 @@ export function Navbar() {
                   className="mt-1 inline-flex items-center justify-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <Phone className="size-4" aria-hidden />
-                  <span className="font-mono">{SITE.phone}</span>
+                  <span className="font-display">{SITE.phone}</span>
                 </a>
               </div>
             </SheetContent>

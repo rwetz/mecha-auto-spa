@@ -40,7 +40,7 @@ export function Logo({ className }: { className?: string }) {
         <span className="font-display text-[17px] font-semibold tracking-[0.22em] text-foreground">
           MECHA
         </span>
-        <span className="mt-1 font-mono text-[9px] font-medium tracking-[0.42em] text-muted-foreground">
+        <span className="mt-1 font-display text-[9px] font-medium tracking-[0.42em] text-muted-foreground">
           AUTO&nbsp;SPA
         </span>
       </span>

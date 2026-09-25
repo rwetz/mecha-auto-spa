@@ -1,20 +1,17 @@
-# Image Attribution
+# Image sources
 
-All photos sourced from Unsplash (https://unsplash.com/license) — free for commercial use, no attribution required. Replace with professional brand photography before launch.
+## Stock photos currently used on the site
 
-| File | Unsplash photo ID | Content |
-|---|---|---|
-| hero-mustang.jpg | photo-1494905998402-395d579af36f | Black Mustang, golden hour |
-| service-exterior.jpg | photo-1607860108855-64acf2078ed9 | Foam hand wash, black Taycan |
-| service-interior.jpg | photo-1610647752706-3bb12232b3ab | RAM truck interior |
-| service-signature.jpg | photo-1533106418989-88406c7cc8ca | White Mustang, dark garage |
-| service-platinum.jpg | photo-1544636331-e26879cd4d9b | Bugatti Chiron at night |
-| ceramic-beading.jpg | photo-1520340356584-f9917d1eea6f | Water spray on black GT-R |
-| paint-correction.jpg | photo-1580273916550-e323be2ae537 | Grey BMW M4 at dusk |
-| correction-closeup.jpg | photo-1612544448445-b8232cff3b6c | White Mustang, dark tunnel |
-| why-mecha.jpg | photo-1583267746897-2cf415887172 | Black AMG GT, autumn street |
-| final-cta.jpg | photo-1503376780353-7e6692767b70 | Black Panamera, dusk highway |
-| daily-driver.jpg | photo-1585011664466-b7bbe92f34ef | Black Tesla Model 3, wet rooftop |
-| gallery-m3.jpg | photo-1607853554439-0069ec0f29b6 | Grey BMW M3, autumn forest |
-| service-area.jpg | photo-1571987502227-9231b837d92a | Grey Tesla Model 3, sunset hilltop |
-| engine-bay.jpg | photo-1486262715619-67b85e0b08d3 | Engine bay close-up |
+These three local files match the listed Unsplash image IDs (checked against the original images on September 25, 2026). The [Unsplash License](https://unsplash.com/license) permits commercial website use without attribution. It licenses the photographer's copyright, but does not grant rights to visible logos, brands, recognizable people, or artwork; see the [Unsplash terms](https://unsplash.com/terms). The alt text describes the image rather than claiming Mecha Auto Spa performed the pictured work.
+
+| Local file | Original image | Site placement |
+| --- | --- | --- |
+| `public/images/ceramic-beading.jpg` | [Unsplash photo 1520340356584-f9917d1eea6f](https://images.unsplash.com/photo-1520340356584-f9917d1eea6f) | Home, Services, Ceramic Coatings |
+| `public/images/paint-correction.jpg` | [Unsplash photo 1580273916550-e323be2ae537](https://images.unsplash.com/photo-1580273916550-e323be2ae537) | Services, Paint Correction |
+| `public/images/daily-driver.jpg` | [Unsplash photo 1585011664466-b7bbe92f34ef](https://images.unsplash.com/photo-1585011664466-b7bbe92f34ef) | Ceramic Coatings |
+
+## Client photos
+
+The other photos used by the site are client or owner supplied. The owner confirmed permission for the client photos in chat on September 25, 2026. In particular, `mustang-night-front.jpg` and `mustang-night-rear.jpg` were added as real client photos in commit `aa6d601`, despite their earlier classification as stock placeholders. Keep copy and alt text limited to what the image shows unless the owner confirms the pictured service.
+
+`correction-closeup.jpg` is an unused Unsplash stock file (photo ID `1612544448445-b8232cff3b6c`), retained in the repository but not served by current pages.

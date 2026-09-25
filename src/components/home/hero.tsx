@@ -41,7 +41,7 @@ export function Hero() {
             </CtaLink>
           </div>
           <div className="mt-12 flex items-center gap-5 border-t border-white/10 pt-5 text-sm text-muted-foreground">
-            <span className="font-mono text-xs text-[#df6b47]">MECHA / MN</span>
+            <span className="font-display text-xs text-[#df6b47]">MECHA / MN</span>
             <span>Detailing at your door</span>
             <ArrowDownRight className="ml-auto size-5 text-[#df6b47]" aria-hidden />
           </div>
@@ -57,7 +57,7 @@ export function Hero() {
             className="object-cover object-[center_43%]"
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-6 pt-24 sm:p-8">
-            <p className="font-mono text-[11px] tracking-[0.2em] text-white uppercase">Real work. Real vehicles.</p>
+            <p className="font-display text-[11px] tracking-[0.2em] text-white uppercase">Real work. Real vehicles.</p>
           </div>
         </div>
       </div>

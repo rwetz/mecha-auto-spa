@@ -17,7 +17,7 @@ export function CorrectionSection() {
             className="aspect-[4/3]"
             sizes="(min-width: 1024px) 45vw, 100vw"
           />
-          <p className="mt-5 text-center font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+          <p className="mt-5 text-center font-display text-xs tracking-[0.2em] text-muted-foreground uppercase">
             Real client paint — drag to compare
           </p>
         </FadeUp>
@@ -44,7 +44,7 @@ export function CorrectionSection() {
                     {tier.blurb}
                   </p>
                 </div>
-                <p className="shrink-0 text-right font-mono text-[12px] text-muted-foreground">
+                <p className="shrink-0 text-right font-display text-[12px] text-muted-foreground">
                   from
                   <span className="ml-1.5 text-lg font-semibold text-foreground">
                     ${tier.price}

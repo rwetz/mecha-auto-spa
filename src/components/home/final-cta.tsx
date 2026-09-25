@@ -53,7 +53,7 @@ export function FinalCta() {
               {SITE.phone}
             </CtaLink>
           </div>
-          <p className="mt-10 font-mono text-[11px] tracking-[0.25em] text-muted-foreground uppercase">
+          <p className="mt-10 font-display text-[11px] tracking-[0.25em] text-muted-foreground uppercase">
             Fully Mobile · Satisfaction Guaranteed · Serving the Rochester Area
           </p>
         </FadeUp>

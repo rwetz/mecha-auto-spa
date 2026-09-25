@@ -48,7 +48,7 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                 )}
               >
                 {tier.popular && (
-                  <span className="absolute -top-3 left-7 rounded-full border border-white/15 bg-background px-3 py-1 font-mono text-[10px] tracking-[0.25em] text-[#bdbdbd]">
+                  <span className="absolute -top-3 left-7 rounded-full border border-white/15 bg-background px-3 py-1 font-display text-[10px] tracking-[0.25em] text-[#bdbdbd]">
                     MOST POPULAR
                   </span>
                 )}
@@ -56,10 +56,10 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                   {tier.name}
                 </h3>
                 <p className="mt-4 flex items-baseline gap-2">
-                  <span className="font-mono text-4xl font-semibold tracking-tight">
+                  <span className="font-display text-4xl font-semibold tracking-tight">
                     ${tier.price}
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground">
+                  <span className="font-display text-xs text-muted-foreground">
                     {tier.priceNote ?? "starting at"}
                   </span>
                 </p>
@@ -67,7 +67,7 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                   {tier.blurb}
                 </p>
                 {tier.vehiclePrices && (
-                  <ul className="mt-5 space-y-1.5 border-t border-white/[0.06] pt-5 font-mono text-[13px]">
+                  <ul className="mt-5 space-y-1.5 border-t border-white/[0.06] pt-5 font-display text-[13px]">
                     {(
                       [
                         ["Cars", tier.vehiclePrices.cars],
@@ -109,7 +109,7 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
         </Stagger>
 
         {group.footnote && (
-          <p className="mt-8 text-center font-mono text-xs text-muted-foreground">
+          <p className="mt-8 text-center font-display text-xs text-muted-foreground">
             {group.footnote}
           </p>
         )}

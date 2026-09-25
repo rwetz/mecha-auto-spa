@@ -102,7 +102,7 @@ export default function ServicesPage() {
                     className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent"
                   />
                   <div className="relative z-10">
-                    <p className="font-mono text-[11px] tracking-[0.25em] text-[#bdbdbd] uppercase">
+                    <p className="font-display text-[11px] tracking-[0.25em] text-[#bdbdbd] uppercase">
                       {page.price}
                     </p>
                     <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">

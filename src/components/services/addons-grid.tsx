@@ -30,7 +30,7 @@ export function AddonsGrid({ index }: { index?: string }) {
                   <h3 className="text-[15px] font-semibold tracking-tight">
                     {addon.name}
                   </h3>
-                  <span className="font-mono text-[12px] text-muted-foreground">
+                  <span className="font-display text-[12px] text-muted-foreground">
                     {addon.priceRange}
                   </span>
                 </div>

@@ -97,7 +97,7 @@ export const featuredServices: FeaturedService[] = [
     description: "A deeper inside-and-out detail with decontamination, extraction, and engine bay care.",
     price: 350,
     image: "/images/mustang-night-front.jpg",
-    // Stock placeholder — swap for a real Platinum vehicle when we have one.
+    // Real client photo; do not imply it depicts a Platinum Detail.
     imageAlt: "A dark sports car photographed head-on at night",
     href: "/services/#packages",
   },

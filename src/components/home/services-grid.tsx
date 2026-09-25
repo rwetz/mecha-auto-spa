@@ -32,7 +32,7 @@ export function ServicesGrid() {
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
                   />
-                  <span className="absolute top-4 left-4 rounded-sm bg-[#11100e]/85 px-2.5 py-1.5 font-mono text-[11px] text-[#f3eee5]">0{index + 1}</span>
+                  <span className="absolute top-4 left-4 rounded-sm bg-[#11100e]/85 px-2.5 py-1.5 font-display text-[11px] text-[#f3eee5]">0{index + 1}</span>
                 </div>
 
                 <div className="flex flex-1 flex-col border-b border-[#e9d9bc]/20 py-5">
@@ -40,7 +40,7 @@ export function ServicesGrid() {
                     <h3 className="font-display text-2xl font-medium tracking-tight lg:text-3xl">
                       {service.name}
                     </h3>
-                    <p className="shrink-0 font-mono text-[12px] text-muted-foreground">
+                    <p className="shrink-0 font-display text-[12px] text-muted-foreground">
                       from{" "}
                       <span className="text-base font-semibold text-foreground">
                         ${service.price}

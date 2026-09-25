@@ -41,10 +41,10 @@ export function CeramicSection() {
                 key={tier.id}
                 className="panel px-4 py-4 text-center sm:px-5"
               >
-                <p className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
+                <p className="font-display text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
                   {tier.name.replace(" Ceramic", "")}
                 </p>
-                <p className="mt-1.5 font-mono text-xl font-semibold sm:text-2xl">
+                <p className="mt-1.5 font-display text-xl font-semibold sm:text-2xl">
                   ${tier.price}
                 </p>
               </div>
@@ -75,7 +75,7 @@ export function CeramicSection() {
               className="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"
             />
             <div className="absolute bottom-5 left-5 rounded-xl border border-white/10 bg-black/60 px-4 py-3 backdrop-blur-md">
-              <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
+              <p className="font-display text-[10px] tracking-[0.3em] text-muted-foreground">
                 HYDROPHOBIC LAYER
               </p>
               <p className="mt-1 font-display text-sm font-semibold">

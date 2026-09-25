@@ -202,7 +202,7 @@ export function QuoteForm() {
         </p>
         <a
           href={SITE.phoneHref}
-          className="mt-6 font-mono text-sm text-foreground underline-offset-4 hover:underline"
+          className="mt-6 font-display text-sm text-foreground underline-offset-4 hover:underline"
         >
           {SITE.phone}
         </a>
@@ -251,7 +251,7 @@ export function QuoteForm() {
           Prefer to talk?{" "}
           <a
             href={SITE.phoneHref}
-            className="font-mono text-foreground underline-offset-4 hover:underline"
+            className="font-display text-foreground underline-offset-4 hover:underline"
           >
             {SITE.phone}
           </a>

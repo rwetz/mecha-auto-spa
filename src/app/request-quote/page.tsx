@@ -85,7 +85,7 @@ export default function RequestQuotePage() {
                 <p className="eyebrow">Prefer to talk?</p>
                 <a
                   href={SITE.phoneHref}
-                  className="mt-3 block font-mono text-2xl font-semibold tracking-tight hover:underline"
+                  className="mt-3 block font-display text-2xl font-semibold tracking-tight hover:underline"
                 >
                   {SITE.phone}
                 </a>

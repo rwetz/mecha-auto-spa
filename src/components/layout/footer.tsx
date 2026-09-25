@@ -80,7 +80,7 @@ export function Footer() {
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
             {SITE.description}
           </p>
-          <p className="mt-6 font-mono text-xs text-muted-foreground">
+          <p className="mt-6 font-display text-xs text-muted-foreground">
             Satisfaction guarantee — contact us within 48 hours.
           </p>
           <div className="mt-6 flex items-center gap-2">
@@ -175,7 +175,7 @@ export function Footer() {
               <li>
                 <a
                   href={SITE.phoneHref}
-                  className="font-mono transition-colors hover:text-foreground"
+                  className="font-display transition-colors hover:text-foreground"
                 >
                   {SITE.phone}
                 </a>
@@ -193,7 +193,7 @@ export function Footer() {
                   <span className="text-xs text-muted-foreground">
                     {entry.days}
                   </span>
-                  <span className="font-mono text-[13px]">{entry.hours}</span>
+                  <span className="font-display text-[13px]">{entry.hours}</span>
                 </li>
               ))}
             </ul>
@@ -204,7 +204,7 @@ export function Footer() {
       {/* Service area strip */}
       <div className="border-t border-white/[0.05]">
         <div className="container-site py-5">
-          <p className="font-mono text-[11px] leading-relaxed tracking-wide text-muted-foreground">
+          <p className="font-display text-[11px] leading-relaxed tracking-wide text-muted-foreground">
             <span className="text-muted-foreground">SERVICE AREA —</span>{" "}
             {areaList} &amp; more to come
           </p>

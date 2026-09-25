@@ -24,7 +24,7 @@ export function PricingPreview() {
                 href={service.href}
                 className="group flex h-full items-center gap-4 border-b border-[#e9d9bc]/20 py-6 outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
               >
-                <span className="font-mono text-xs text-[#d96c48]">0{index + 1}</span>
+                <span className="font-display text-xs text-[#d96c48]">0{index + 1}</span>
                 <span className="min-w-0 flex-1 font-display text-lg font-medium leading-tight sm:text-xl">{service.name}</span>
                 <span className="shrink-0 text-right">
                   <span className="block font-display text-xl font-medium sm:text-2xl">${service.price}</span>

@@ -45,7 +45,7 @@ export function BeforeAfter() {
                 after={comparison.after}
                 alt={comparison.alt}
               />
-              <p className="mt-5 text-center font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+              <p className="mt-5 text-center font-display text-xs tracking-[0.2em] text-muted-foreground uppercase">
                 {comparison.caption}
               </p>
             </FadeUp>

@@ -26,7 +26,7 @@ export function WhyMecha() {
           </div>
           {/* Floating spec chip */}
           <div className="absolute bottom-5 left-5 rounded-xl border border-white/10 bg-black/60 px-4 py-3 backdrop-blur-md">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
+            <p className="font-display text-[10px] tracking-[0.3em] text-muted-foreground">
               PAINT-SAFE PROCESS
             </p>
             <p className="mt-1 font-display text-sm font-semibold">

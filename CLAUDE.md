@@ -74,10 +74,11 @@ NOT true yet — do not claim (re-add only when the owner says so):
   it handles the PNG/JPG drops the owner sends from her phone. iPhone
   screenshots arrive letterboxed, so trim the solid black bars before
   cropping. Service-card images are 1400×1867 JPEG, q86.
-- Remaining stock placeholders: ceramic (`ceramic-beading.jpg`), Platinum
-  card (`mustang-night-front.jpg`), /paint-correction page hero, /services
-  page hero (`mustang-night-rear.jpg`), and `daily-driver.jpg` on the
-  ceramic page — replace with real photos as provided. **Stock photos get
+- Remaining in-use stock photos: `ceramic-beading.jpg`, `paint-correction.jpg`,
+  and `daily-driver.jpg` (see `ATTRIBUTION.md`). The Platinum card
+  (`mustang-night-front.jpg`) and /services hero (`mustang-night-rear.jpg`)
+  are client photos added in `aa6d601`. Replace stock with suitable real photos
+  as provided. **Stock photos get
   alt text describing only what is in the frame** — never "by Mecha Auto
   Spa", "freshly detailed", or "coated", which assert work we didn't do.
   The homepage hero is now a real photo (`mobile-hand-wash-hero.jpg`). The homepage paint-correction section and the /paint-correction

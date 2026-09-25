@@ -123,7 +123,7 @@ export default function PaintCorrectionPage() {
               className="aspect-[4/3]"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
-            <p className="mt-5 text-center font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+            <p className="mt-5 text-center font-display text-xs tracking-[0.2em] text-muted-foreground uppercase">
               Real client paint — drag to compare
             </p>
           </FadeUp>

@@ -18,7 +18,7 @@ export function HowItWorks() {
               key={step.step}
               className="relative border-t border-[#e9d9bc]/25 pt-6"
             >
-              <span className="font-mono text-[12px] text-[#d96c48]">
+              <span className="font-display text-[12px] text-[#d96c48]">
                 {step.step}
               </span>
               <h3 className="mt-7 font-display text-xl font-medium tracking-tight">

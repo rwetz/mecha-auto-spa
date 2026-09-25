@@ -57,7 +57,7 @@ export function InquiryServices({ index }: { index?: string }) {
                 )}
 
                 <div className="relative z-10">
-                  <span className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] text-[#bdbdbd] uppercase">
+                  <span className="inline-flex items-center gap-2 font-display text-[11px] tracking-[0.25em] text-[#bdbdbd] uppercase">
                     <service.icon
                       className="size-3.5"
                       strokeWidth={1.75}

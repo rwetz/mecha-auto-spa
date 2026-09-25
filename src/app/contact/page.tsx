@@ -97,7 +97,7 @@ export default function ContactPage() {
                     <h2 className="mt-4 font-display text-[15px] font-semibold tracking-tight">
                       {channel.title}
                     </h2>
-                    <p className="mt-1.5 font-mono text-sm text-foreground">
+                    <p className="mt-1.5 font-display text-sm text-foreground">
                       {channel.value}
                     </p>
                     <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
@@ -121,7 +121,7 @@ export default function ContactPage() {
                     <span className="text-sm text-muted-foreground">
                       {entry.days}
                     </span>
-                    <span className="font-mono text-sm">{entry.hours}</span>
+                    <span className="font-display text-sm">{entry.hours}</span>
                   </li>
                 ))}
               </ul>

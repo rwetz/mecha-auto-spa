@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -16,12 +16,6 @@ const geist = Geist({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -89,7 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geist.variable} ${inter.variable} ${jetbrains.variable} font-sans antialiased`}
+        className={`${geist.variable} ${inter.variable} font-sans antialiased`}
       >
         {process.env.NODE_ENV === "production" && (
           <meta httpEquiv="Content-Security-Policy" content={csp} />

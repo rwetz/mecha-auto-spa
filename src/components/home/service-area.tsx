@@ -106,7 +106,7 @@ function AreaMap() {
               textAnchor={node.anchor ?? "middle"}
               fill={isPrimary ? "#f5f5f5" : "#9e9e9e"}
               fontSize={isPrimary ? 13 : 11}
-              fontFamily="var(--font-jetbrains), monospace"
+              fontFamily="var(--font-geist), sans-serif"
               letterSpacing="0.08em"
             >
               {city.name.toUpperCase()}

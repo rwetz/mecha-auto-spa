@@ -24,7 +24,7 @@ Everything site-wide lives in **`src/lib/constants.ts`**:
 | Domain (update after buying) | `SITE.url` |
 | Quote form endpoint (see below) | `SITE.quoteEndpoint` |
 | Real Google reviews (then re-enable `<Reviews />` on the homepage) | `src/data/reviews.ts` |
-| Remaining stock photos: hero of /ceramic & /paint pages, ceramic/correction sections | `public/images/` (see [ATTRIBUTION.md](ATTRIBUTION.md)) |
+| Stock photo sources and remaining placements | [ATTRIBUTION.md](ATTRIBUTION.md) |
 
 > Content rules for facts/claims live in [CLAUDE.md](CLAUDE.md); read it before editing copy.
 

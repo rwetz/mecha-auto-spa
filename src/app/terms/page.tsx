@@ -14,7 +14,7 @@ export default function TermsPage() {
         <h1 className="font-display text-4xl font-semibold tracking-tight">
           Terms of Service
         </h1>
-        <p className="mt-3 font-mono text-xs text-muted-foreground">
+        <p className="mt-3 font-display text-xs text-muted-foreground">
           Last updated: September 2026
         </p>
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground [&_h2]:font-display [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-foreground">
