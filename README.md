@@ -1,4 +1,19 @@
-# Mecha Auto Spa
+<p align="center">
+  <img src="assets/logo.png" width="96" alt="Mecha Auto Spa logo mark">
+</p>
+
+<h1 align="center">Mecha Auto Spa</h1>
+
+<p align="center">
+  Premium mobile detailing website for Rochester, MN, built to the specification in <a href="design.md">design.md</a>.
+</p>
+
+<p align="center">
+  <a href="https://github.com/rwetz/mecha-auto-spa/actions/workflows/deploy.yml"><img src="https://github.com/rwetz/mecha-auto-spa/actions/workflows/deploy.yml/badge.svg" alt="CI"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-343D4B?labelColor=090B10" alt="License"></a>
+</p>
+
+![Mecha Auto Spa home page hero](docs/main.png)
 
 Premium mobile detailing website for Rochester, MN, built to the specification in [design.md](design.md).
 
