@@ -1,6 +1,7 @@
 # Mecha Auto Spa — content rules
 
-Marketing site for a real, brand-new mobile detailing business. It is deployed
+Marketing site for a real, brand-new detailing, window tint, and paint
+business in Rochester, MN. It is deployed
 publicly; every factual claim on it is a representation the owner is legally
 and reputationally on the hook for.
 
@@ -18,12 +19,15 @@ insured" badges that had to be scrubbed by hand.
 ## Current fact sheet (update this when the owner updates you)
 
 True and citable:
-- Fully mobile — comes to driveways/workplaces. Rochester MN (primary) and
-  surrounding communities: Byron, Oronoco, Stewartville, Eyota, Kasson,
+- **Not mobile (owner, Nov 2026).** Work is done at the owner's location in
+  Rochester; the site must not say "mobile", "we come to you", driveways,
+  workplaces, or travel fees. The street address is never published on the
+  site (owner, Nov 2026): customers get it when they request a quote, and
+  the site may say exactly that. Serves Rochester MN (primary) and surrounding communities: Byron, Oronoco, Stewartville, Eyota, Kasson,
   Pine Island ("more to come"). Narrowed to the Rochester area Aug 2026 —
   Winona MN and Fountain City WI were dropped; do not re-add without the
   owner saying so. Service area lives in `src/data/locations.ts` and drives
-  the map, footer, contact page, quote-form dropdown, and areaServed schema.
+  the footer, contact page, quote-form dropdown, and areaServed schema.
 - Owns: foam cannon, two-bucket wash gear, extractor (carpet extraction is on
   the flyer), machine polishers (paint correction + machine-applied sealant).
 - Pricing: exactly as in `src/data/services.ts`. Signature Exterior
@@ -50,16 +54,55 @@ NOT true yet — do not claim (re-add only when the owner says so):
 - Not advertising insurance ("fully insured" removed July 2026).
 - No ozone machine, no verified onboard water or generator.
 - No fleet/commercial offering (section removed).
-- No published price for watercraft detailing or window tinting. Both are
-  offered (owner, Sept 2026) and live in `inquiryServices` in
-  `src/data/services.ts`, rendered by the "By Quote" section on /services
-  and selectable in the quote form. They deliberately show no number.
-  Do not invent rates. For tinting specifically, do not add film brands,
-  VLT percentages, warranty terms, or any claim about Minnesota tint law —
-  none of that is confirmed. `boat-rinse.jpg` is still staged and unused;
-  there is no tint photo yet, so that card falls back to an icon panel.
+- No published price for watercraft detailing — offered (owner, Sept 2026),
+  lives in `inquiryServices`, shown by quote on /detailing. Do not invent
+  rates. `boat-rinse.jpg` is still staged and unused.
+- Window tinting: only what's in `tint` in `src/data/services.ts` (owner,
+  Nov 2026) — ceramic film, shades 5/15/20/35/50%, every window except
+  sunroofs, packages from $99, old-tint removal priced case by case,
+  ~3 h sides only to ~7 h for a large vehicle, free re-dos + lifetime
+  guarantee while you own the vehicle. Quote-only (not on Square). No film
+  brand, and **nothing about tint legality or Minnesota tint law** (owner's
+  instruction). Tint photos are coming from the owner; until then the tint
+  page uses an icon panel and a generic shade preview.
+- No other cosmetic services (PPF, wraps, chrome delete, dents) — owner,
+  Nov 2026. Headlight and trim restoration are detail add-ons only.
 - No real Google reviews yet (homepage `<Reviews />` commented out; never
   invent counts, star ratings, or testimonials).
+
+## Copy rules (owner, Nov 2026)
+
+These apply to every visible string: headings, body, buttons, alt text,
+page titles, meta descriptions, and FAQ answers.
+
+- **No em dashes (—), ever.** Not in copy, titles, captions, or as a
+  decorative rule between a section number and its label (the old
+  `h-px` line in `SectionHeading` was removed for this reason). Use a
+  period, comma, or colon. Spaced en dashes are out too; write ranges as
+  "2 to 4 hours" in sentences. Unspaced en dashes in compact price ranges
+  ("$50–$150") are fine.
+- **No filler microcopy.** Do not add a lede under a section heading, a
+  description line under a card title, a caption under an image, a
+  tagline strip, or an overlay badge unless it states a fact the visitor
+  needs (a price, a time, a condition, an instruction). If removing the
+  line loses no information, do not write it.
+- **No AI-flavored phrasing.** Avoid "elevate", "seamless", "we've got you
+  covered", "the results speak", "answered straight", "nothing gets
+  skipped", "no surprises", rhetorical two-part headlines, and
+  reassurance padding. Short, plain, specific.
+- Headings can be short phrases. One idea per sentence.
+- Before committing copy, run `grep -rn "—" src` and expect no output.
+
+## Site structure (Nov 2026)
+
+The homepage is a short chooser: three doors in order Window Tint →
+Detailing → Paint & Cosmetic (`serviceCategories`), then neutral info only.
+Each service has its own page holding all of its detail:
+`/window-tinting/`, `/detailing/` (packages, add-ons, before/after,
+watercraft — what the homepage used to be), and `/paint-and-cosmetic/`
+(which links on to `/paint-correction/` and `/ceramic-coatings/`).
+Contact, booking, hours, and service area live outside the service pages.
+`/services/` is kept only as a hub so old links still work.
 
 ## Working notes
 

@@ -1,4 +1,4 @@
-import { faqs } from "@/data/faqs";
+import { faqs, type Faq as FaqItem } from "@/data/faqs";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
@@ -9,16 +9,18 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export function Faq() {
+export function Faq({
+  index,
+  items = faqs,
+}: { index?: string; items?: FaqItem[] } = {}) {
   return (
     <section id="faq" className="section-pad bg-surface">
       <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
-            index="09"
+            index={index}
             eyebrow="FAQ"
-            title="Questions, answered straight."
-            lede="Everything most owners ask before their first appointment. Anything else — call or send a quote request."
+            title="Common questions."
           />
           <div className="mt-8 flex flex-wrap gap-3">
             <CtaLink href="/request-quote/" variant="outline" size="md">
@@ -29,7 +31,7 @@ export function Faq() {
 
         <FadeUp delay={0.1}>
           <Accordion className="w-full">
-            {faqs.map((faq) => (
+            {items.map((faq) => (
               <AccordionItem key={faq.question} value={faq.question}>
                 <AccordionTrigger className="py-5 text-left font-display text-[15px] font-semibold tracking-tight hover:no-underline sm:text-base">
                   {faq.question}

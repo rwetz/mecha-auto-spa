@@ -1,30 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { inquiryServices } from "@/data/services";
+import { inquiryServices, type InquiryService } from "@/data/services";
 import { asset } from "@/lib/asset";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Stagger, StaggerItem } from "@/components/animations/stagger";
 
 /**
  * Services we offer but haven't priced yet. These deliberately show no
- * number — every card routes to the quote form instead. A card with a real
+ * number, every card routes to the quote form instead. A card with a real
  * photo uses it; one without falls back to an icon panel of the same size,
  * so the pair still reads as a set.
  */
-export function InquiryServices({ index }: { index?: string }) {
+export function InquiryServices({
+  index,
+  items = inquiryServices,
+  title = "Ask us about these.",
+}: {
+  index?: string;
+  items?: InquiryService[];
+  title?: string;
+}) {
   return (
     <section id="by-quote" className="section-pad scroll-mt-20 bg-surface">
       <div className="container-site">
         <SectionHeading
           index={index}
           eyebrow="By Quote"
-          title="Ask us about these."
-          lede="We take this work on, but pricing depends too much on what's in front of us to publish a number. Tell us what you have and we'll quote it."
+          title={title}
         />
 
         <Stagger className="mt-12 grid gap-5 md:grid-cols-2">
-          {inquiryServices.map((service) => (
+          {items.map((service) => (
             <StaggerItem key={service.id} className="h-full">
               <Link
                 href={`/request-quote/?service=${service.id}`}

@@ -9,31 +9,30 @@ interface Comparison {
   caption: string;
 }
 
-/** Real client work — shot on the job, not stock. */
+/** Real client work, shot on the job, not stock. */
 const comparisons: Comparison[] = [
   {
     before: "/images/f150-correction-before-tall.jpg",
     after: "/images/f150-correction-after-tall.jpg",
-    alt: "Ford truck rear panel before and after paint correction — swirl marks removed",
-    caption: "Ford Truck — Paint Correction",
+    alt: "Ford truck rear panel before and after paint correction, swirl marks removed",
+    caption: "Ford truck, paint correction",
   },
   {
     before: "/images/suv-foam-wash-before.jpg",
     after: "/images/suv-foam-wash-after.jpg",
     alt: "SUV covered in foam during a two-bucket wash, and the same SUV finished and gloss-dried",
-    caption: "Client SUV — Signature Exterior Detail",
+    caption: "SUV, Signature Exterior Detail",
   },
 ];
 
-export function BeforeAfter() {
+export function BeforeAfter({ index }: { index?: string } = {}) {
   return (
     <section id="before-after" className="section-pad">
       <div className="container-site">
         <SectionHeading
-          index="03"
+          index={index}
           eyebrow="Before & After"
-          title="The results speak. Drag to compare."
-          lede="Real transformations from real client vehicles. Drag the divider to see the difference."
+          title="Before and after."
           align="center"
         />
 

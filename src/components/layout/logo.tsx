@@ -3,7 +3,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
 
-/** Brand monogram — the metallic "M" lifted from the real logo, matching
+/** Brand monogram, the metallic "M" lifted from the real logo, matching
  *  the site favicon. Sits on a dark tile so it reads over the bright hero. */
 function LogoMark({ className }: { className?: string }) {
   return (
@@ -29,7 +29,7 @@ export function Logo({ className }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="Mecha Auto Spa — home"
+      aria-label="Mecha Auto Spa home"
       className={cn(
         "group flex items-center gap-3 outline-none focus-visible:ring-2 focus-visible:ring-ring/60 rounded-lg",
         className

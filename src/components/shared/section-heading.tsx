@@ -37,7 +37,6 @@ export function SectionHeading({
               {index}
             </span>
           )}
-          <span aria-hidden className="h-px w-8 bg-[#d96c48]/70" />
           <span className="eyebrow">{eyebrow}</span>
         </div>
       )}

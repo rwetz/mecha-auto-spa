@@ -4,7 +4,7 @@ import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
 import { Logo } from "@/components/layout/logo";
 
-/* Brand glyphs — lucide no longer ships brand icons. */
+/* Brand glyphs, lucide no longer ships brand icons. */
 function InstagramIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -42,7 +42,6 @@ const columns = [
     heading: "Company",
     links: [
       { label: "Home", href: "/" },
-      { label: "Why Mecha", href: "/#why-mecha" },
       { label: "Contact", href: "/contact/" },
       { label: "Request a Quote", href: "/request-quote/" },
     ],
@@ -50,19 +49,17 @@ const columns = [
   {
     heading: "Services",
     links: [
-      { label: "Detailing Packages", href: "/services/#packages" },
+      { label: "Window Tinting", href: "/window-tinting/" },
+      { label: "Detailing", href: "/detailing/" },
+      { label: "Paint & Cosmetic", href: "/paint-and-cosmetic/" },
       { label: "Ceramic Coatings", href: "/ceramic-coatings/" },
       { label: "Paint Correction", href: "/paint-correction/" },
-      { label: "Add-Ons", href: "/services/#add-ons" },
-      { label: "Watercraft & Tinting", href: "/services/#by-quote" },
     ],
   },
   {
     heading: "Resources",
     links: [
-      { label: "Before & After", href: "/#before-after" },
-      { label: "How It Works", href: "/#how-it-works" },
-      { label: "Service Areas", href: "/#service-area" },
+      { label: "Before & After", href: "/detailing/#before-after" },
       { label: "FAQ", href: "/#faq" },
     ],
   },
@@ -79,9 +76,6 @@ export function Footer() {
           <Logo />
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
             {SITE.description}
-          </p>
-          <p className="mt-6 font-display text-xs text-muted-foreground">
-            Satisfaction guarantee — contact us within 48 hours.
           </p>
           <div className="mt-6 flex items-center gap-2">
             {SITE.social.instagram && (
@@ -205,8 +199,8 @@ export function Footer() {
       <div className="border-t border-white/[0.05]">
         <div className="container-site py-5">
           <p className="font-display text-[11px] leading-relaxed tracking-wide text-muted-foreground">
-            <span className="text-muted-foreground">SERVICE AREA —</span>{" "}
-            {areaList} &amp; more to come
+            <span className="text-muted-foreground">SERVING</span>{" "}
+            {areaList}
           </p>
         </div>
       </div>
@@ -219,23 +213,14 @@ export function Footer() {
               © {new Date().getFullYear()} {SITE.name} · Rochester, MN
             </p>
             <p>
-              Website designed &amp; maintained by{" "}
-              <a
-                href="https://ryanwetzstein.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-foreground"
-              >
-                Ryan Wetzstein
-              </a>{" "}
-              — check out more at{" "}
+              Website by{" "}
               <a
                 href="https://ryanwetzstein.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline underline-offset-2 transition-colors hover:text-foreground"
               >
-                ryanwetzstein.com
+                Ryan Wetzstein
               </a>
             </p>
           </div>

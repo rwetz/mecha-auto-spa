@@ -9,13 +9,13 @@ interface PageHeroProps {
   imageAlt: string;
   eyebrow: string;
   title: React.ReactNode;
-  lede: string;
+  lede?: string;
   /** Override the default CTA pair. */
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
 }
 
-/** Cinematic interior-page hero — shorter than the homepage's 100vh. */
+/** Cinematic interior-page hero, shorter than the homepage's 100vh. */
 export function PageHero({
   image,
   imageAlt,
@@ -47,15 +47,16 @@ export function PageHero({
       <div className="container-site relative z-10 pt-40 pb-16 lg:pb-20">
         <FadeUp>
           <p className="mb-5 flex items-center gap-3">
-            <span aria-hidden className="h-px w-10 bg-white/25" />
             <span className="eyebrow">{eyebrow}</span>
           </p>
           <h1 className="max-w-3xl font-display text-4xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
             {title}
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-[#bdbdbd] sm:text-lg">
-            {lede}
-          </p>
+          {lede && (
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-[#bdbdbd] sm:text-lg">
+              {lede}
+            </p>
+          )}
           <div className="mt-9 flex flex-wrap gap-3">
             <CtaLink href={primaryCta.href} variant="primary">
               {primaryCta.label}

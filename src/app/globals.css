@@ -56,7 +56,7 @@
   --radius-4xl: 2.5rem;
 }
 
-/* Single permanent dark theme — this brand does not have a light mode. */
+/* Single permanent dark theme, this brand does not have a light mode. */
 :root {
   --background: #11100e;
   --foreground: #f3eee5;
@@ -159,7 +159,7 @@
     color: #d96c48;
   }
 
-  /* Brushed-metal headline treatment (subtle — never fake chrome) */
+  /* Brushed-metal headline treatment (subtle, never fake chrome) */
   .text-metallic {
     background: linear-gradient(180deg, #f3eee5 0%, #e9d9bc 100%);
     -webkit-background-clip: text;
@@ -182,7 +182,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Auto-scrolling review rail — pauses on hover, disabled for
+  /* Auto-scrolling review rail, pauses on hover, disabled for
      reduced-motion users */
   .marquee {
     overflow: hidden;
@@ -219,5 +219,27 @@
     transform: translateY(-4px);
     border-color: rgba(255, 255, 255, 0.14);
     box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Strong ease-out for entrances and state changes (emil-design-eng). */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@layer components {
+  /* Pressable feedback: confirms the tap before anything else moves. */
+  .press {
+    transition-property: transform, color, background-color, border-color;
+    transition-duration: 160ms;
+    transition-timing-function: var(--ease-out);
+  }
+  .press:active {
+    transform: scale(0.97);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .press:active {
+      transform: none;
+    }
   }
 }

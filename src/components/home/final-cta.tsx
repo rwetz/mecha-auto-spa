@@ -28,19 +28,9 @@ export function FinalCta() {
 
       <div className="container-site relative z-10 py-28 text-center lg:py-40">
         <FadeUp>
-          <p className="mb-6 flex items-center justify-center gap-3">
-            <span aria-hidden className="h-px w-10 bg-white/25" />
-            <span className="eyebrow">Ready When You Are</span>
-            <span aria-hidden className="h-px w-10 bg-white/25" />
-          </p>
           <h2 className="mx-auto max-w-3xl font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-            Ready to restore{" "}
-            <span className="text-metallic">your vehicle?</span>
+            Ready when <span className="text-metallic">you are.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#bdbdbd] sm:text-lg">
-            Choose an appointment or tell us about your vehicle. We come to
-            driveways and workplaces around Rochester.
-          </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <CtaLink href={SITE.bookingUrl} variant="primary">
               Book Now
@@ -53,9 +43,6 @@ export function FinalCta() {
               {SITE.phone}
             </CtaLink>
           </div>
-          <p className="mt-10 font-display text-[11px] tracking-[0.25em] text-muted-foreground uppercase">
-            Fully Mobile · Satisfaction Guaranteed · Serving the Rochester Area
-          </p>
         </FadeUp>
       </div>
     </section>

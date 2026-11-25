@@ -6,7 +6,9 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: { path: string; priority: number }[] = [
     { path: "/", priority: 1 },
-    { path: "/services/", priority: 0.9 },
+    { path: "/window-tinting/", priority: 0.9 },
+    { path: "/detailing/", priority: 0.9 },
+    { path: "/paint-and-cosmetic/", priority: 0.9 },
     { path: "/ceramic-coatings/", priority: 0.9 },
     { path: "/paint-correction/", priority: 0.9 },
     { path: "/request-quote/", priority: 0.8 },

@@ -12,9 +12,9 @@ import { Stagger, StaggerItem } from "@/components/animations/stagger";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Paint Correction Rochester MN — Swirl & Scratch Removal",
+  title: "Paint Correction in Rochester MN | Swirl & Scratch Removal",
   description:
-    "Mobile paint correction in Rochester MN from $450. One-step and two-step machine polishing for swirls and surface defects.",
+    "Paint correction in Rochester MN from $450. One-step and two-step machine polishing for swirls and surface defects.",
   alternates: { canonical: "/paint-correction/" },
 };
 
@@ -42,8 +42,8 @@ const defects = [
 ] as const;
 
 const correctionAddOns = [
-  { name: "Ceramic Coating After Correction", detail: "Ask about a coating for corrected paint" },
-  { name: "Headlight Restoration", detail: "Available as a separately priced add-on" },
+  { name: "Ceramic Coating", detail: "from $299" },
+  { name: "Headlight Restoration", detail: "$80 add-on" },
 ] as const;
 
 export default function PaintCorrectionPage() {
@@ -75,7 +75,7 @@ export default function PaintCorrectionPage() {
             <span className="text-metallic">Refine the finish.</span>
           </>
         }
-        lede="Machine polishing can reduce visible swirls and surface defects. The result depends on paint condition and available clear coat."
+        lede="Results depend on paint condition and available clear coat."
         primaryCta={{ label: "Request a Quote", href: "/request-quote/" }}
         secondaryCta={{ label: `Call ${SITE.phone}`, href: SITE.phoneHref }}
       />
@@ -87,7 +87,6 @@ export default function PaintCorrectionPage() {
             index="01"
             eyebrow="What It Fixes"
             title="See what polishing can improve."
-            lede="Paint condition varies, so we assess the surface before recommending a one-step or two-step correction."
           />
           <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {defects.map((defect) => (
@@ -103,9 +102,6 @@ export default function PaintCorrectionPage() {
                 <h3 className="mt-4 font-display text-[15px] font-semibold tracking-tight">
                   {defect.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {defect.description}
-                </p>
               </StaggerItem>
             ))}
           </Stagger>
@@ -119,25 +115,17 @@ export default function PaintCorrectionPage() {
             <CompareSlider
               before="/images/f150-correction-before.jpg"
               after="/images/f150-correction-after.jpg"
-              alt="Ford truck rear panel before and after paint correction — swirl marks removed"
+              alt="Ford truck rear panel before and after paint correction, swirl marks removed"
               className="aspect-[4/3]"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
-            <p className="mt-5 text-center font-display text-xs tracking-[0.2em] text-muted-foreground uppercase">
-              Real client paint — drag to compare
-            </p>
           </FadeUp>
           <div>
             <SectionHeading
               index="02"
               eyebrow="The Result"
-              title="A finish that reads like glass."
-              lede="Compare a real client panel before and after polishing. Results vary with paint condition and the level of correction chosen."
+              title="Before and after."
             />
-            <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted-foreground">
-              Ask about ceramic coating after correction if you want a separate
-              protective layer over the polished finish.
-            </p>
           </div>
         </div>
       </section>

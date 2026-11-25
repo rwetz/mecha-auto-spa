@@ -22,22 +22,23 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Mecha Auto Spa | Premium Mobile Detailing in Rochester, MN",
+    default: "Mecha Auto Spa | Window Tint, Detailing & Paint in Rochester, MN",
     template: "%s | Mecha Auto Spa",
   },
   description: SITE.description,
   keywords: [
     "Rochester MN detailing",
-    "mobile detailing Rochester",
+    "window tint Rochester MN",
+    "ceramic tint Rochester",
     "ceramic coating Rochester MN",
     "paint correction Minnesota",
     "auto detailing Byron MN",
-    "mobile detailing Stewartville MN",
+    "auto detailing Stewartville MN",
   ],
   openGraph: {
     type: "website",
     siteName: SITE.name,
-    title: "Mecha Auto Spa | Premium Mobile Detailing in Rochester, MN",
+    title: "Mecha Auto Spa | Window Tint, Detailing & Paint in Rochester, MN",
     description: SITE.description,
     images: [
       { url: "/images/mobile-hand-wash-hero.jpg", width: 1400, height: 1750 },

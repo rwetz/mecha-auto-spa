@@ -1,7 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Armchair,
-  Car,
   CircleDot,
   Dog,
   Droplets,
@@ -20,7 +19,7 @@ import {
 
 /* ────────────────────────────────────────────────────────────────────
  * Central service + pricing catalog. Used by the homepage, service
- * pages, quote form, and structured data. Single source of truth —
+ * pages, quote form, and structured data. Single source of truth -
  * matches the printed Mecha Auto Spa pricing flyer.
  * ──────────────────────────────────────────────────────────────────── */
 
@@ -46,73 +45,21 @@ export interface TierGroup {
   id: string;
   title: string;
   subtitle: string;
-  /** Printed under the tier grid — e.g. the flyer's vehicle-sizing rule. */
+  /** Printed under the tier grid, e.g. the flyer's vehicle-sizing rule. */
   footnote?: string;
   tiers: ServiceTier[];
 }
 
-/* ── Featured services (homepage 2×2 grid) ── */
-export interface FeaturedService {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  /** Describes what the photo shows — never asserts whose work it is. */
-  imageAlt: string;
-  href: string;
-}
-
-export const featuredServices: FeaturedService[] = [
-  {
-    id: "signature-exterior",
-    name: "Signature Exterior Detail",
-    description: "Foam cannon pre-wash, two-bucket hand wash, and months of spray sealant protection.",
-    price: 105,
-    image: "/images/signature-exterior-foam.jpg",
-    imageAlt: "An SUV covered in foam during a wash",
-    href: "/services/#packages",
-  },
-  {
-    id: "interior",
-    name: "Interior Detail",
-    description: "Deep-cleaned cabins, conditioned surfaces, and streak-free glass.",
-    price: 150,
-    image: "/images/interior-detail-cabin.jpg",
-    imageAlt: "Vehicle cabin with dashboard, center console, and front seats",
-    href: "/services/#packages",
-  },
-  {
-    id: "signature-full",
-    name: "Signature Full Detail",
-    description: "Exterior and interior care in one package, with finishing touches.",
-    price: 225,
-    image: "/images/signature-full-suv.jpg",
-    imageAlt: "An SUV with its doors open in a driveway",
-    href: "/services/#packages",
-  },
-  {
-    id: "platinum",
-    name: "Platinum Detail",
-    description: "A deeper inside-and-out detail with decontamination, extraction, and engine bay care.",
-    price: 350,
-    image: "/images/mustang-night-front.jpg",
-    // Real client photo; do not imply it depicts a Platinum Detail.
-    imageAlt: "A dark sports car photographed head-on at night",
-    href: "/services/#packages",
-  },
-];
-
 /* ── Detailing packages ──
  * Signature Exterior / Interior / Full match the Sept 2026 flyer 1:1.
- * Platinum is not on that flyer but is still sold (owner, Sept 2026) —
+ * Platinum is not on that flyer but is still sold (owner, Sept 2026) -
  * its pricing is carried over and has no flyer to check against.
  */
 export const detailPackages: TierGroup = {
   id: "packages",
   title: "Detailing Packages",
   subtitle:
-    "Four defined packages, priced by vehicle size — confirmed up front, never on arrival.",
+    "Four defined packages, priced by vehicle size.",
   footnote: "Third-row SUVs are priced in the Trucks & Vans category.",
   tiers: [
     {
@@ -342,14 +289,14 @@ export const addOns: AddOn[] = [
 /* ── Quote-only services ──
  * Offered, but deliberately carry no numbers: the owner has not set rates
  * (Sept 2026). Do NOT invent pricing here, and do not add film brands, VLT
- * percentages, warranty terms, or any claim about Minnesota tint law — none
+ * percentages, warranty terms, or any claim about Minnesota tint law, none
  * of that has been confirmed. Descriptions stay at the level of "tell us
  * what you have and we'll quote it".
  */
 export interface InquiryService {
   id: string;
   name: string;
-  /** What we ask for in order to quote — never an implied price. */
+  /** What we ask for in order to quote, never an implied price. */
   description: string;
   /** Real photo only. Omitted until we have one; the card handles that. */
   image?: string;
@@ -362,18 +309,10 @@ export const inquiryServices: InquiryService[] = [
     id: "watercraft",
     name: "Watercraft Detailing",
     description:
-      "Boats and personal watercraft, washed and machine polished the same way we treat paint. Every hull is a different size and condition, so we quote each one individually.",
+      "Boats and personal watercraft, washed and machine polished. Quoted per hull.",
     image: "/images/boat-polish.jpg",
     imageAlt: "Machine polishing the hull of a boat",
     icon: Sailboat,
-  },
-  {
-    id: "window-tinting",
-    name: "Window Tinting",
-    description:
-      "Tell us the vehicle and which windows you want done, and we'll put a quote together for you.",
-    // No tint photo yet — the card falls back to its icon treatment.
-    icon: SunDim,
   },
 ];
 
@@ -412,56 +351,131 @@ export const ceramicBenefits: Benefit[] = [
   },
 ];
 
-export const whyMechaFeatures = [
-  {
-    title: "Mobile Convenience",
-    description: "We come to your driveway or workplace in the Rochester area.",
-  },
-  {
-    title: "Premium Products",
-    description: "Professional-grade chemicals and coatings only.",
-  },
-  {
-    title: "Paint-Safe Methods",
-    description: "Two-bucket washes, plush microfiber, measured polishing.",
-  },
-  {
-    title: "Professional Equipment",
-    description: "Extractors and machine polishers — not gas-station tools.",
-  },
-  {
-    title: "Satisfaction Guaranteed",
-    description: "Tell us within 48 hours and we will make it right.",
-  },
-  {
-    title: "Attention to Detail",
-    description: "Door jambs, cup holders, trim — nothing gets skipped.",
-  },
-] as const;
+/* ── Service categories ──
+ * The three top-level doors: homepage hero, nav, footer, and the quote
+ * form's grouped dropdown. Order is the owner's (Nov 2026): tint first,
+ * then detailing, then paint & cosmetic. Every highlight restates a fact
+ * already in this file, add nothing here that isn't sourced elsewhere.
+ */
+export type ServiceCategoryId = "tint" | "detailing" | "paint";
 
-export const howItWorks = [
+export interface ServiceCategory {
+  id: ServiceCategoryId;
+  /** Short label for nav. */
+  label: string;
+  title: string;
+  /** The category's own page. */
+  href: string;
+  description: string;
+  /** "from $105" style; omitted when the category is quote-only. */
+  startingAt?: string;
+  highlights: string[];
+  icon: LucideIcon;
+  /** Real or stock photo; omitted falls back to the icon panel. */
+  image?: string;
+  /** Describes only what is in the frame. */
+  imageAlt?: string;
+  /** Options this category contributes to the quote form dropdown. */
+  quoteOptions: string[];
+}
+
+/* ── Window tinting facts ──
+ * All from the owner in chat, Nov 2026. Tinting is quote-only (no Square
+ * booking); "from $99" is the owner's published starting point, actual
+ * packages vary by vehicle. Do NOT add a film brand, tint-law/legality
+ * claims (owner: put nothing about legality on the site), or warranty
+ * wording beyond what's below.
+ */
+export const tint = {
+  startingAt: 99,
+  film: "Ceramic window film",
+  /** Visible light transmission, lower is darker. */
+  shades: [5, 15, 20, 35, 50],
+  windows: [
+    "Front side windows",
+    "Rear side windows",
+    "Back glass",
+    "Windshield strip",
+    "Full windshield",
+  ],
+  removal: "Old tint removal, priced per job.",
+  timing: [
+    { label: "Side windows only", value: "About 3 hours" },
+    { label: "Full vehicle", value: "Up to 7 hours" },
+  ],
+  guarantee: [
+    "Free re-dos if you're not satisfied",
+    "Lifetime guarantee for as long as you own the vehicle",
+  ],
+} as const;
+
+export const serviceCategories: ServiceCategory[] = [
   {
-    step: "01",
-    title: "Request a Quote",
-    description: "Tell us about your vehicle and what it needs.",
-    icon: Car,
+    id: "tint",
+    label: "Window Tint",
+    title: "Window Tinting",
+    href: "/window-tinting/",
+    description:
+      "Ceramic film, 5% to 50%.",
+    startingAt: "from $99",
+    highlights: [
+      "Ceramic film · 5%, 15%, 20%, 35%, 50%",
+      "Side windows, back glass, and windshield",
+      "Free re-dos and a lifetime guarantee",
+    ],
+    icon: SunDim,
+    quoteOptions: ["Window Tinting"],
   },
   {
-    step: "02",
-    title: "Choose Your Package",
-    description: "Choose the service level that fits your vehicle.",
-    icon: Layers,
-  },
-  {
-    step: "03",
-    title: "Schedule Service",
-    description: "Pick a time and confirm the appointment details.",
-    icon: Zap,
-  },
-  {
-    step: "04",
-    title: "Enjoy the Results",
-    description: "Like-new finish, backed by our guarantee.",
+    id: "detailing",
+    label: "Detailing",
+    title: "Detailing",
+    href: "/detailing/",
+    description:
+      "Exterior, interior, and full-vehicle packages, priced by vehicle size.",
+    startingAt: "from $105",
+    highlights: [
+      "Four packages, Signature Exterior to Platinum",
+      "Add-ons like pet hair, extraction, and odor treatment",
+      "Boats and personal watercraft by quote",
+    ],
     icon: Sparkles,
+    image: "/images/signature-exterior-foam.jpg",
+    imageAlt: "An SUV covered in foam during a wash",
+    quoteOptions: [
+      "Signature Exterior Detail",
+      "Interior Detail",
+      "Signature Full Detail",
+      "Platinum Detail",
+      "Watercraft Detailing",
+    ],
   },
-] as const;
+  {
+    id: "paint",
+    label: "Paint & Cosmetic",
+    title: "Paint & Cosmetic",
+    href: "/paint-and-cosmetic/",
+    description:
+      "Paint correction and ceramic coatings, plus headlight and trim restoration as detail add-ons.",
+    startingAt: "from $299",
+    highlights: [
+      "Paint correction from $450",
+      "Ceramic coatings from $299",
+      "Headlight restoration $80 · Trim restoration $75",
+    ],
+    icon: Gem,
+    image: "/images/paint-correction.jpg",
+    imageAlt: "Mirror-like reflections across glossy dark paint at dusk",
+    quoteOptions: [
+      "Paint Correction",
+      "Ceramic Coating",
+      "Headlight Restoration",
+      "Trim Restoration",
+    ],
+  },
+];
+
+/** Restoration add-ons shown on the Paint & Cosmetic page. */
+export const cosmeticRestoration = addOns.filter((a) =>
+  ["Headlight Restoration", "Trim Restoration"].includes(a.name)
+);

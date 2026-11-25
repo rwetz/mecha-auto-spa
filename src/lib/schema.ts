@@ -2,7 +2,7 @@ import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
 import type { Faq } from "@/data/faqs";
 
-/** schema.org LocalBusiness — emitted once in the root layout. */
+/** schema.org LocalBusiness, emitted once in the root layout. */
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
@@ -43,7 +43,7 @@ export function localBusinessSchema() {
   };
 }
 
-/** schema.org Service with tiered Offers — for service landing pages. */
+/** schema.org Service with tiered Offers, for service landing pages. */
 export function serviceSchema(options: {
   name: string;
   description: string;
@@ -75,7 +75,7 @@ export function serviceSchema(options: {
   };
 }
 
-/** schema.org FAQPage — homepage FAQ accordion. */
+/** schema.org FAQPage, homepage FAQ accordion. */
 export function faqSchema(faqs: Faq[]) {
   return {
     "@context": "https://schema.org",

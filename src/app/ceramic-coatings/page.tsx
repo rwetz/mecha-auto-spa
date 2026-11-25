@@ -12,9 +12,9 @@ import { SITE } from "@/lib/constants";
 import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = {
-  title: "Ceramic Coating Rochester MN — 1, 3 & 5 Year Packages",
+  title: "Ceramic Coating in Rochester MN | 1, 3 & 5 Year Packages",
   description:
-    "Mobile ceramic coating in Rochester MN, with 1-, 3-, and 5-year packages starting at $299.",
+    "Ceramic coating in Rochester MN, with 1-, 3-, and 5-year packages starting at $299.",
   alternates: { canonical: "/ceramic-coatings/" },
 };
 
@@ -27,8 +27,8 @@ const process = [
 ] as const;
 
 const coatingAddOns = [
-  { name: "Glass Ceramic Coating", detail: "$100 — see the full add-on list" },
-  { name: "Wheel Ceramic Coating", detail: "$200 — see the full add-on list" },
+  { name: "Glass Ceramic Coating", detail: "$100" },
+  { name: "Wheel Ceramic Coating", detail: "$200" },
 ] as const;
 
 export default function CeramicCoatingsPage() {
@@ -59,7 +59,6 @@ export default function CeramicCoatingsPage() {
             Ceramic protection <span className="text-metallic">that lasts years.</span>
           </>
         }
-        lede="A coating option for prepared paint, with packages rated for 1, 3, or 5 years. Ask which option fits your vehicle."
         primaryCta={{ label: "View Packages", href: "#pricing" }}
         secondaryCta={{ label: "Request Consultation", href: "/request-quote/" }}
       />
@@ -70,8 +69,7 @@ export default function CeramicCoatingsPage() {
           <SectionHeading
             index="01"
             eyebrow="Why Ceramic"
-            title="A longer-lasting layer of care."
-            lede="Ceramic coatings add gloss and make routine washing easier. Package ratings depend on the coating and how the vehicle is maintained."
+            title="Why ceramic."
           />
           <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {ceramicBenefits.map((benefit) => (
@@ -87,9 +85,6 @@ export default function CeramicCoatingsPage() {
                 <h3 className="mt-4 font-display text-[15px] font-semibold tracking-tight">
                   {benefit.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {benefit.description}
-                </p>
               </StaggerItem>
             ))}
           </Stagger>
@@ -126,8 +121,7 @@ export default function CeramicCoatingsPage() {
             <SectionHeading
               index="03"
               eyebrow="Coating Add-Ons"
-              title="Protection beyond the paint."
-              lede="Glass and wheel coatings are available as separately priced add-ons."
+              title="Glass and wheels."
             />
             <ul className="mt-9 space-y-3">
               {coatingAddOns.map((addon) => (

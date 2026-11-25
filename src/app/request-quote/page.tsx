@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Clock, MessageSquareQuote, Phone } from "lucide-react";
 import { SITE } from "@/lib/constants";
 import { QuoteForm } from "@/components/booking/quote-form";
 import { FadeUp } from "@/components/animations/fade-up";
@@ -8,30 +7,10 @@ import { CtaLink } from "@/components/shared/cta-link";
 export const metadata: Metadata = {
   title: "Request a Quote",
   description:
-    "Prepare a detailing quote request for your vehicle. Mobile detailing, ceramic coatings, and paint correction around Rochester, MN.",
+    "Prepare a quote request for window tinting, detailing, paint correction, or ceramic coating in Rochester, MN.",
   alternates: { canonical: "/request-quote/" },
 };
 
-const expectations = [
-  {
-    icon: MessageSquareQuote,
-    title: "Exact pricing, up front",
-    description:
-      "We confirm your final price before the appointment — never a surprise on arrival.",
-  },
-  {
-    icon: Clock,
-    title: "Send the prepared email",
-    description:
-      "The form opens an email draft. Send it from your mail app to complete the request.",
-  },
-  {
-    icon: Phone,
-    title: "Talk with us directly",
-    description:
-      "You can also call or text about your vehicle and the service you need.",
-  },
-] as const;
 
 export default function RequestQuotePage() {
   return (
@@ -40,16 +19,14 @@ export default function RequestQuotePage() {
         <div className="container-site">
           <FadeUp className="max-w-2xl">
             <p className="mb-5 flex items-center gap-3">
-              <span aria-hidden className="h-px w-10 bg-white/25" />
               <span className="eyebrow">Request a Quote</span>
             </p>
             <h1 className="font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-              Tell us about your vehicle.{" "}
-              <span className="text-metallic">We&rsquo;ll handle the rest.</span>
+              Tell us about <span className="text-metallic">your vehicle.</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Share your vehicle details to prepare an email request. You will
-              need to send the draft from your mail app to complete it.
+              This opens an email draft. Send it and we&rsquo;ll reply with your
+              price and our address.
             </p>
           </FadeUp>
 
@@ -58,28 +35,7 @@ export default function RequestQuotePage() {
               <QuoteForm />
             </FadeUp>
 
-            <FadeUp delay={0.2} className="space-y-8 lg:pt-2">
-              <ul className="space-y-7">
-                {expectations.map((item) => (
-                  <li key={item.title} className="flex gap-4">
-                    <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-elevated">
-                      <item.icon
-                        className="size-[18px] text-[#bdbdbd]"
-                        strokeWidth={1.75}
-                        aria-hidden
-                      />
-                    </span>
-                    <div>
-                      <h2 className="text-[15px] font-semibold tracking-tight">
-                        {item.title}
-                      </h2>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+            <FadeUp delay={0.2} className="lg:pt-2">
 
               <div className="panel p-6">
                 <p className="eyebrow">Prefer to talk?</p>

@@ -1,5 +1,5 @@
 /**
- * Service-area cities. Order matters — primary market first, then the
+ * Service-area cities. Order matters, primary market first, then the
  * surrounding communities roughly by distance from Rochester.
  * Also used for local-SEO structured data (areaServed).
  *

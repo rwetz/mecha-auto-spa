@@ -25,7 +25,7 @@ export default function TermsPage() {
               SUVs, and trucks &amp; vans) for vehicles in average condition.
               Third-row SUVs are priced in the trucks &amp; vans category.
               Heavily soiled vehicles, pet hair, and other special conditions
-              may adjust the price — final pricing is always confirmed before
+              may adjust the price. Final pricing is always confirmed before
               your appointment and never changes on arrival without your
               approval.
             </p>
@@ -33,7 +33,7 @@ export default function TermsPage() {
           <div>
             <h2>Vehicle condition</h2>
             <p className="mt-3">
-              Detailing cleans and protects a vehicle — it does not repair
+              Detailing cleans and protects a vehicle. It does not repair
               it. Pre-existing damage such as clear-coat failure, chips,
               dents, cracked or brittle trim, torn or worn upholstery,
               aftermarket wraps and films, and previously applied fillers or
@@ -47,16 +47,15 @@ export default function TermsPage() {
             <h2>Appointments &amp; cancellations</h2>
             <p className="mt-3">
               Please provide at least 24 hours&rsquo; notice to reschedule or
-              cancel. Contact us to arrange a new time if weather prevents a
-              mobile appointment.
+              cancel.
             </p>
           </div>
           <div>
             <h2>Satisfaction guarantee</h2>
             <p className="mt-3">
               If any part of a completed service doesn&rsquo;t meet the agreed
-              standard, contact us within 48 hours and we&rsquo;ll return to
-              make it right.
+              standard, contact us within 48 hours and we&rsquo;ll make it
+              right.
             </p>
           </div>
           <div>

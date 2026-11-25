@@ -23,7 +23,7 @@ export default function PrivacyPage() {
             <p className="mt-3">
               The quote form prepares an email draft on your device. If you
               send it or contact us directly, we receive the details you
-              choose to provide — your name, phone number, email, city,
+              choose to provide: your name, phone number, email, city,
               vehicle information, and any notes about your vehicle.
               This site sets no cookies of its own and uses no analytics or
               advertising trackers, so there is nothing here for you to
@@ -35,7 +35,7 @@ export default function PrivacyPage() {
             <p className="mt-3">
               Your information is used solely to prepare quotes, schedule
               appointments, and communicate about your service. If you give us
-              a phone number, we may call or text you about your request —
+              a phone number, we may call or text you about your request,
               reply STOP at any time and we&rsquo;ll stop texting. We never
               sell or share your information with third parties for marketing,
               and we don&rsquo;t send marketing email unless you ask us to.
@@ -46,7 +46,7 @@ export default function PrivacyPage() {
             <p className="mt-3">
               Our &ldquo;Book Now&rdquo; links open Square Appointments, a
               third-party scheduling service, on Square&rsquo;s own website.
-              Anything you enter there — including any payment details — is
+              Anything you enter there, including any payment details, is
               handled by Square under Square&rsquo;s privacy policy and
               cookie practices, not by this website.
             </p>

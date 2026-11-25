@@ -10,13 +10,12 @@ export function AddonsGrid({ index }: { index?: string }) {
           index={index}
           eyebrow="Add-Ons"
           title="Finish it exactly the way you want."
-          lede="Stack any of these onto a detail or coating package. Final pricing depends on vehicle size and condition — always confirmed up front."
         />
         <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {addOns.map((addon) => (
             <StaggerItem
               key={addon.name}
-              className="panel panel-hover flex items-start gap-4 p-6"
+              className="panel panel-hover flex items-center gap-4 p-5"
             >
               <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-elevated">
                 <addon.icon
@@ -34,9 +33,6 @@ export function AddonsGrid({ index }: { index?: string }) {
                     {addon.priceRange}
                   </span>
                 </div>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                  {addon.description}
-                </p>
               </div>
             </StaggerItem>
           ))}

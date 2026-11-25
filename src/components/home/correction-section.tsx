@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
 
-export function CorrectionSection() {
+export function CorrectionSection({ index }: { index?: string } = {}) {
   return (
     <section id="paint-correction" className="section-pad overflow-hidden">
       <div className="container-site grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
@@ -13,21 +13,17 @@ export function CorrectionSection() {
           <CompareSlider
             before="/images/f150-correction-before.jpg"
             after="/images/f150-correction-after.jpg"
-            alt="Ford truck rear panel before and after paint correction — swirl marks removed"
+            alt="Ford truck rear panel before and after paint correction, swirl marks removed"
             className="aspect-[4/3]"
             sizes="(min-width: 1024px) 45vw, 100vw"
           />
-          <p className="mt-5 text-center font-display text-xs tracking-[0.2em] text-muted-foreground uppercase">
-            Real client paint — drag to compare
-          </p>
         </FadeUp>
 
         <div>
           <SectionHeading
-            index="05"
+            index={index}
             eyebrow="Paint Correction"
-            title="A closer look at your paint."
-            lede="Machine polishing can reduce visible swirls and surface defects. Compare a real client panel, then choose the level of correction that fits your vehicle."
+            title="Swirls out, gloss back."
           />
 
           <div className="mt-9 space-y-3">
@@ -39,9 +35,6 @@ export function CorrectionSection() {
                 <div>
                   <p className="font-display text-[15px] font-semibold tracking-tight">
                     {tier.name}
-                  </p>
-                  <p className="mt-0.5 text-[13px] text-muted-foreground">
-                    {tier.blurb}
                   </p>
                 </div>
                 <p className="shrink-0 text-right font-display text-[12px] text-muted-foreground">

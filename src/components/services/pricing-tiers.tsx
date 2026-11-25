@@ -14,7 +14,7 @@ interface PricingTiersProps {
 }
 
 /**
- * Tiered product selection — deliberately not a pricing table.
+ * Tiered product selection, deliberately not a pricing table.
  * Each tier reads like a product card with its own conversion path.
  */
 export function PricingTiers({ group, index, surface }: PricingTiersProps) {
@@ -35,7 +35,6 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
           index={index}
           eyebrow="Pricing"
           title={group.title}
-          lede={group.subtitle}
         />
 
         <Stagger className={cn("mt-12 grid gap-5 lg:mt-14", cols)}>
@@ -62,9 +61,6 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                   <span className="font-display text-xs text-muted-foreground">
                     {tier.priceNote ?? "starting at"}
                   </span>
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {tier.blurb}
                 </p>
                 {tier.vehiclePrices && (
                   <ul className="mt-5 space-y-1.5 border-t border-white/[0.06] pt-5 font-display text-[13px]">

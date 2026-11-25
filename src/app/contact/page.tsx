@@ -15,7 +15,7 @@ import { FinalCta } from "@/components/home/final-cta";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Reach Mecha Auto Spa — premium mobile detailing for Rochester, MN and surrounding communities. Call, text, email, or request a quote online.",
+    "Call, text, or email Mecha Auto Spa in Rochester, MN, or request a quote online.",
   alternates: { canonical: "/contact/" },
 };
 
@@ -25,35 +25,30 @@ const channels = [
     title: "Book online",
     value: "Pick a time",
     href: SITE.bookingUrl,
-    note: "Choose an available Square appointment",
   },
   {
     icon: Phone,
     title: "Call us",
     value: SITE.phone,
     href: SITE.phoneHref,
-    note: "Ask about services and availability",
   },
   {
     icon: MessageSquareText,
     title: "Text us",
     value: SITE.phone,
     href: SITE.smsHref,
-    note: "Send a question or service request",
   },
   {
     icon: Mail,
     title: "Email",
     value: SITE.email,
     href: `mailto:${SITE.email}`,
-    note: "Photos of your vehicle welcome",
   },
   {
     icon: MessageSquareQuote,
     title: "Request a quote",
     value: "Email draft form",
     href: "/request-quote/",
-    note: "Prepare details for an email quote request",
   },
 ] as const;
 
@@ -64,17 +59,11 @@ export default function ContactPage() {
         <div className="container-site">
           <FadeUp className="max-w-2xl">
             <p className="mb-5 flex items-center gap-3">
-              <span aria-hidden className="h-px w-10 bg-white/25" />
               <span className="eyebrow">Contact</span>
             </p>
             <h1 className="font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-              We&rsquo;re mobile —{" "}
-              <span className="text-metallic">so start here.</span>
+              Get in <span className="text-metallic">touch.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              We come to driveways and workplaces around Rochester. Call, email, or text us —
-              whatever&rsquo;s easiest for you.
-            </p>
           </FadeUp>
 
           <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -100,9 +89,6 @@ export default function ContactPage() {
                     <p className="mt-1.5 font-display text-sm text-foreground">
                       {channel.value}
                     </p>
-                    <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-                      {channel.note}
-                    </p>
                   </a>
                 </StaggerItem>
               );
@@ -127,7 +113,7 @@ export default function ContactPage() {
               </ul>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h2 className="eyebrow">Service Area</h2>
+              <h2 className="eyebrow">Serving</h2>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {serviceCities.map((city) => (
                   <li
@@ -142,9 +128,6 @@ export default function ContactPage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm text-muted-foreground">
-                Based in Rochester, MN · More areas coming soon
-              </p>
             </FadeUp>
           </div>
         </div>

@@ -5,16 +5,15 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
 
-export function CeramicSection() {
+export function CeramicSection({ index }: { index?: string } = {}) {
   return (
     <section id="ceramic" className="section-pad overflow-hidden bg-surface">
       <div className="container-site grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         <div>
           <SectionHeading
-            index="04"
+            index={index}
             eyebrow="Ceramic Coatings"
-            title="Ceramic care, matched to your vehicle."
-            lede="Explore coating packages rated for 1, 3, or 5 years, with paint preparation included."
+            title="Coatings rated for 1, 3, or 5 years."
           />
 
           {/* Benefit chips */}
@@ -34,7 +33,7 @@ export function CeramicSection() {
             ))}
           </ul>
 
-          {/* Pricing preview — details live on the dedicated page */}
+          {/* Pricing preview; details live on the dedicated page */}
           <div className="mt-9 grid grid-cols-3 gap-3">
             {ceramicTiers.tiers.map((tier) => (
               <div
@@ -74,14 +73,6 @@ export function CeramicSection() {
               aria-hidden
               className="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"
             />
-            <div className="absolute bottom-5 left-5 rounded-xl border border-white/10 bg-black/60 px-4 py-3 backdrop-blur-md">
-              <p className="font-display text-[10px] tracking-[0.3em] text-muted-foreground">
-                HYDROPHOBIC LAYER
-              </p>
-              <p className="mt-1 font-display text-sm font-semibold">
-                Water beads and sheets off
-              </p>
-            </div>
           </div>
         </FadeUp>
       </div>

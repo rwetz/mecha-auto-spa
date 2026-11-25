@@ -9,7 +9,7 @@ import { ArrowRight, CheckCircle2, Copy, LoaderCircle, Mail } from "lucide-react
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/constants";
 import { serviceCities } from "@/data/locations";
-import { inquiryServices } from "@/data/services";
+import { inquiryServices, serviceCategories } from "@/data/services";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -52,17 +52,12 @@ const vehicleTypes = [
   "Other",
 ];
 
-const services = [
-  "Signature Exterior Detail",
-  "Interior Detail",
-  "Signature Full Detail",
-  "Platinum Detail",
-  "Ceramic Coating",
-  "Paint Correction",
-  // Quote-only services — no published price, same form.
-  ...inquiryServices.map((s) => s.name),
-  "Not sure yet — recommend something",
-];
+// Grouped by the same categories as the /services tabs.
+const serviceGroups = serviceCategories.map((c) => ({
+  label: c.title,
+  options: c.quoteOptions,
+}));
+const NOT_SURE = "Not sure yet";
 
 const selectClasses =
   "flex h-10 w-full appearance-none rounded-lg border border-input bg-white/[0.02] px-3 text-sm text-foreground outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 invalid:text-muted-foreground";
@@ -127,9 +122,21 @@ export function QuoteForm() {
   // preselects that service. Read after mount: the static export does no
   // server-side query parsing, and an unknown value is simply ignored.
   React.useEffect(() => {
-    const id = new URLSearchParams(window.location.search).get("service");
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("service");
     const match = inquiryServices.find((s) => s.id === id);
-    if (match) setValue("service", match.name);
+    if (match) {
+      setValue("service", match.name);
+      return;
+    }
+    // ?c=tint etc., a category with a single option preselects it;
+    // window-tinting is accepted as a legacy ?service= value too.
+    if (id === "window-tinting") {
+      setValue("service", "Window Tinting");
+      return;
+    }
+    const cat = serviceCategories.find((c) => c.id === params.get("c"));
+    if (cat?.quoteOptions.length === 1) setValue("service", cat.quoteOptions[0]);
   }, [setValue]);
 
   const onSubmit = async (values: QuoteFormValues) => {
@@ -156,7 +163,7 @@ export function QuoteForm() {
       return;
     }
 
-    const subject = `Quote request — ${values.vehicle} (${values.service})`;
+    const subject = `Quote request: ${values.vehicle} (${values.service})`;
     const body = [
       `Name: ${values.name}`,
       `Phone: ${values.phone}`,
@@ -185,7 +192,7 @@ export function QuoteForm() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch {
-      // Clipboard unavailable (e.g. insecure context) — the text is still
+      // Clipboard unavailable (e.g. insecure context), the text is still
       // visible in the panel for manual copying.
     }
   };
@@ -198,7 +205,7 @@ export function QuoteForm() {
           Request received.
         </h2>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-          We&apos;ll review the details you sent and follow up about your quote.
+          We&apos;ll reply with your price and our address.
         </p>
         <a
           href={SITE.phoneHref}
@@ -218,9 +225,8 @@ export function QuoteForm() {
           Almost there.
         </h2>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-          We put your details into an email draft — send it to complete your
-          request. If your mail app didn&apos;t open,
-          use the buttons below.
+          Send the email draft to finish your request. If your mail app
+          didn&apos;t open, use the buttons below.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a
@@ -266,7 +272,7 @@ export function QuoteForm() {
       noValidate
       className="panel space-y-6 p-7 lg:p-9"
     >
-      {/* Honeypot — offscreen, skipped by keyboard and screen readers. */}
+      {/* Honeypot: offscreen, skipped by keyboard and screen readers. */}
       <div
         aria-hidden="true"
         className="absolute -left-[9999px] h-px w-px overflow-hidden"
@@ -396,11 +402,16 @@ export function QuoteForm() {
           <option value="" disabled>
             Select a service
           </option>
-          {services.map((service) => (
-            <option key={service} value={service}>
-              {service}
-            </option>
+          {serviceGroups.map((group) => (
+            <optgroup key={group.label} label={group.label}>
+              {group.options.map((service) => (
+                <option key={service} value={service}>
+                  {service}
+                </option>
+              ))}
+            </optgroup>
           ))}
+          <option value={NOT_SURE}>{NOT_SURE}</option>
         </select>
       </Field>
 
@@ -413,7 +424,7 @@ export function QuoteForm() {
           id="message"
           rows={4}
           maxLength={1000}
-          placeholder="Condition, pet hair, water spots, timeline…"
+          placeholder="Windows and shade for tint, condition, pet hair, timeline…"
           {...register("message")}
         />
       </Field>
@@ -445,10 +456,9 @@ export function QuoteForm() {
       </button>
 
       <p className="text-center text-xs leading-relaxed text-muted-foreground">
-        The price is confirmed before your appointment. By
-        sending this, you agree we can contact you by phone, text, or email
-        about your request. We use your details only to quote and schedule
-        your service — see our{" "}
+        By sending this, you agree we can contact you by phone, text, or
+        email about your request. We use your details only to quote and
+        schedule your service. See our{" "}
         <Link
           href="/privacy/"
           className="underline underline-offset-2 hover:text-muted-foreground"
