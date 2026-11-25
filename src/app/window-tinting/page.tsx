@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, Check, Clock, Mail, Phone, ShieldCheck, Eraser } from "lucide-react";
-import { tint } from "@/data/services";
+import { tint, tintGallery, tintVideo } from "@/data/services";
 import { SITE } from "@/lib/constants";
 import { jsonLd, serviceSchema } from "@/lib/schema";
 import { PageHero } from "@/components/services/page-hero";
@@ -8,10 +8,11 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { CtaLink } from "@/components/shared/cta-link";
 import { FadeUp } from "@/components/animations/fade-up";
 import { ShadePreview } from "@/components/tint/shade-preview";
+import { TintGallery } from "@/components/tint/tint-gallery";
 
 export const metadata: Metadata = {
   title: "Window Tinting | Ceramic Tint in Rochester MN",
-  description: `Ceramic window tint in Rochester, MN. Shades from 5% to 50%, packages from $${tint.startingAt}, with free re-dos and a lifetime guarantee for as long as you own the vehicle.`,
+  description: `Ceramic window tint in Rochester, MN. Shades from 5% to 50%, packages from $${tint.startingAt}+, with free re-dos and a lifetime guarantee for as long as you own the vehicle.`,
   alternates: { canonical: "/window-tinting/" },
 };
 
@@ -33,24 +34,26 @@ export default function WindowTintingPage() {
       />
 
       <PageHero
-        image="/images/mustang-night-rear.jpg"
-        imageAlt="A dark sports car parked under overhead lights at night"
+        image="/images/tint/tint-hero.jpg"
+        imageAlt="A grey SUV with tinted windows, side view"
         eyebrow="Window Tinting"
         title={
           <>
             Ceramic tint,{" "}
-            <span className="text-metallic">from ${tint.startingAt}.</span>
+            <span className="text-metallic">from ${tint.startingAt}+</span>
           </>
         }
         lede="Quoted for your vehicle and the windows you want done."
         primaryCta={{ label: "Request a tint quote", href: "/request-quote/?c=tint" }}
       />
 
+      <TintGallery index="01" photos={tintGallery} video={tintVideo} />
+
       {/* Shade preview */}
       <section className="section-pad">
         <div className="container-site grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-center lg:gap-16">
           <SectionHeading
-            index="01"
+            index="02"
             eyebrow="Shades"
             title="Pick how dark you want it."
           />
@@ -64,9 +67,9 @@ export default function WindowTintingPage() {
       <section className="section-pad bg-surface">
         <div className="container-site">
           <SectionHeading
-            index="02"
+            index="03"
             eyebrow="Packages"
-            title={`Packages from $${tint.startingAt}.`}
+            title={`Packages from $${tint.startingAt}+`}
           />
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             <FadeUp className="panel p-7 lg:col-span-2 lg:p-9">
@@ -134,7 +137,7 @@ export default function WindowTintingPage() {
       <section className="section-pad bg-surface">
         <div className="container-site">
           <SectionHeading
-            index="03"
+            index="04"
             eyebrow="Get a quote"
             title="Tell us the car and the windows."
             lede="We'll reply with your price and our address."

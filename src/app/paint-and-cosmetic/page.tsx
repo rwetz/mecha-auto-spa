@@ -19,7 +19,7 @@ import { FinalCta } from "@/components/home/final-cta";
 export const metadata: Metadata = {
   title: "Paint Correction, Ceramic Coating & Restoration | Rochester MN",
   description:
-    "Paint correction from $450, ceramic coatings from $299, and headlight and trim restoration add-ons in Rochester, MN.",
+    "Paint correction from $450+, ceramic coatings from $299+, and headlight and trim restoration add-ons in Rochester, MN.",
   alternates: { canonical: "/paint-and-cosmetic/" },
 };
 
@@ -28,14 +28,14 @@ const deepPages = [
     name: "Paint Correction",
     description:
       "One-step and two-step machine polishing for swirls and surface defects.",
-    price: `from $${correctionTiers.tiers[0].price}`,
+    price: `from $${correctionTiers.tiers[0].price}+`,
     image: "/images/paint-correction.jpg",
     href: "/paint-correction/",
   },
   {
     name: "Ceramic Coatings",
     description: "Packages rated for 1, 3, or 5 years, with paint prep included.",
-    price: `from $${ceramicTiers.tiers[0].price}`,
+    price: `from $${ceramicTiers.tiers[0].price}+`,
     image: "/images/ceramic-beading.jpg",
     href: "/ceramic-coatings/",
   },

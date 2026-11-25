@@ -60,7 +60,7 @@ const serviceGroups = serviceCategories.map((c) => ({
 const NOT_SURE = "Not sure yet";
 
 const selectClasses =
-  "flex h-10 w-full appearance-none rounded-lg border border-input bg-white/[0.02] px-3 text-sm text-foreground outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 invalid:text-muted-foreground";
+  "select-chevron flex h-10 w-full appearance-none rounded-lg border border-input bg-white/[0.02] pr-9 pl-3 text-base text-foreground outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 invalid:text-muted-foreground md:text-sm";
 
 function Field({
   label,

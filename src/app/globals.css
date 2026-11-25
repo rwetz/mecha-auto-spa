@@ -16,9 +16,9 @@
   --color-warning: #f5a524;
   --color-metallic: #c8bead;
 
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-geist);
-  --font-heading: var(--font-geist);
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-jakarta);
+  --font-heading: var(--font-jakarta);
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -151,7 +151,7 @@
 
   /* Accent labels share the display face with the headings. */
   .eyebrow {
-    font-family: var(--font-geist);
+    font-family: var(--font-jakarta);
     font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -241,5 +241,16 @@
     .press:active {
       transform: none;
     }
+  }
+}
+
+/* Native <select> with the platform arrow hidden (appearance-none) gets a
+ * drawn chevron so it still reads as a dropdown. */
+@layer components {
+  .select-chevron {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23b1aba0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px;
   }
 }

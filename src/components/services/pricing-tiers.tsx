@@ -56,10 +56,7 @@ export function PricingTiers({ group, index, surface }: PricingTiersProps) {
                 </h3>
                 <p className="mt-4 flex items-baseline gap-2">
                   <span className="font-display text-4xl font-semibold tracking-tight">
-                    ${tier.price}
-                  </span>
-                  <span className="font-display text-xs text-muted-foreground">
-                    {tier.priceNote ?? "starting at"}
+                    ${tier.price}+
                   </span>
                 </p>
                 {tier.vehiclePrices && (

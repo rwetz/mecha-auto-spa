@@ -44,7 +44,7 @@ export function CeramicSection({ index }: { index?: string } = {}) {
                   {tier.name.replace(" Ceramic", "")}
                 </p>
                 <p className="mt-1.5 font-display text-xl font-semibold sm:text-2xl">
-                  ${tier.price}
+                  ${tier.price}+
                 </p>
               </div>
             ))}

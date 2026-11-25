@@ -14,7 +14,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Paint Correction in Rochester MN | Swirl & Scratch Removal",
   description:
-    "Paint correction in Rochester MN from $450. One-step and two-step machine polishing for swirls and surface defects.",
+    "Paint correction in Rochester MN from $450+. One-step and two-step machine polishing for swirls and surface defects.",
   alternates: { canonical: "/paint-correction/" },
 };
 
@@ -42,7 +42,7 @@ const defects = [
 ] as const;
 
 const correctionAddOns = [
-  { name: "Ceramic Coating", detail: "from $299" },
+  { name: "Ceramic Coating", detail: "from $299+" },
   { name: "Headlight Restoration", detail: "$80 add-on" },
 ] as const;
 

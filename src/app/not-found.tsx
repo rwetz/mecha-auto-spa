@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="container-site flex min-h-[70svh] flex-col justify-center pt-32 pb-20">
       <p className="eyebrow">404 / Page not found</p>
-      <h1 className="mt-6 max-w-3xl font-display text-[clamp(3rem,8vw,6rem)] font-medium leading-[0.98] tracking-[-0.06em] text-balance">
+      <h1 className="mt-6 max-w-3xl font-display text-[clamp(3rem,8vw,6rem)] font-medium leading-[0.98] tracking-[-0.025em] text-balance">
         Page not found.
       </h1>
       <div className="mt-9 flex flex-wrap gap-3">

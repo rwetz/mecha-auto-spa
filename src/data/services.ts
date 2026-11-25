@@ -367,7 +367,7 @@ export interface ServiceCategory {
   /** The category's own page. */
   href: string;
   description: string;
-  /** "from $105" style; omitted when the category is quote-only. */
+  /** "from $105+" style; omitted when the category is quote-only. */
   startingAt?: string;
   highlights: string[];
   icon: LucideIcon;
@@ -409,6 +409,35 @@ export const tint = {
   ],
 } as const;
 
+/* ── Tint work photos ──
+ * Owner's own jobs. Every caption is the owner's answer (Nov 2026), keyed
+ * by the original file name. "Factory glass" = rear windows left as the
+ * car came; we did not film them. Alt text describes only what's visible.
+ */
+export interface TintPhoto {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+export const tintGallery: TintPhoto[] = [
+  { src: "/images/tint/tint-20-all.jpg", alt: "A grey sedan with tinted windows, side view", caption: "20% all around" }, // IMG_0341
+  { src: "/images/tint/tint-15-all.jpg", alt: "A black sedan with tinted windows, side view", caption: "15% all around" }, // IMG_0343
+  { src: "/images/tint/tint-5-all.jpg", alt: "A white sedan with dark tinted windows, side view", caption: "5% all around" }, // IMG_0342
+  { src: "/images/tint/tint-20-front-5-rear-a.jpg", alt: "A dark grey sedan with tinted windows, side view", caption: "20% front, 5% rear" }, // IMG_0345
+  { src: "/images/tint/tint-20-front-5-rear-b.jpg", alt: "A red SUV with tinted windows, side view", caption: "20% front, 5% rear" }, // IMG_0346
+  { src: "/images/tint/tint-50-front.jpg", alt: "A black SUV with tinted windows, side view", caption: "50% front, factory glass rear" }, // IMG_0294
+  { src: "/images/tint/tint-20-front.jpg", alt: "A silver crossover with tinted windows, side view", caption: "20% front, factory glass rear" }, // IMG_0344
+  { src: "/images/tint/tint-5-door.jpg", alt: "A red car with its door open and a dark tinted window", caption: "5%" }, // IMG_0018
+];
+
+/** IMG_0157: installed film edges and clarity, up close. 5% film. */
+export const tintVideo = {
+  src: "/images/tint/tint-edges-5.mp4",
+  poster: "/images/tint/tint-edges-5-poster.jpg",
+  caption: "5% film, edges up close",
+};
+
 export const serviceCategories: ServiceCategory[] = [
   {
     id: "tint",
@@ -417,13 +446,15 @@ export const serviceCategories: ServiceCategory[] = [
     href: "/window-tinting/",
     description:
       "Ceramic film, 5% to 50%.",
-    startingAt: "from $99",
+    startingAt: "from $99+",
     highlights: [
       "Ceramic film · 5%, 15%, 20%, 35%, 50%",
       "Side windows, back glass, and windshield",
       "Free re-dos and a lifetime guarantee",
     ],
     icon: SunDim,
+    image: "/images/tint/tint-card.jpg",
+    imageAlt: "A grey sedan with tinted windows, side view",
     quoteOptions: ["Window Tinting"],
   },
   {
@@ -433,7 +464,7 @@ export const serviceCategories: ServiceCategory[] = [
     href: "/detailing/",
     description:
       "Exterior, interior, and full-vehicle packages, priced by vehicle size.",
-    startingAt: "from $105",
+    startingAt: "from $105+",
     highlights: [
       "Four packages, Signature Exterior to Platinum",
       "Add-ons like pet hair, extraction, and odor treatment",
@@ -457,15 +488,15 @@ export const serviceCategories: ServiceCategory[] = [
     href: "/paint-and-cosmetic/",
     description:
       "Paint correction and ceramic coatings, plus headlight and trim restoration as detail add-ons.",
-    startingAt: "from $299",
+    startingAt: "from $299+",
     highlights: [
-      "Paint correction from $450",
-      "Ceramic coatings from $299",
+      "Paint correction from $450+",
+      "Ceramic coatings from $299+",
       "Headlight restoration $80 · Trim restoration $75",
     ],
     icon: Gem,
-    image: "/images/paint-correction.jpg",
-    imageAlt: "Mirror-like reflections across glossy dark paint at dusk",
+    image: "/images/f150-correction-after.jpg",
+    imageAlt: "A truck's rear panel after paint correction",
     quoteOptions: [
       "Paint Correction",
       "Ceramic Coating",

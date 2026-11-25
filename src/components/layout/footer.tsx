@@ -118,12 +118,12 @@ export function Footer() {
         {columns.slice(0, 2).map((column) => (
           <nav key={column.heading} aria-label={column.heading}>
             <h3 className="eyebrow">{column.heading}</h3>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-0.5">
               {column.links.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-block py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}
                   </Link>
@@ -137,7 +137,7 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-1 lg:gap-10">
           <nav aria-label="Resources">
             <h3 className="eyebrow">Resources</h3>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-0.5">
               {columns[2].links.map((link) =>
                 "external" in link && link.external ? (
                   <li key={link.label}>
@@ -145,7 +145,7 @@ export function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      className="inline-block py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </a>
@@ -154,7 +154,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      className="inline-block py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </Link>
@@ -165,11 +165,11 @@ export function Footer() {
           </nav>
           <div>
             <h3 className="eyebrow">Contact</h3>
-            <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+            <ul className="mt-4 space-y-1 text-sm text-muted-foreground">
               <li>
                 <a
                   href={SITE.phoneHref}
-                  className="font-display transition-colors hover:text-foreground"
+                  className="inline-block py-1.5 font-display transition-colors hover:text-foreground"
                 >
                   {SITE.phone}
                 </a>
@@ -177,7 +177,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="transition-colors hover:text-foreground"
+                  className="inline-block py-1.5 transition-colors hover:text-foreground"
                 >
                   {SITE.email}
                 </a>
@@ -227,13 +227,13 @@ export function Footer() {
           <div className="flex items-center gap-5 text-xs text-muted-foreground">
             <Link
               href="/privacy/"
-              className="transition-colors hover:text-foreground"
+              className="inline-block py-2 transition-colors hover:text-foreground"
             >
               Privacy
             </Link>
             <Link
               href="/terms/"
-              className="transition-colors hover:text-foreground"
+              className="inline-block py-2 transition-colors hover:text-foreground"
             >
               Terms
             </Link>

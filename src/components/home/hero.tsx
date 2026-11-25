@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Phone } from "lucide-react";
-import { serviceCategories, tint } from "@/data/services";
+import { serviceCategories } from "@/data/services";
 import { SITE } from "@/lib/constants";
 import { asset } from "@/lib/asset";
 import { CtaLink } from "@/components/shared/cta-link";
@@ -22,7 +22,7 @@ export function Hero() {
             <span className="inline-block size-2 rounded-full bg-[#df6b47]" aria-hidden />
             Rochester, Minnesota
           </p>
-          <h1 className="mt-6 font-display text-[clamp(2.3rem,4.6vw,4.1rem)] leading-[1] font-medium tracking-[-0.055em] text-balance">
+          <h1 className="mt-6 font-display text-[clamp(2.3rem,4.6vw,4.1rem)] leading-[1] font-medium tracking-[-0.025em] text-balance">
             Tint, detailing, and paint care.{" "}
             <span className="text-metallic">What does your car need?</span>
           </h1>
@@ -36,7 +36,7 @@ export function Hero() {
                 className="press group panel flex h-full overflow-hidden outline-none hover:border-white/[0.18] focus-visible:ring-2 focus-visible:ring-ring/60 lg:flex-col"
               >
                 <div className="relative w-28 shrink-0 overflow-hidden bg-elevated sm:w-44 lg:aspect-[16/10] lg:w-full">
-                  {cat.image ? (
+                  {cat.image && (
                     <Image
                       src={asset(cat.image)}
                       alt={cat.imageAlt ?? ""}
@@ -45,8 +45,6 @@ export function Hero() {
                       sizes="(min-width: 1024px) 33vw, 176px"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
                     />
-                  ) : (
-                    <ShadeBars />
                   )}
                 </div>
 
@@ -84,30 +82,5 @@ export function Hero() {
         </FadeUp>
       </div>
     </section>
-  );
-}
-
-/**
- * Placeholder art for the tint door until the owner's tint photos arrive:
- * one bar per shade we stock, darkest to lightest.
- */
-function ShadeBars() {
-  return (
-    <div aria-hidden className="absolute inset-0 flex flex-col">
-      {tint.shades.map((s) => (
-        <div
-          key={s}
-          className="relative flex flex-1 items-center justify-end bg-[#e9d9bc] px-3"
-        >
-          <div
-            className="absolute inset-0 bg-[#0b0a09]"
-            style={{ opacity: 1 - s / 100 }}
-          />
-          <span className="relative font-display text-[10px] tracking-[0.15em] text-[#e9d9bc]/80 lg:text-[11px]">
-            {s}%
-          </span>
-        </div>
-      ))}
-    </div>
   );
 }

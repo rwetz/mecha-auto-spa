@@ -63,8 +63,16 @@ NOT true yet — do not claim (re-add only when the owner says so):
   ~3 h sides only to ~7 h for a large vehicle, free re-dos + lifetime
   guarantee while you own the vehicle. Quote-only (not on Square). No film
   brand, and **nothing about tint legality or Minnesota tint law** (owner's
-  instruction). Tint photos are coming from the owner; until then the tint
-  page uses an icon panel and a generic shade preview.
+  instruction).
+- Tint photos (owner, Nov 2026) live in `public/images/tint/` and
+  `tintGallery` / `tintVideo` in `src/data/services.ts`. Each caption is
+  the owner's stated shade for that car; "factory glass rear" means the
+  rear windows were left as delivered. Never caption a tint photo from how
+  it looks: ask the user. The tint hero (`tint-hero.jpg`) has no stated
+  shade, so it carries no shade claim. Strip location data from any new
+  photo or video before it ships (the address is never published).
+- Do not use film makers' marketing images (Madico, 3M, etc.) without
+  their written permission; attribution is not a license.
 - No other cosmetic services (PPF, wraps, chrome delete, dents) — owner,
   Nov 2026. Headlight and trim restoration are detail add-ons only.
 - No real Google reviews yet (homepage `<Reviews />` commented out; never

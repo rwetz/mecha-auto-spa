@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -7,15 +7,11 @@ import { MotionProvider } from "@/components/animations/motion-provider";
 import { SITE } from "@/lib/constants";
 import { jsonLd, localBusinessSchema } from "@/lib/schema";
 
-const geist = Geist({
+// One friendly geometric sans for headings and body (chosen Nov 2026 from
+// the font prototype over Geist + Inter, which read as harsh).
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-geist",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-jakarta",
   display: "swap",
 });
 
@@ -84,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geist.variable} ${inter.variable} font-sans antialiased`}
+        className={`${jakarta.variable} font-sans antialiased`}
       >
         {process.env.NODE_ENV === "production" && (
           <meta httpEquiv="Content-Security-Policy" content={csp} />

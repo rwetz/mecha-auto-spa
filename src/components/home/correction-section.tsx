@@ -40,7 +40,7 @@ export function CorrectionSection({ index }: { index?: string } = {}) {
                 <p className="shrink-0 text-right font-display text-[12px] text-muted-foreground">
                   from
                   <span className="ml-1.5 text-lg font-semibold text-foreground">
-                    ${tier.price}
+                    ${tier.price}+
                   </span>
                 </p>
               </div>

@@ -40,7 +40,7 @@ export function SectionHeading({
           <span className="eyebrow">{eyebrow}</span>
         </div>
       )}
-      <h2 className="font-display text-[clamp(2.45rem,5vw,4.7rem)] font-medium leading-[1.04] tracking-[-0.052em] text-balance">
+      <h2 className="font-display text-[clamp(2.45rem,5vw,4.7rem)] font-medium leading-[1.04] tracking-[-0.025em] text-balance">
         {title}
       </h2>
       {lede && (

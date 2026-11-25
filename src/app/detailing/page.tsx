@@ -14,7 +14,7 @@ import { SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Auto Detailing Packages & Pricing | Rochester MN",
   description:
-    "Exterior, interior, full, and Platinum detailing packages from $105, priced by vehicle size, plus add-ons and watercraft detailing in Rochester, MN.",
+    "Exterior, interior, full, and Platinum detailing packages from $105+, priced by vehicle size, plus add-ons and watercraft detailing in Rochester, MN.",
   alternates: { canonical: "/detailing/" },
 };
 
@@ -49,7 +49,7 @@ export default function DetailingPage() {
         eyebrow="Detailing"
         title={
           <>
-            Detailing, <span className="text-metallic">from $105.</span>
+            Detailing, <span className="text-metallic">from $105+</span>
           </>
         }
         primaryCta={{ label: "Book a detail", href: SITE.bookingUrl }}

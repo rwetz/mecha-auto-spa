@@ -14,7 +14,7 @@ import { asset } from "@/lib/asset";
 export const metadata: Metadata = {
   title: "Ceramic Coating in Rochester MN | 1, 3 & 5 Year Packages",
   description:
-    "Ceramic coating in Rochester MN, with 1-, 3-, and 5-year packages starting at $299.",
+    "Ceramic coating in Rochester MN, with 1-, 3-, and 5-year packages from $299+.",
   alternates: { canonical: "/ceramic-coatings/" },
 };
 
